@@ -5,14 +5,18 @@
  * Author : ehab
  */ 
 
-#include <avr/io.h>
-
+#include "includes.h"
 
 int main(void)
 {
+pinDirection(PD3,OUTPUT);
+writePin(PD3,HIGH);
+	 
     /* Replace with your application code */
     while (1) 
     {
+
+		
     }
 }
 
