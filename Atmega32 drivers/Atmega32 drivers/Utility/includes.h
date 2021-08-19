@@ -13,6 +13,7 @@
 #include "dataTypes.h"
 #include "registers.h"
 #include "DIO.h"
-
+#include "LCD.h"
+#include "util/delay.h"
 
 #endif /* INCLUDES_H_ */
