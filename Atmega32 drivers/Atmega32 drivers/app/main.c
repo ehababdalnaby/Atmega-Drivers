@@ -10,22 +10,12 @@
 
 int main(void)
 {
-	pinsDirection(&DDRB,0x11,INPUT);
-	pinsDirection(&DDRC,0x84,OUTPUT);
-	writePins(&PORTC,0x84,LOW);
-	LCD_init();
-	
-	
+	LCD_init();	
     /* Replace with your application code */
     while (1) 
     {
-	writePins(&PORTC,0x84,LOW);
-	if (readPin(PB0))
-	{
-		writePins(&PORTC,0x84,HIGH);
-		while(readPin(PB0));
-		
-	}
+	disp_char('a');
+	while(1);
     }
 }
 

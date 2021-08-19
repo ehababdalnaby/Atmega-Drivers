@@ -40,4 +40,5 @@ void LCD_send_cmd(u8 command);
 void LCD_send_data(u8 data);
 void LCD_latch(void);
 void LCD_CLEAR (void);
+void disp_char(u8 letter);
 #endif /* LCD_H_ */
