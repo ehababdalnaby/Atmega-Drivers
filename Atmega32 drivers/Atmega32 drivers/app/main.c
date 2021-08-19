@@ -9,9 +9,8 @@
 
 int main(void)
 {
-pinDirection(PD3,OUTPUT);
-writePin(PD3,HIGH);
-	 
+	pinsDirection(&DDRC,0x84,OUTPUT);
+	writePins(&PORTC,0x84,HIGH);
     /* Replace with your application code */
     while (1) 
     {
