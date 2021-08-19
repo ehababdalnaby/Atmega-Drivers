@@ -47,11 +47,16 @@ Discarded input sections
  .data          0x00000000        0x0 MCAL/src/DIO.o
  .bss           0x00000000        0x0 MCAL/src/DIO.o
  .text.pinDirection
+<<<<<<< Updated upstream
                 0x00000000      0x1ee MCAL/src/DIO.o
  .text.readPin  0x00000000       0xd6 MCAL/src/DIO.o
+=======
+                0x00000000      0x12c MCAL/src/DIO.o
+>>>>>>> Stashed changes
  .text.writeAllPin
-                0x00000000       0x3e MCAL/src/DIO.o
+                0x00000000       0x16 MCAL/src/DIO.o
  .text.allPinsDirection
+<<<<<<< Updated upstream
                 0x00000000       0x3e MCAL/src/DIO.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
@@ -101,6 +106,12 @@ Discarded input sections
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+=======
+                0x00000000       0x16 MCAL/src/DIO.o
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+>>>>>>> Stashed changes
  .text.libgcc.mul
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .text.libgcc.div
@@ -240,7 +251,11 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
+<<<<<<< Updated upstream
 .text           0x00000000     0x126e
+=======
+.text           0x00000000      0x3b0
+>>>>>>> Stashed changes
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -318,6 +333,7 @@ END GROUP
                 0x00000068                __vector_20
                 0x0000006c                . = ALIGN (0x2)
  *(.text.*)
+<<<<<<< Updated upstream
  .text.main     0x0000006c       0x14 app/main.o
                 0x0000006c                main
  .text.LCD_init
@@ -406,6 +422,50 @@ END GROUP
  .fini9         0x0000126a        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
                 0x0000126a                _exit
                 0x0000126a                exit
+=======
+ .text.main     0x0000006c       0x38 app/main.o
+                0x0000006c                main
+ .text.LCD_latch
+                0x000000a4       0x22 HAL/src/LCD.o
+                0x000000a4                LCD_latch
+ .text.LCD_SEND
+                0x000000c6       0x4c HAL/src/LCD.o
+                0x000000c6                LCD_SEND
+ .text.LCD_send_cmd
+                0x00000112       0x16 HAL/src/LCD.o
+                0x00000112                LCD_send_cmd
+ .text.LCD_CLEAR
+                0x00000128       0x14 HAL/src/LCD.o
+                0x00000128                LCD_CLEAR
+ .text.LCD_RETURN
+                0x0000013c       0x14 HAL/src/LCD.o
+                0x0000013c                LCD_RETURN
+ .text.LCD_init
+                0x00000150       0x4e HAL/src/LCD.o
+                0x00000150                LCD_init
+ .text.LCD_send_data
+                0x0000019e       0x16 HAL/src/LCD.o
+                0x0000019e                LCD_send_data
+ .text.LCD_DISP_char
+                0x000001b4        0x6 HAL/src/LCD.o
+                0x000001b4                LCD_DISP_char
+ .text.writePin
+                0x000001ba      0x12c MCAL/src/DIO.o
+                0x000001ba                writePin
+ .text.readPin  0x000002e6       0x8a MCAL/src/DIO.o
+                0x000002e6                readPin
+ .text.writePins
+                0x00000370       0x1e MCAL/src/DIO.o
+                0x00000370                writePins
+ .text.pinsDirection
+                0x0000038e       0x1e MCAL/src/DIO.o
+                0x0000038e                pinsDirection
+                0x000003ac                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000003ac        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x000003ac                _exit
+                0x000003ac                exit
+>>>>>>> Stashed changes
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -424,11 +484,19 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
+<<<<<<< Updated upstream
  .fini0         0x0000126a        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
                 0x0000126e                _etext = .
 
 .data           0x00800060        0x0 load address 0x0000126e
+=======
+ .fini0         0x000003ac        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000003b0                _etext = .
+
+.data           0x00800060        0x0 load address 0x000003b0
+>>>>>>> Stashed changes
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -445,8 +513,13 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 [!provide]                PROVIDE (__bss_end, .)
+<<<<<<< Updated upstream
                 0x0000126e                __data_load_start = LOADADDR (.data)
                 0x0000126e                __data_load_end = (__data_load_start + SIZEOF (.data))
+=======
+                0x000003b0                __data_load_start = LOADADDR (.data)
+                0x000003b0                __data_load_end = (__data_load_start + SIZEOF (.data))
+>>>>>>> Stashed changes
 
 .noinit         0x00800060        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -519,18 +592,29 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
+<<<<<<< Updated upstream
 .debug_aranges  0x00000000       0xb8
+=======
+.debug_aranges  0x00000000       0xc8
+>>>>>>> Stashed changes
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 app/main.o
  .debug_aranges
+<<<<<<< Updated upstream
                 0x00000020       0x48 HAL/src/LCD.o
  .debug_aranges
                 0x00000068       0x50 MCAL/src/DIO.o
+=======
+                0x00000020       0x58 HAL/src/LCD.o
+ .debug_aranges
+                0x00000078       0x50 MCAL/src/DIO.o
+>>>>>>> Stashed changes
 
 .debug_pubnames
  *(.debug_pubnames)
 
+<<<<<<< Updated upstream
 .debug_info     0x00000000      0xff3
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
@@ -573,6 +657,49 @@ END GROUP
  .debug_loc     0x00000000       0x3b app/main.o
  .debug_loc     0x0000003b      0x1ac HAL/src/LCD.o
  .debug_loc     0x000001e7      0x1f8 MCAL/src/DIO.o
+=======
+.debug_info     0x00000000     0x1008
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
+ .debug_info    0x000004e6      0x19d app/main.o
+ .debug_info    0x00000683      0x613 HAL/src/LCD.o
+ .debug_info    0x00000c96      0x372 MCAL/src/DIO.o
+
+.debug_abbrev   0x00000000      0x7cf
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
+ .debug_abbrev  0x000004a3       0xba app/main.o
+ .debug_abbrev  0x0000055d      0x171 HAL/src/LCD.o
+ .debug_abbrev  0x000006ce      0x101 MCAL/src/DIO.o
+
+.debug_line     0x00000000      0x6a1
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
+ .debug_line    0x00000115       0xa6 app/main.o
+ .debug_line    0x000001bb      0x287 HAL/src/LCD.o
+ .debug_line    0x00000442      0x25f MCAL/src/DIO.o
+
+.debug_frame    0x00000000      0x154
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x24 app/main.o
+ .debug_frame   0x00000024       0xac HAL/src/LCD.o
+ .debug_frame   0x000000d0       0x84 MCAL/src/DIO.o
+
+.debug_str      0x00000000      0x468
+ *(.debug_str)
+ .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
+ .debug_str     0x00000196      0x176 app/main.o
+                                0x1aa (size before relaxing)
+ .debug_str     0x0000030c       0xe9 HAL/src/LCD.o
+                                0x27d (size before relaxing)
+ .debug_str     0x000003f5       0x73 MCAL/src/DIO.o
+                                0x217 (size before relaxing)
+
+.debug_loc      0x00000000      0x781
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x2b1 HAL/src/LCD.o
+ .debug_loc     0x000002b1      0x4d0 MCAL/src/DIO.o
+>>>>>>> Stashed changes
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -592,11 +719,19 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
+<<<<<<< Updated upstream
 .debug_ranges   0x00000000       0x88
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x10 app/main.o
  .debug_ranges  0x00000010       0x38 HAL/src/LCD.o
  .debug_ranges  0x00000048       0x40 MCAL/src/DIO.o
+=======
+.debug_ranges   0x00000000       0x98
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x10 app/main.o
+ .debug_ranges  0x00000010       0x48 HAL/src/LCD.o
+ .debug_ranges  0x00000058       0x40 MCAL/src/DIO.o
+>>>>>>> Stashed changes
 
 .debug_macro
  *(.debug_macro)

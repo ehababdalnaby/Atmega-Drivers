@@ -10,7 +10,15 @@
 
 int main(void)
 {
+<<<<<<< Updated upstream
 	LCD_init();	
+=======
+// 	pinsDirection(&DDRB,0x11,INPUT);
+// 	pinsDirection(&DDRC,0x84,OUTPUT);
+// 	writePins(&PORTC,0x84,LOW);
+	LCD_init();
+	LCD_DISP_char('a');
+>>>>>>> Stashed changes
     /* Replace with your application code */
     while (1) 
     {

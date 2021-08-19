@@ -100,7 +100,10 @@
       <Value>../Utility</Value>
       <Value>../MCAL/inc</Value>
       <Value>../HAL/inc</Value>
+<<<<<<< Updated upstream
       <Value>../app</Value>
+=======
+>>>>>>> Stashed changes
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize debugging experience (-Og)</avrgcc.compiler.optimization.level>

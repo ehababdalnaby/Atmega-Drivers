@@ -36,9 +36,15 @@
 
 
 void LCD_init(void);
+void LCD_SEND(u8 send);
 void LCD_send_cmd(u8 command);
 void LCD_send_data(u8 data);
+void LCD_DISP_char(u8 character);
 void LCD_latch(void);
 void LCD_CLEAR (void);
+<<<<<<< Updated upstream
 void disp_char(u8 letter);
+=======
+void LCD_RETURN(void);
+>>>>>>> Stashed changes
 #endif /* LCD_H_ */
