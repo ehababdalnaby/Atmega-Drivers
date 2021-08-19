@@ -2,7 +2,7 @@
  * Atmega32 drivers.c
  *
  * Created: 8/18/2021 9:30:05 PM
- * Author : Ehab & Mohamed & Mahmoud muhammed
+ * Author : Ehab & Mohamed & Mahmoud
  */ 
 
 #include "includes.h"
