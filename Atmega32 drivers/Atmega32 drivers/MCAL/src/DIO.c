@@ -15,6 +15,7 @@ void writePin(u8 pinNo,u8 logic){
 			CLRBit(PORTA,pinNo);
 		else{}
 }
+
 	else if((pinNo>=PB0)&&(pinNo<=PB7)){
 		if(logic==HIGH)
 			SETBit(PORTB,(pinNo-8));
@@ -22,6 +23,7 @@ void writePin(u8 pinNo,u8 logic){
 			CLRBit(PORTB,(pinNo-8));
 		else{}
 	}
+	
 	else if((pinNo>=PC0)&&(pinNo<=PC7)){
 		if(logic==HIGH)
 			SETBit(PORTC,(pinNo-16));
@@ -29,6 +31,7 @@ void writePin(u8 pinNo,u8 logic){
 			CLRBit(PORTC,(pinNo-16));
 		else{}
 	}
+	
 	else if((pinNo>=PD0)&&(pinNo<=PD7)){
 		if(logic==HIGH)
 			SETBit(PORTD,(pinNo-24));
@@ -70,7 +73,19 @@ void pinDirection(u8 pinNo, u8 direction){
 	else{}
 }
 
-//u8 readPin(u8 pinNo){}
+u8 readPin(u8 pinNo){
+	u8 result;
+	if((pinNo>=PA0)&&(pinNo<=PA7))
+		result=GETBit(PINA,pinNo);
+	else if((pinNo>=PB0)&&(pinNo<=PB7))
+		result=GETBit(PINB,pinNo);
+	else if((pinNo>=PC0)&&(pinNo<=PC7))
+		result=GETBit(PINB,pinNo);
+	else if((pinNo>=PD0)&&(pinNo<=PD7))
+		result=GETBit(PINB,pinNo);
+	else{}
+	return result;
+}
 	
 /*for custom number of bits*/
 void writePins(volatile u8* port, u8 mask, u8 logic){
@@ -80,7 +95,7 @@ void writePins(volatile u8* port, u8 mask, u8 logic){
 		CLRBits(*port,mask);
 	else{}
 }
-void pinsDirection(volatile u8* ddr,u8 mask, u8 direction){
+void pinsDirection(volatile u8* ddr, u8 mask, u8 direction){
 	if(direction == OUTPUT)
 		SETBits(*ddr,mask);
 	else if(direction == INPUT)
