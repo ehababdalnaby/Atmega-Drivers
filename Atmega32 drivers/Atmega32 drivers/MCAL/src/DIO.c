@@ -74,7 +74,7 @@ void pinDirection(u8 pinNo, u8 direction){
 }
 
 u8 readPin(u8 pinNo){
-	u8 result;
+	u8 result=0;
 	if((pinNo>=PA0)&&(pinNo<=PA7))
 		result=GETBit(PINA,pinNo);
 	else if((pinNo>=PB0)&&(pinNo<=PB7))

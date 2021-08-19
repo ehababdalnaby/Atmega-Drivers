@@ -10,7 +10,6 @@
 int main(void)
 {
 	pinsDirection(&DDRB,0x11,INPUT);
-	writePins(&PORTB,0x11,HIGH);
 	pinsDirection(&DDRC,0x84,OUTPUT);
 	writePins(&PORTC,0x84,LOW);
 	
@@ -18,11 +17,12 @@ int main(void)
     /* Replace with your application code */
     while (1) 
     {
+	writePins(&PORTC,0x84,LOW);
 	if (!readPin(PB0))
 	{
 		writePins(&PORTC,0x84,HIGH);
-		
-	}	
+		while(!readPin(PB4));
+	}
     }
 }
 
