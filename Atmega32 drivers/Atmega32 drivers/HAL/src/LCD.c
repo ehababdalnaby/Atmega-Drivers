@@ -14,13 +14,13 @@ void LCD_init(void)
 	pinsDirection(&ctr_ddr, ctr_pin, OUTPUT);
 	writePin(LCD_RW , LOW);
 	_delay_ms(40);
-	LCD_CLEAR();
 	LCD_send_cmd(CMD_RET);
 	_delay_ms(40);
 	LCD_send_cmd(CMD_CUR_INC);
 	LCD_send_cmd(CMD_CUR_SIT);
 	LCD_send_cmd(CMD_SHIFT);
 	LCD_send_cmd(CMD_FUN_SET);
+	LCD_CLEAR();
 }
 
 void LCD_CLEAR(void)

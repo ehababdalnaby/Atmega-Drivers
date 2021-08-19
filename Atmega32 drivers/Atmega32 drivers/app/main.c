@@ -15,7 +15,7 @@ int main(void)
     while (1) 
     {
 	disp_char('a');
-	while(1);
+	_delay_ms(100);
     }
 }
 
