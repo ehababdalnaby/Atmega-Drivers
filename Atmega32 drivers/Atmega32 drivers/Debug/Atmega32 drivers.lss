@@ -3,29 +3,29 @@ Atmega32 drivers.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000262  00000000  00000000  00000054  2**1
+  0 .text         00000258  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  000002b6  2**0
+  1 .data         00000000  00800060  00800060  000002ac  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  000002b6  2**0
+  2 .comment      00000060  00000000  00000000  000002ac  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000002e8  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000030c  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000070  00000000  00000000  00000324  2**0
+  4 .debug_aranges 00000070  00000000  00000000  00000348  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000008f5  00000000  00000000  00000394  2**0
+  5 .debug_info   00000a03  00000000  00000000  000003b8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000605  00000000  00000000  00000c89  2**0
+  6 .debug_abbrev 00000642  00000000  00000000  00000dbb  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000004c8  00000000  00000000  0000128e  2**0
+  7 .debug_line   000004ba  00000000  00000000  000013fd  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000128  00000000  00000000  00001758  2**2
+  8 .debug_frame  00000118  00000000  00000000  000018b8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000387  00000000  00000000  00001880  2**0
+  9 .debug_str    00000489  00000000  00000000  000019d0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000233  00000000  00000000  00001c07  2**0
+ 10 .debug_loc    000001f8  00000000  00000000  00001e59  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000050  00000000  00000000  00001e3a  2**0
+ 11 .debug_ranges 00000050  00000000  00000000  00002051  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -61,318 +61,276 @@ Disassembly of section .text:
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
   60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
-  64:	0c 94 2f 01 	jmp	0x25e	; 0x25e <_exit>
+  64:	0c 94 2a 01 	jmp	0x254	; 0x254 <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 0000006c <main>:
- */ 
 
 #include "includes.h"
 
 int main(void)
 {
-  6c:	cf 93       	push	r28
-  6e:	df 93       	push	r29
-  70:	cd b7       	in	r28, 0x3d	; 61
-  72:	de b7       	in	r29, 0x3e	; 62
 	pinsDirection(&DDRB,0x11,INPUT);
-  74:	40 e0       	ldi	r20, 0x00	; 0
-  76:	61 e1       	ldi	r22, 0x11	; 17
-  78:	87 e3       	ldi	r24, 0x37	; 55
-  7a:	90 e0       	ldi	r25, 0x00	; 0
-  7c:	0e 94 ff 00 	call	0x1fe	; 0x1fe <pinsDirection>
+  6c:	40 e0       	ldi	r20, 0x00	; 0
+  6e:	61 e1       	ldi	r22, 0x11	; 17
+  70:	87 e3       	ldi	r24, 0x37	; 55
+  72:	90 e0       	ldi	r25, 0x00	; 0
+  74:	0e 94 fa 00 	call	0x1f4	; 0x1f4 <pinsDirection>
 	pinsDirection(&DDRC,0x84,OUTPUT);
-  80:	41 e0       	ldi	r20, 0x01	; 1
-  82:	64 e8       	ldi	r22, 0x84	; 132
-  84:	84 e3       	ldi	r24, 0x34	; 52
-  86:	90 e0       	ldi	r25, 0x00	; 0
-  88:	0e 94 ff 00 	call	0x1fe	; 0x1fe <pinsDirection>
+  78:	41 e0       	ldi	r20, 0x01	; 1
+  7a:	64 e8       	ldi	r22, 0x84	; 132
+  7c:	84 e3       	ldi	r24, 0x34	; 52
+  7e:	90 e0       	ldi	r25, 0x00	; 0
+  80:	0e 94 fa 00 	call	0x1f4	; 0x1f4 <pinsDirection>
 	writePins(&PORTC,0x84,LOW);
-  8c:	40 e0       	ldi	r20, 0x00	; 0
-  8e:	64 e8       	ldi	r22, 0x84	; 132
-  90:	85 e3       	ldi	r24, 0x35	; 53
-  92:	90 e0       	ldi	r25, 0x00	; 0
-  94:	0e 94 cf 00 	call	0x19e	; 0x19e <writePins>
+  84:	40 e0       	ldi	r20, 0x00	; 0
+  86:	64 e8       	ldi	r22, 0x84	; 132
+  88:	85 e3       	ldi	r24, 0x35	; 53
+  8a:	90 e0       	ldi	r25, 0x00	; 0
+  8c:	0e 94 ca 00 	call	0x194	; 0x194 <writePins>
 	
 	
     /* Replace with your application code */
     while (1) 
     {
 	writePins(&PORTC,0x84,LOW);
-  98:	40 e0       	ldi	r20, 0x00	; 0
-  9a:	64 e8       	ldi	r22, 0x84	; 132
-  9c:	85 e3       	ldi	r24, 0x35	; 53
-  9e:	90 e0       	ldi	r25, 0x00	; 0
-  a0:	0e 94 cf 00 	call	0x19e	; 0x19e <writePins>
-	if (!readPin(PB0))
-  a4:	88 e0       	ldi	r24, 0x08	; 8
-  a6:	0e 94 64 00 	call	0xc8	; 0xc8 <readPin>
-  aa:	88 23       	and	r24, r24
-  ac:	61 f4       	brne	.+24     	; 0xc6 <main+0x5a>
+  90:	40 e0       	ldi	r20, 0x00	; 0
+  92:	64 e8       	ldi	r22, 0x84	; 132
+  94:	85 e3       	ldi	r24, 0x35	; 53
+  96:	90 e0       	ldi	r25, 0x00	; 0
+  98:	0e 94 ca 00 	call	0x194	; 0x194 <writePins>
+	if (readPin(PB0))
+  9c:	88 e0       	ldi	r24, 0x08	; 8
+  9e:	0e 94 5f 00 	call	0xbe	; 0xbe <readPin>
+  a2:	88 23       	and	r24, r24
+  a4:	a9 f3       	breq	.-22     	; 0x90 <main+0x24>
 	{
 		writePins(&PORTC,0x84,HIGH);
-  ae:	41 e0       	ldi	r20, 0x01	; 1
-  b0:	64 e8       	ldi	r22, 0x84	; 132
-  b2:	85 e3       	ldi	r24, 0x35	; 53
-  b4:	90 e0       	ldi	r25, 0x00	; 0
-  b6:	0e 94 cf 00 	call	0x19e	; 0x19e <writePins>
-		while(!readPin(PB4));
-  ba:	00 00       	nop
-  bc:	8c e0       	ldi	r24, 0x0C	; 12
-  be:	0e 94 64 00 	call	0xc8	; 0xc8 <readPin>
-  c2:	88 23       	and	r24, r24
-  c4:	d9 f3       	breq	.-10     	; 0xbc <main+0x50>
-	}
-    }
-  c6:	e8 cf       	rjmp	.-48     	; 0x98 <main+0x2c>
+  a6:	41 e0       	ldi	r20, 0x01	; 1
+  a8:	64 e8       	ldi	r22, 0x84	; 132
+  aa:	85 e3       	ldi	r24, 0x35	; 53
+  ac:	90 e0       	ldi	r25, 0x00	; 0
+  ae:	0e 94 ca 00 	call	0x194	; 0x194 <writePins>
+		while(readPin(PB0));
+  b2:	88 e0       	ldi	r24, 0x08	; 8
+  b4:	0e 94 5f 00 	call	0xbe	; 0xbe <readPin>
+  b8:	81 11       	cpse	r24, r1
+  ba:	fb cf       	rjmp	.-10     	; 0xb2 <main+0x46>
+  bc:	e9 cf       	rjmp	.-46     	; 0x90 <main+0x24>
 
-000000c8 <readPin>:
-		else{}
-	}
-	else{}
-}
+000000be <readPin>:
+  be:	cf 93       	push	r28
+  c0:	df 93       	push	r29
+  c2:	00 d0       	rcall	.+0      	; 0xc4 <readPin+0x6>
+  c4:	cd b7       	in	r28, 0x3d	; 61
+  c6:	de b7       	in	r29, 0x3e	; 62
+  c8:	8a 83       	std	Y+2, r24	; 0x02
+  ca:	19 82       	std	Y+1, r1	; 0x01
+  cc:	8a 81       	ldd	r24, Y+2	; 0x02
+  ce:	88 30       	cpi	r24, 0x08	; 8
+  d0:	88 f4       	brcc	.+34     	; 0xf4 <readPin+0x36>
+  d2:	89 e3       	ldi	r24, 0x39	; 57
+  d4:	90 e0       	ldi	r25, 0x00	; 0
+  d6:	fc 01       	movw	r30, r24
+  d8:	80 81       	ld	r24, Z
+  da:	88 2f       	mov	r24, r24
+  dc:	90 e0       	ldi	r25, 0x00	; 0
+  de:	2a 81       	ldd	r18, Y+2	; 0x02
+  e0:	22 2f       	mov	r18, r18
+  e2:	30 e0       	ldi	r19, 0x00	; 0
+  e4:	02 c0       	rjmp	.+4      	; 0xea <readPin+0x2c>
+  e6:	95 95       	asr	r25
+  e8:	87 95       	ror	r24
+  ea:	2a 95       	dec	r18
+  ec:	e2 f7       	brpl	.-8      	; 0xe6 <readPin+0x28>
+  ee:	81 70       	andi	r24, 0x01	; 1
+  f0:	89 83       	std	Y+1, r24	; 0x01
+  f2:	4a c0       	rjmp	.+148    	; 0x188 <readPin+0xca>
+  f4:	8a 81       	ldd	r24, Y+2	; 0x02
+  f6:	88 30       	cpi	r24, 0x08	; 8
+  f8:	b0 f0       	brcs	.+44     	; 0x126 <readPin+0x68>
+  fa:	8a 81       	ldd	r24, Y+2	; 0x02
+  fc:	80 31       	cpi	r24, 0x10	; 16
+  fe:	98 f4       	brcc	.+38     	; 0x126 <readPin+0x68>
+ 100:	86 e3       	ldi	r24, 0x36	; 54
+ 102:	90 e0       	ldi	r25, 0x00	; 0
+ 104:	fc 01       	movw	r30, r24
+ 106:	80 81       	ld	r24, Z
+ 108:	88 2f       	mov	r24, r24
+ 10a:	90 e0       	ldi	r25, 0x00	; 0
+ 10c:	2a 81       	ldd	r18, Y+2	; 0x02
+ 10e:	22 2f       	mov	r18, r18
+ 110:	30 e0       	ldi	r19, 0x00	; 0
+ 112:	28 50       	subi	r18, 0x08	; 8
+ 114:	31 09       	sbc	r19, r1
+ 116:	02 c0       	rjmp	.+4      	; 0x11c <readPin+0x5e>
+ 118:	95 95       	asr	r25
+ 11a:	87 95       	ror	r24
+ 11c:	2a 95       	dec	r18
+ 11e:	e2 f7       	brpl	.-8      	; 0x118 <readPin+0x5a>
+ 120:	81 70       	andi	r24, 0x01	; 1
+ 122:	89 83       	std	Y+1, r24	; 0x01
+ 124:	31 c0       	rjmp	.+98     	; 0x188 <readPin+0xca>
+ 126:	8a 81       	ldd	r24, Y+2	; 0x02
+ 128:	80 31       	cpi	r24, 0x10	; 16
+ 12a:	b0 f0       	brcs	.+44     	; 0x158 <readPin+0x9a>
+ 12c:	8a 81       	ldd	r24, Y+2	; 0x02
+ 12e:	88 31       	cpi	r24, 0x18	; 24
+ 130:	98 f4       	brcc	.+38     	; 0x158 <readPin+0x9a>
+ 132:	83 e3       	ldi	r24, 0x33	; 51
+ 134:	90 e0       	ldi	r25, 0x00	; 0
+ 136:	fc 01       	movw	r30, r24
+ 138:	80 81       	ld	r24, Z
+ 13a:	88 2f       	mov	r24, r24
+ 13c:	90 e0       	ldi	r25, 0x00	; 0
+ 13e:	2a 81       	ldd	r18, Y+2	; 0x02
+ 140:	22 2f       	mov	r18, r18
+ 142:	30 e0       	ldi	r19, 0x00	; 0
+ 144:	20 51       	subi	r18, 0x10	; 16
+ 146:	31 09       	sbc	r19, r1
+ 148:	02 c0       	rjmp	.+4      	; 0x14e <readPin+0x90>
+ 14a:	95 95       	asr	r25
+ 14c:	87 95       	ror	r24
+ 14e:	2a 95       	dec	r18
+ 150:	e2 f7       	brpl	.-8      	; 0x14a <readPin+0x8c>
+ 152:	81 70       	andi	r24, 0x01	; 1
+ 154:	89 83       	std	Y+1, r24	; 0x01
+ 156:	18 c0       	rjmp	.+48     	; 0x188 <readPin+0xca>
+ 158:	8a 81       	ldd	r24, Y+2	; 0x02
+ 15a:	88 31       	cpi	r24, 0x18	; 24
+ 15c:	a8 f0       	brcs	.+42     	; 0x188 <readPin+0xca>
+ 15e:	8a 81       	ldd	r24, Y+2	; 0x02
+ 160:	80 32       	cpi	r24, 0x20	; 32
+ 162:	90 f4       	brcc	.+36     	; 0x188 <readPin+0xca>
+ 164:	80 e3       	ldi	r24, 0x30	; 48
+ 166:	90 e0       	ldi	r25, 0x00	; 0
+ 168:	fc 01       	movw	r30, r24
+ 16a:	80 81       	ld	r24, Z
+ 16c:	88 2f       	mov	r24, r24
+ 16e:	90 e0       	ldi	r25, 0x00	; 0
+ 170:	2a 81       	ldd	r18, Y+2	; 0x02
+ 172:	22 2f       	mov	r18, r18
+ 174:	30 e0       	ldi	r19, 0x00	; 0
+ 176:	28 51       	subi	r18, 0x18	; 24
+ 178:	31 09       	sbc	r19, r1
+ 17a:	02 c0       	rjmp	.+4      	; 0x180 <readPin+0xc2>
+ 17c:	95 95       	asr	r25
+ 17e:	87 95       	ror	r24
+ 180:	2a 95       	dec	r18
+ 182:	e2 f7       	brpl	.-8      	; 0x17c <readPin+0xbe>
+ 184:	81 70       	andi	r24, 0x01	; 1
+ 186:	89 83       	std	Y+1, r24	; 0x01
+ 188:	89 81       	ldd	r24, Y+1	; 0x01
+ 18a:	0f 90       	pop	r0
+ 18c:	0f 90       	pop	r0
+ 18e:	df 91       	pop	r29
+ 190:	cf 91       	pop	r28
+ 192:	08 95       	ret
 
-u8 readPin(u8 pinNo){
-  c8:	cf 93       	push	r28
-  ca:	df 93       	push	r29
-  cc:	00 d0       	rcall	.+0      	; 0xce <readPin+0x6>
-  ce:	cd b7       	in	r28, 0x3d	; 61
-  d0:	de b7       	in	r29, 0x3e	; 62
-  d2:	8a 83       	std	Y+2, r24	; 0x02
-	u8 result=0;
-  d4:	19 82       	std	Y+1, r1	; 0x01
-	if((pinNo>=PA0)&&(pinNo<=PA7))
-  d6:	8a 81       	ldd	r24, Y+2	; 0x02
-  d8:	88 30       	cpi	r24, 0x08	; 8
-  da:	88 f4       	brcc	.+34     	; 0xfe <readPin+0x36>
-		result=GETBit(PINA,pinNo);
-  dc:	89 e3       	ldi	r24, 0x39	; 57
-  de:	90 e0       	ldi	r25, 0x00	; 0
-  e0:	fc 01       	movw	r30, r24
-  e2:	80 81       	ld	r24, Z
-  e4:	88 2f       	mov	r24, r24
-  e6:	90 e0       	ldi	r25, 0x00	; 0
-  e8:	2a 81       	ldd	r18, Y+2	; 0x02
-  ea:	22 2f       	mov	r18, r18
-  ec:	30 e0       	ldi	r19, 0x00	; 0
-  ee:	02 c0       	rjmp	.+4      	; 0xf4 <readPin+0x2c>
-  f0:	95 95       	asr	r25
-  f2:	87 95       	ror	r24
-  f4:	2a 95       	dec	r18
-  f6:	e2 f7       	brpl	.-8      	; 0xf0 <readPin+0x28>
-  f8:	81 70       	andi	r24, 0x01	; 1
-  fa:	89 83       	std	Y+1, r24	; 0x01
-  fc:	4a c0       	rjmp	.+148    	; 0x192 <readPin+0xca>
-	else if((pinNo>=PB0)&&(pinNo<=PB7))
-  fe:	8a 81       	ldd	r24, Y+2	; 0x02
- 100:	88 30       	cpi	r24, 0x08	; 8
- 102:	b0 f0       	brcs	.+44     	; 0x130 <readPin+0x68>
- 104:	8a 81       	ldd	r24, Y+2	; 0x02
- 106:	80 31       	cpi	r24, 0x10	; 16
- 108:	98 f4       	brcc	.+38     	; 0x130 <readPin+0x68>
-		result=GETBit(PINB,pinNo-8);
- 10a:	86 e3       	ldi	r24, 0x36	; 54
- 10c:	90 e0       	ldi	r25, 0x00	; 0
- 10e:	fc 01       	movw	r30, r24
- 110:	80 81       	ld	r24, Z
- 112:	88 2f       	mov	r24, r24
- 114:	90 e0       	ldi	r25, 0x00	; 0
- 116:	2a 81       	ldd	r18, Y+2	; 0x02
- 118:	22 2f       	mov	r18, r18
- 11a:	30 e0       	ldi	r19, 0x00	; 0
- 11c:	28 50       	subi	r18, 0x08	; 8
- 11e:	31 09       	sbc	r19, r1
- 120:	02 c0       	rjmp	.+4      	; 0x126 <readPin+0x5e>
- 122:	95 95       	asr	r25
- 124:	87 95       	ror	r24
- 126:	2a 95       	dec	r18
- 128:	e2 f7       	brpl	.-8      	; 0x122 <readPin+0x5a>
- 12a:	81 70       	andi	r24, 0x01	; 1
- 12c:	89 83       	std	Y+1, r24	; 0x01
- 12e:	31 c0       	rjmp	.+98     	; 0x192 <readPin+0xca>
-	else if((pinNo>=PC0)&&(pinNo<=PC7))
- 130:	8a 81       	ldd	r24, Y+2	; 0x02
- 132:	80 31       	cpi	r24, 0x10	; 16
- 134:	b0 f0       	brcs	.+44     	; 0x162 <readPin+0x9a>
- 136:	8a 81       	ldd	r24, Y+2	; 0x02
- 138:	88 31       	cpi	r24, 0x18	; 24
- 13a:	98 f4       	brcc	.+38     	; 0x162 <readPin+0x9a>
-		result=GETBit(PINC,pinNo-16);
- 13c:	83 e3       	ldi	r24, 0x33	; 51
- 13e:	90 e0       	ldi	r25, 0x00	; 0
- 140:	fc 01       	movw	r30, r24
- 142:	80 81       	ld	r24, Z
- 144:	88 2f       	mov	r24, r24
- 146:	90 e0       	ldi	r25, 0x00	; 0
- 148:	2a 81       	ldd	r18, Y+2	; 0x02
- 14a:	22 2f       	mov	r18, r18
- 14c:	30 e0       	ldi	r19, 0x00	; 0
- 14e:	20 51       	subi	r18, 0x10	; 16
- 150:	31 09       	sbc	r19, r1
- 152:	02 c0       	rjmp	.+4      	; 0x158 <readPin+0x90>
- 154:	95 95       	asr	r25
- 156:	87 95       	ror	r24
- 158:	2a 95       	dec	r18
- 15a:	e2 f7       	brpl	.-8      	; 0x154 <readPin+0x8c>
- 15c:	81 70       	andi	r24, 0x01	; 1
- 15e:	89 83       	std	Y+1, r24	; 0x01
- 160:	18 c0       	rjmp	.+48     	; 0x192 <readPin+0xca>
-	else if((pinNo>=PD0)&&(pinNo<=PD7))
- 162:	8a 81       	ldd	r24, Y+2	; 0x02
- 164:	88 31       	cpi	r24, 0x18	; 24
- 166:	a8 f0       	brcs	.+42     	; 0x192 <readPin+0xca>
- 168:	8a 81       	ldd	r24, Y+2	; 0x02
- 16a:	80 32       	cpi	r24, 0x20	; 32
- 16c:	90 f4       	brcc	.+36     	; 0x192 <readPin+0xca>
-		result=GETBit(PIND,pinNo-24);
- 16e:	80 e3       	ldi	r24, 0x30	; 48
- 170:	90 e0       	ldi	r25, 0x00	; 0
- 172:	fc 01       	movw	r30, r24
- 174:	80 81       	ld	r24, Z
- 176:	88 2f       	mov	r24, r24
- 178:	90 e0       	ldi	r25, 0x00	; 0
- 17a:	2a 81       	ldd	r18, Y+2	; 0x02
- 17c:	22 2f       	mov	r18, r18
- 17e:	30 e0       	ldi	r19, 0x00	; 0
- 180:	28 51       	subi	r18, 0x18	; 24
- 182:	31 09       	sbc	r19, r1
- 184:	02 c0       	rjmp	.+4      	; 0x18a <readPin+0xc2>
- 186:	95 95       	asr	r25
- 188:	87 95       	ror	r24
- 18a:	2a 95       	dec	r18
- 18c:	e2 f7       	brpl	.-8      	; 0x186 <readPin+0xbe>
- 18e:	81 70       	andi	r24, 0x01	; 1
- 190:	89 83       	std	Y+1, r24	; 0x01
-	else{}
-	return result;
- 192:	89 81       	ldd	r24, Y+1	; 0x01
-}
- 194:	0f 90       	pop	r0
- 196:	0f 90       	pop	r0
- 198:	df 91       	pop	r29
- 19a:	cf 91       	pop	r28
- 19c:	08 95       	ret
+00000194 <writePins>:
+ 194:	cf 93       	push	r28
+ 196:	df 93       	push	r29
+ 198:	00 d0       	rcall	.+0      	; 0x19a <writePins+0x6>
+ 19a:	00 d0       	rcall	.+0      	; 0x19c <writePins+0x8>
+ 19c:	cd b7       	in	r28, 0x3d	; 61
+ 19e:	de b7       	in	r29, 0x3e	; 62
+ 1a0:	9a 83       	std	Y+2, r25	; 0x02
+ 1a2:	89 83       	std	Y+1, r24	; 0x01
+ 1a4:	6b 83       	std	Y+3, r22	; 0x03
+ 1a6:	4c 83       	std	Y+4, r20	; 0x04
+ 1a8:	8c 81       	ldd	r24, Y+4	; 0x04
+ 1aa:	81 30       	cpi	r24, 0x01	; 1
+ 1ac:	61 f4       	brne	.+24     	; 0x1c6 <writePins+0x32>
+ 1ae:	89 81       	ldd	r24, Y+1	; 0x01
+ 1b0:	9a 81       	ldd	r25, Y+2	; 0x02
+ 1b2:	fc 01       	movw	r30, r24
+ 1b4:	90 81       	ld	r25, Z
+ 1b6:	8b 81       	ldd	r24, Y+3	; 0x03
+ 1b8:	29 2f       	mov	r18, r25
+ 1ba:	28 2b       	or	r18, r24
+ 1bc:	89 81       	ldd	r24, Y+1	; 0x01
+ 1be:	9a 81       	ldd	r25, Y+2	; 0x02
+ 1c0:	fc 01       	movw	r30, r24
+ 1c2:	20 83       	st	Z, r18
+ 1c4:	10 c0       	rjmp	.+32     	; 0x1e6 <writePins+0x52>
+ 1c6:	8c 81       	ldd	r24, Y+4	; 0x04
+ 1c8:	88 23       	and	r24, r24
+ 1ca:	69 f4       	brne	.+26     	; 0x1e6 <writePins+0x52>
+ 1cc:	89 81       	ldd	r24, Y+1	; 0x01
+ 1ce:	9a 81       	ldd	r25, Y+2	; 0x02
+ 1d0:	fc 01       	movw	r30, r24
+ 1d2:	80 81       	ld	r24, Z
+ 1d4:	98 2f       	mov	r25, r24
+ 1d6:	8b 81       	ldd	r24, Y+3	; 0x03
+ 1d8:	80 95       	com	r24
+ 1da:	89 23       	and	r24, r25
+ 1dc:	28 2f       	mov	r18, r24
+ 1de:	89 81       	ldd	r24, Y+1	; 0x01
+ 1e0:	9a 81       	ldd	r25, Y+2	; 0x02
+ 1e2:	fc 01       	movw	r30, r24
+ 1e4:	20 83       	st	Z, r18
+ 1e6:	0f 90       	pop	r0
+ 1e8:	0f 90       	pop	r0
+ 1ea:	0f 90       	pop	r0
+ 1ec:	0f 90       	pop	r0
+ 1ee:	df 91       	pop	r29
+ 1f0:	cf 91       	pop	r28
+ 1f2:	08 95       	ret
 
-0000019e <writePins>:
-	
-/*for custom number of bits*/
-void writePins(volatile u8* port, u8 mask, u8 logic){
- 19e:	cf 93       	push	r28
- 1a0:	df 93       	push	r29
- 1a2:	00 d0       	rcall	.+0      	; 0x1a4 <writePins+0x6>
- 1a4:	00 d0       	rcall	.+0      	; 0x1a6 <writePins+0x8>
- 1a6:	cd b7       	in	r28, 0x3d	; 61
- 1a8:	de b7       	in	r29, 0x3e	; 62
- 1aa:	9a 83       	std	Y+2, r25	; 0x02
- 1ac:	89 83       	std	Y+1, r24	; 0x01
- 1ae:	6b 83       	std	Y+3, r22	; 0x03
- 1b0:	4c 83       	std	Y+4, r20	; 0x04
-	if(logic==HIGH)
- 1b2:	8c 81       	ldd	r24, Y+4	; 0x04
- 1b4:	81 30       	cpi	r24, 0x01	; 1
- 1b6:	61 f4       	brne	.+24     	; 0x1d0 <writePins+0x32>
-		SETBits(*port,mask);
- 1b8:	89 81       	ldd	r24, Y+1	; 0x01
- 1ba:	9a 81       	ldd	r25, Y+2	; 0x02
- 1bc:	fc 01       	movw	r30, r24
- 1be:	90 81       	ld	r25, Z
- 1c0:	8b 81       	ldd	r24, Y+3	; 0x03
- 1c2:	29 2f       	mov	r18, r25
- 1c4:	28 2b       	or	r18, r24
- 1c6:	89 81       	ldd	r24, Y+1	; 0x01
- 1c8:	9a 81       	ldd	r25, Y+2	; 0x02
- 1ca:	fc 01       	movw	r30, r24
- 1cc:	20 83       	st	Z, r18
- 1ce:	10 c0       	rjmp	.+32     	; 0x1f0 <writePins+0x52>
-	else if(logic==LOW)
- 1d0:	8c 81       	ldd	r24, Y+4	; 0x04
- 1d2:	88 23       	and	r24, r24
- 1d4:	69 f4       	brne	.+26     	; 0x1f0 <writePins+0x52>
-		CLRBits(*port,mask);
- 1d6:	89 81       	ldd	r24, Y+1	; 0x01
- 1d8:	9a 81       	ldd	r25, Y+2	; 0x02
- 1da:	fc 01       	movw	r30, r24
- 1dc:	80 81       	ld	r24, Z
- 1de:	98 2f       	mov	r25, r24
- 1e0:	8b 81       	ldd	r24, Y+3	; 0x03
- 1e2:	80 95       	com	r24
- 1e4:	89 23       	and	r24, r25
- 1e6:	28 2f       	mov	r18, r24
- 1e8:	89 81       	ldd	r24, Y+1	; 0x01
- 1ea:	9a 81       	ldd	r25, Y+2	; 0x02
- 1ec:	fc 01       	movw	r30, r24
- 1ee:	20 83       	st	Z, r18
-	else{}
-}
- 1f0:	0f 90       	pop	r0
- 1f2:	0f 90       	pop	r0
- 1f4:	0f 90       	pop	r0
- 1f6:	0f 90       	pop	r0
- 1f8:	df 91       	pop	r29
- 1fa:	cf 91       	pop	r28
- 1fc:	08 95       	ret
+000001f4 <pinsDirection>:
+ 1f4:	cf 93       	push	r28
+ 1f6:	df 93       	push	r29
+ 1f8:	00 d0       	rcall	.+0      	; 0x1fa <pinsDirection+0x6>
+ 1fa:	00 d0       	rcall	.+0      	; 0x1fc <pinsDirection+0x8>
+ 1fc:	cd b7       	in	r28, 0x3d	; 61
+ 1fe:	de b7       	in	r29, 0x3e	; 62
+ 200:	9a 83       	std	Y+2, r25	; 0x02
+ 202:	89 83       	std	Y+1, r24	; 0x01
+ 204:	6b 83       	std	Y+3, r22	; 0x03
+ 206:	4c 83       	std	Y+4, r20	; 0x04
+ 208:	8c 81       	ldd	r24, Y+4	; 0x04
+ 20a:	81 30       	cpi	r24, 0x01	; 1
+ 20c:	61 f4       	brne	.+24     	; 0x226 <pinsDirection+0x32>
+ 20e:	89 81       	ldd	r24, Y+1	; 0x01
+ 210:	9a 81       	ldd	r25, Y+2	; 0x02
+ 212:	fc 01       	movw	r30, r24
+ 214:	90 81       	ld	r25, Z
+ 216:	8b 81       	ldd	r24, Y+3	; 0x03
+ 218:	29 2f       	mov	r18, r25
+ 21a:	28 2b       	or	r18, r24
+ 21c:	89 81       	ldd	r24, Y+1	; 0x01
+ 21e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 220:	fc 01       	movw	r30, r24
+ 222:	20 83       	st	Z, r18
+ 224:	10 c0       	rjmp	.+32     	; 0x246 <pinsDirection+0x52>
+ 226:	8c 81       	ldd	r24, Y+4	; 0x04
+ 228:	88 23       	and	r24, r24
+ 22a:	69 f4       	brne	.+26     	; 0x246 <pinsDirection+0x52>
+ 22c:	89 81       	ldd	r24, Y+1	; 0x01
+ 22e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 230:	fc 01       	movw	r30, r24
+ 232:	80 81       	ld	r24, Z
+ 234:	98 2f       	mov	r25, r24
+ 236:	8b 81       	ldd	r24, Y+3	; 0x03
+ 238:	80 95       	com	r24
+ 23a:	89 23       	and	r24, r25
+ 23c:	28 2f       	mov	r18, r24
+ 23e:	89 81       	ldd	r24, Y+1	; 0x01
+ 240:	9a 81       	ldd	r25, Y+2	; 0x02
+ 242:	fc 01       	movw	r30, r24
+ 244:	20 83       	st	Z, r18
+ 246:	0f 90       	pop	r0
+ 248:	0f 90       	pop	r0
+ 24a:	0f 90       	pop	r0
+ 24c:	0f 90       	pop	r0
+ 24e:	df 91       	pop	r29
+ 250:	cf 91       	pop	r28
+ 252:	08 95       	ret
 
-000001fe <pinsDirection>:
-void pinsDirection(volatile u8* ddr, u8 mask, u8 direction){
- 1fe:	cf 93       	push	r28
- 200:	df 93       	push	r29
- 202:	00 d0       	rcall	.+0      	; 0x204 <pinsDirection+0x6>
- 204:	00 d0       	rcall	.+0      	; 0x206 <pinsDirection+0x8>
- 206:	cd b7       	in	r28, 0x3d	; 61
- 208:	de b7       	in	r29, 0x3e	; 62
- 20a:	9a 83       	std	Y+2, r25	; 0x02
- 20c:	89 83       	std	Y+1, r24	; 0x01
- 20e:	6b 83       	std	Y+3, r22	; 0x03
- 210:	4c 83       	std	Y+4, r20	; 0x04
-	if(direction == OUTPUT)
- 212:	8c 81       	ldd	r24, Y+4	; 0x04
- 214:	81 30       	cpi	r24, 0x01	; 1
- 216:	61 f4       	brne	.+24     	; 0x230 <pinsDirection+0x32>
-		SETBits(*ddr,mask);
- 218:	89 81       	ldd	r24, Y+1	; 0x01
- 21a:	9a 81       	ldd	r25, Y+2	; 0x02
- 21c:	fc 01       	movw	r30, r24
- 21e:	90 81       	ld	r25, Z
- 220:	8b 81       	ldd	r24, Y+3	; 0x03
- 222:	29 2f       	mov	r18, r25
- 224:	28 2b       	or	r18, r24
- 226:	89 81       	ldd	r24, Y+1	; 0x01
- 228:	9a 81       	ldd	r25, Y+2	; 0x02
- 22a:	fc 01       	movw	r30, r24
- 22c:	20 83       	st	Z, r18
- 22e:	10 c0       	rjmp	.+32     	; 0x250 <pinsDirection+0x52>
-	else if(direction == INPUT)
- 230:	8c 81       	ldd	r24, Y+4	; 0x04
- 232:	88 23       	and	r24, r24
- 234:	69 f4       	brne	.+26     	; 0x250 <pinsDirection+0x52>
-		CLRBits(*ddr,mask);
- 236:	89 81       	ldd	r24, Y+1	; 0x01
- 238:	9a 81       	ldd	r25, Y+2	; 0x02
- 23a:	fc 01       	movw	r30, r24
- 23c:	80 81       	ld	r24, Z
- 23e:	98 2f       	mov	r25, r24
- 240:	8b 81       	ldd	r24, Y+3	; 0x03
- 242:	80 95       	com	r24
- 244:	89 23       	and	r24, r25
- 246:	28 2f       	mov	r18, r24
- 248:	89 81       	ldd	r24, Y+1	; 0x01
- 24a:	9a 81       	ldd	r25, Y+2	; 0x02
- 24c:	fc 01       	movw	r30, r24
- 24e:	20 83       	st	Z, r18
-	else{}
-}
- 250:	0f 90       	pop	r0
- 252:	0f 90       	pop	r0
- 254:	0f 90       	pop	r0
- 256:	0f 90       	pop	r0
- 258:	df 91       	pop	r29
- 25a:	cf 91       	pop	r28
- 25c:	08 95       	ret
+00000254 <_exit>:
+ 254:	f8 94       	cli
 
-0000025e <_exit>:
- 25e:	f8 94       	cli
-
-00000260 <__stop_program>:
- 260:	ff cf       	rjmp	.-2      	; 0x260 <__stop_program>
+00000256 <__stop_program>:
+ 256:	ff cf       	rjmp	.-2      	; 0x256 <__stop_program>

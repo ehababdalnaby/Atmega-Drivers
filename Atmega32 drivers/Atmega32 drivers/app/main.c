@@ -18,10 +18,11 @@ int main(void)
     while (1) 
     {
 	writePins(&PORTC,0x84,LOW);
-	if (!readPin(PB0))
+	if (readPin(PB0))
 	{
 		writePins(&PORTC,0x84,HIGH);
-		while(!readPin(PB4));
+		while(readPin(PB0));
+		
 	}
     }
 }
