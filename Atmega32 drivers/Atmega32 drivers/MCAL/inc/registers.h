@@ -14,9 +14,9 @@
 #define SELECTOR(ADDRESS) (*((volatile u8*)ADDRESS))
 
 /*Port A Register*/
-#define PORTA  SELECTOR(0x3B)    //1->high output				0->low output
-#define DDRA   SELECTOR(0x3A)   //1->to make it output			0->to make it input    
-#define PINA   SELECTOR(0x39)  //this register to read a value from a pin 
+#define PORTA  SELECTOR(0x3B)    //1->high if it's direction is output		0->low if it's direction is output
+#define DDRA   SELECTOR(0x3A)    //1->to make it output						0->to make it input    
+#define PINA   SELECTOR(0x39)    //this register to read a value from a pin 
 
 /*Port B Register*/
 #define PORTB  SELECTOR(0x38)
