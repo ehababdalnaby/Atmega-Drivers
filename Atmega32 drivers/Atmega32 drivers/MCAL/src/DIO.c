@@ -16,23 +16,23 @@ void writePin(u8 pinNo,u8 logic){
 	}
 	else if((pinNo>=PB0)&&(pinNo<=PB7)){
 		if(logic==HIGH)
-		SETBit(PORTB,pinNo);
+		SETBit(PORTB,(pinNo-8));
 		else if(logic==LOW)
-		CLRBit(PORTB,pinNo);
+		CLRBit(PORTB,(pinNo-8));
 		else{}
 	}
 	else if((pinNo>=PC0)&&(pinNo<=PC7)){
 		if(logic==HIGH)
-		SETBit(PORTC,pinNo);
+		SETBit(PORTC,(pinNo-16));
 		else if(logic==LOW)
-		CLRBit(PORTC,pinNo);
+		CLRBit(PORTC,(pinNo-16));
 		else{}
 	}
 	else if((pinNo>=PD0)&&(pinNo<=PD7)){
 		if(logic==HIGH)
-		SETBit(PORTD,pinNo);
+		SETBit(PORTD,(pinNo-24));
 		else if(logic==LOW)
-		CLRBit(PORTD,pinNo);
+		CLRBit(PORTD,(pinNo-24));
 		else{}
 	}
 	else{}
@@ -47,23 +47,23 @@ void pinDirection(u8 pinNo, u8 direction){
 	}
 	else if((pinNo >= PB0) && (pinNo <= PB7)){
 		if(direction == OUTPUT)
-		SETBit(DDRB,pinNo);
+		SETBit(DDRB,(pinNo-8));
 		else if(direction == LOW)
-		CLRBit(DDRB,pinNo);
+		CLRBit(DDRB,(pinNo-8));
 		else{}
 	}
 	else if((pinNo >= PC0) && (pinNo <= PC7)){
 		if(direction == OUTPUT)
-		SETBit(DDRC,pinNo);
+		SETBit(DDRC,(pinNo-16));
 		else if(direction==INPUT)
-		CLRBit(DDRC,pinNo);
+		CLRBit(DDRC,(pinNo-16));
 		else{}
 	}
 	else if((pinNo >= PD0) && (pinNo <= PD7)){
 		if(direction == OUTPUT)
-		SETBit(DDRD,pinNo);
+		SETBit(DDRD,(pinNo-24));
 		else if(direction == INPUT)
-		CLRBit(DDRD,pinNo);
+		CLRBit(DDRD,(pinNo-24));
 		else{}
 	}
 	else{}

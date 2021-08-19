@@ -11,12 +11,12 @@
 
 #include "includes.h"
 /*A general function to provide the address*/
-#define SELECTOR(ADDRESS) (*(volatile u8*)ADDRESS)
+#define SELECTOR(ADDRESS) (*((volatile u8*)ADDRESS))
 
 /*Port A Register*/
-#define PORTA  SELECTOR(0x3B)
-#define DDRA   SELECTOR(0x3A)
-#define PINA   SELECTOR(0x39)
+#define PORTA  SELECTOR(0x3B)    //1->high output				0->low output
+#define DDRA   SELECTOR(0x3A)   //1->to make it output			0->to make it input    
+#define PINA   SELECTOR(0x39)  //this register to read a value from a pin 
 
 /*Port B Register*/
 #define PORTB  SELECTOR(0x38)

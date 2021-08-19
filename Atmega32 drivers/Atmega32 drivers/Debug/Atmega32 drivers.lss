@@ -3,29 +3,29 @@ Atmega32 drivers.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000402  00000000  00000000  00000054  2**1
+  0 .text         000002da  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  00000456  2**0
+  1 .data         00000000  00800060  00800060  0000032e  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  00000456  2**0
+  2 .comment      00000030  00000000  00000000  0000032e  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000488  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000360  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000048  00000000  00000000  000004c4  2**0
+  4 .debug_aranges 00000048  00000000  00000000  0000039c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000771  00000000  00000000  0000050c  2**0
+  5 .debug_info   000007e5  00000000  00000000  000003e4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000005a1  00000000  00000000  00000c7d  2**0
+  6 .debug_abbrev 000005e0  00000000  00000000  00000bc9  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000002f3  00000000  00000000  0000121e  2**0
+  7 .debug_line   000002dd  00000000  00000000  000011a9  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000088  00000000  00000000  00001514  2**2
+  8 .debug_frame  00000058  00000000  00000000  00001488  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000031b  00000000  00000000  0000159c  2**0
+  9 .debug_str    00000316  00000000  00000000  000014e0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000000cb  00000000  00000000  000018b7  2**0
+ 10 .debug_loc    00000340  00000000  00000000  000017f6  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000028  00000000  00000000  00001982  2**0
+ 11 .debug_ranges 00000028  00000000  00000000  00001b36  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -61,555 +61,395 @@ Disassembly of section .text:
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
   60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
-  64:	0c 94 ff 01 	jmp	0x3fe	; 0x3fe <_exit>
+  64:	0c 94 6b 01 	jmp	0x2d6	; 0x2d6 <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 0000006c <main>:
- */ 
 
 #include "includes.h"
 
 int main(void)
 {
-  6c:	cf 93       	push	r28
-  6e:	df 93       	push	r29
-  70:	cd b7       	in	r28, 0x3d	; 61
-  72:	de b7       	in	r29, 0x3e	; 62
 pinDirection(PD3,OUTPUT);
-  74:	61 e0       	ldi	r22, 0x01	; 1
-  76:	83 e0       	ldi	r24, 0x03	; 3
-  78:	0e 94 21 01 	call	0x242	; 0x242 <pinDirection>
+  6c:	61 e0       	ldi	r22, 0x01	; 1
+  6e:	8b e1       	ldi	r24, 0x1B	; 27
+  70:	0e 94 d5 00 	call	0x1aa	; 0x1aa <pinDirection>
 writePin(PD3,HIGH);
-  7c:	61 e0       	ldi	r22, 0x01	; 1
-  7e:	83 e0       	ldi	r24, 0x03	; 3
-  80:	0e 94 43 00 	call	0x86	; 0x86 <writePin>
-    /* Replace with your application code */
-    while (1) 
-    {
+  74:	61 e0       	ldi	r22, 0x01	; 1
+  76:	8b e1       	ldi	r24, 0x1B	; 27
+  78:	0e 94 3f 00 	call	0x7e	; 0x7e <writePin>
+  7c:	ff cf       	rjmp	.-2      	; 0x7c <main+0x10>
 
-		
-    }
-  84:	ff cf       	rjmp	.-2      	; 0x84 <main+0x18>
-
-00000086 <writePin>:
- * Created: 8/18/2021 11:18:29 PM
+0000007e <writePin>:
  *  Author: Mohamed
  */ 
 #include "includes.h"
 
 void writePin(u8 pinNo,u8 logic){
-  86:	cf 93       	push	r28
-  88:	df 93       	push	r29
-  8a:	00 d0       	rcall	.+0      	; 0x8c <writePin+0x6>
-  8c:	cd b7       	in	r28, 0x3d	; 61
-  8e:	de b7       	in	r29, 0x3e	; 62
-  90:	89 83       	std	Y+1, r24	; 0x01
-  92:	6a 83       	std	Y+2, r22	; 0x02
 	if((pinNo>=PA0)&&(pinNo<=PA7)){
-  94:	89 81       	ldd	r24, Y+1	; 0x01
-  96:	88 30       	cpi	r24, 0x08	; 8
-  98:	90 f5       	brcc	.+100    	; 0xfe <writePin+0x78>
+  7e:	88 30       	cpi	r24, 0x08	; 8
+  80:	f8 f4       	brcc	.+62     	; 0xc0 <writePin+0x42>
 		if(logic==HIGH)
-  9a:	8a 81       	ldd	r24, Y+2	; 0x02
-  9c:	81 30       	cpi	r24, 0x01	; 1
-  9e:	a9 f4       	brne	.+42     	; 0xca <writePin+0x44>
+  82:	61 30       	cpi	r22, 0x01	; 1
+  84:	69 f4       	brne	.+26     	; 0xa0 <writePin+0x22>
 		SETBit(PORTA,pinNo);
-  a0:	8b e3       	ldi	r24, 0x3B	; 59
-  a2:	90 e0       	ldi	r25, 0x00	; 0
-  a4:	2b e3       	ldi	r18, 0x3B	; 59
-  a6:	30 e0       	ldi	r19, 0x00	; 0
-  a8:	f9 01       	movw	r30, r18
-  aa:	20 81       	ld	r18, Z
-  ac:	62 2f       	mov	r22, r18
-  ae:	29 81       	ldd	r18, Y+1	; 0x01
-  b0:	42 2f       	mov	r20, r18
-  b2:	50 e0       	ldi	r21, 0x00	; 0
-  b4:	21 e0       	ldi	r18, 0x01	; 1
-  b6:	30 e0       	ldi	r19, 0x00	; 0
-  b8:	02 c0       	rjmp	.+4      	; 0xbe <writePin+0x38>
-  ba:	22 0f       	add	r18, r18
-  bc:	33 1f       	adc	r19, r19
-  be:	4a 95       	dec	r20
-  c0:	e2 f7       	brpl	.-8      	; 0xba <writePin+0x34>
-  c2:	26 2b       	or	r18, r22
-  c4:	fc 01       	movw	r30, r24
-  c6:	20 83       	st	Z, r18
-  c8:	b7 c0       	rjmp	.+366    	; 0x238 <writePin+0x1b2>
+  86:	4b b3       	in	r20, 0x1b	; 27
+  88:	21 e0       	ldi	r18, 0x01	; 1
+  8a:	30 e0       	ldi	r19, 0x00	; 0
+  8c:	b9 01       	movw	r22, r18
+  8e:	02 c0       	rjmp	.+4      	; 0x94 <writePin+0x16>
+  90:	66 0f       	add	r22, r22
+  92:	77 1f       	adc	r23, r23
+  94:	8a 95       	dec	r24
+  96:	e2 f7       	brpl	.-8      	; 0x90 <writePin+0x12>
+  98:	cb 01       	movw	r24, r22
+  9a:	84 2b       	or	r24, r20
+  9c:	8b bb       	out	0x1b, r24	; 27
+  9e:	08 95       	ret
 		else if(logic==LOW)
-  ca:	8a 81       	ldd	r24, Y+2	; 0x02
-  cc:	88 23       	and	r24, r24
-  ce:	09 f0       	breq	.+2      	; 0xd2 <writePin+0x4c>
-  d0:	b3 c0       	rjmp	.+358    	; 0x238 <writePin+0x1b2>
+  a0:	61 11       	cpse	r22, r1
+  a2:	82 c0       	rjmp	.+260    	; 0x1a8 <writePin+0x12a>
 		CLRBit(PORTA,pinNo);
-  d2:	8b e3       	ldi	r24, 0x3B	; 59
-  d4:	90 e0       	ldi	r25, 0x00	; 0
-  d6:	2b e3       	ldi	r18, 0x3B	; 59
-  d8:	30 e0       	ldi	r19, 0x00	; 0
-  da:	f9 01       	movw	r30, r18
-  dc:	20 81       	ld	r18, Z
-  de:	62 2f       	mov	r22, r18
-  e0:	29 81       	ldd	r18, Y+1	; 0x01
-  e2:	42 2f       	mov	r20, r18
-  e4:	50 e0       	ldi	r21, 0x00	; 0
-  e6:	21 e0       	ldi	r18, 0x01	; 1
-  e8:	30 e0       	ldi	r19, 0x00	; 0
-  ea:	02 c0       	rjmp	.+4      	; 0xf0 <writePin+0x6a>
-  ec:	22 0f       	add	r18, r18
-  ee:	33 1f       	adc	r19, r19
-  f0:	4a 95       	dec	r20
-  f2:	e2 f7       	brpl	.-8      	; 0xec <writePin+0x66>
-  f4:	20 95       	com	r18
-  f6:	26 23       	and	r18, r22
-  f8:	fc 01       	movw	r30, r24
-  fa:	20 83       	st	Z, r18
-  fc:	9d c0       	rjmp	.+314    	; 0x238 <writePin+0x1b2>
+  a4:	4b b3       	in	r20, 0x1b	; 27
+  a6:	21 e0       	ldi	r18, 0x01	; 1
+  a8:	30 e0       	ldi	r19, 0x00	; 0
+  aa:	b9 01       	movw	r22, r18
+  ac:	02 c0       	rjmp	.+4      	; 0xb2 <writePin+0x34>
+  ae:	66 0f       	add	r22, r22
+  b0:	77 1f       	adc	r23, r23
+  b2:	8a 95       	dec	r24
+  b4:	e2 f7       	brpl	.-8      	; 0xae <writePin+0x30>
+  b6:	cb 01       	movw	r24, r22
+  b8:	80 95       	com	r24
+  ba:	84 23       	and	r24, r20
+  bc:	8b bb       	out	0x1b, r24	; 27
+  be:	08 95       	ret
 		else{}
 	}
 	else if((pinNo>=PB0)&&(pinNo<=PB7)){
-  fe:	89 81       	ldd	r24, Y+1	; 0x01
- 100:	88 30       	cpi	r24, 0x08	; 8
- 102:	90 f5       	brcc	.+100    	; 0x168 <writePin+0xe2>
+  c0:	98 ef       	ldi	r25, 0xF8	; 248
+  c2:	98 0f       	add	r25, r24
+  c4:	98 30       	cpi	r25, 0x08	; 8
+  c6:	18 f5       	brcc	.+70     	; 0x10e <writePin+0x90>
 		if(logic==HIGH)
- 104:	8a 81       	ldd	r24, Y+2	; 0x02
- 106:	81 30       	cpi	r24, 0x01	; 1
- 108:	a9 f4       	brne	.+42     	; 0x134 <writePin+0xae>
-		SETBit(PORTB,pinNo);
- 10a:	88 e3       	ldi	r24, 0x38	; 56
- 10c:	90 e0       	ldi	r25, 0x00	; 0
- 10e:	28 e3       	ldi	r18, 0x38	; 56
- 110:	30 e0       	ldi	r19, 0x00	; 0
- 112:	f9 01       	movw	r30, r18
- 114:	20 81       	ld	r18, Z
- 116:	62 2f       	mov	r22, r18
- 118:	29 81       	ldd	r18, Y+1	; 0x01
- 11a:	42 2f       	mov	r20, r18
- 11c:	50 e0       	ldi	r21, 0x00	; 0
- 11e:	21 e0       	ldi	r18, 0x01	; 1
- 120:	30 e0       	ldi	r19, 0x00	; 0
- 122:	02 c0       	rjmp	.+4      	; 0x128 <writePin+0xa2>
- 124:	22 0f       	add	r18, r18
- 126:	33 1f       	adc	r19, r19
- 128:	4a 95       	dec	r20
- 12a:	e2 f7       	brpl	.-8      	; 0x124 <writePin+0x9e>
- 12c:	26 2b       	or	r18, r22
- 12e:	fc 01       	movw	r30, r24
- 130:	20 83       	st	Z, r18
- 132:	82 c0       	rjmp	.+260    	; 0x238 <writePin+0x1b2>
+  c8:	61 30       	cpi	r22, 0x01	; 1
+  ca:	79 f4       	brne	.+30     	; 0xea <writePin+0x6c>
+		SETBit(PORTB,(pinNo-8));
+  cc:	48 b3       	in	r20, 0x18	; 24
+  ce:	90 e0       	ldi	r25, 0x00	; 0
+  d0:	08 97       	sbiw	r24, 0x08	; 8
+  d2:	21 e0       	ldi	r18, 0x01	; 1
+  d4:	30 e0       	ldi	r19, 0x00	; 0
+  d6:	b9 01       	movw	r22, r18
+  d8:	02 c0       	rjmp	.+4      	; 0xde <writePin+0x60>
+  da:	66 0f       	add	r22, r22
+  dc:	77 1f       	adc	r23, r23
+  de:	8a 95       	dec	r24
+  e0:	e2 f7       	brpl	.-8      	; 0xda <writePin+0x5c>
+  e2:	cb 01       	movw	r24, r22
+  e4:	84 2b       	or	r24, r20
+  e6:	88 bb       	out	0x18, r24	; 24
+  e8:	08 95       	ret
 		else if(logic==LOW)
- 134:	8a 81       	ldd	r24, Y+2	; 0x02
- 136:	88 23       	and	r24, r24
- 138:	09 f0       	breq	.+2      	; 0x13c <writePin+0xb6>
- 13a:	7e c0       	rjmp	.+252    	; 0x238 <writePin+0x1b2>
-		CLRBit(PORTB,pinNo);
- 13c:	88 e3       	ldi	r24, 0x38	; 56
- 13e:	90 e0       	ldi	r25, 0x00	; 0
- 140:	28 e3       	ldi	r18, 0x38	; 56
- 142:	30 e0       	ldi	r19, 0x00	; 0
- 144:	f9 01       	movw	r30, r18
- 146:	20 81       	ld	r18, Z
- 148:	62 2f       	mov	r22, r18
- 14a:	29 81       	ldd	r18, Y+1	; 0x01
- 14c:	42 2f       	mov	r20, r18
- 14e:	50 e0       	ldi	r21, 0x00	; 0
- 150:	21 e0       	ldi	r18, 0x01	; 1
- 152:	30 e0       	ldi	r19, 0x00	; 0
- 154:	02 c0       	rjmp	.+4      	; 0x15a <writePin+0xd4>
- 156:	22 0f       	add	r18, r18
- 158:	33 1f       	adc	r19, r19
- 15a:	4a 95       	dec	r20
- 15c:	e2 f7       	brpl	.-8      	; 0x156 <writePin+0xd0>
- 15e:	20 95       	com	r18
- 160:	26 23       	and	r18, r22
- 162:	fc 01       	movw	r30, r24
- 164:	20 83       	st	Z, r18
- 166:	68 c0       	rjmp	.+208    	; 0x238 <writePin+0x1b2>
+  ea:	61 11       	cpse	r22, r1
+  ec:	5d c0       	rjmp	.+186    	; 0x1a8 <writePin+0x12a>
+		CLRBit(PORTB,(pinNo-8));
+  ee:	48 b3       	in	r20, 0x18	; 24
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	08 97       	sbiw	r24, 0x08	; 8
+  f4:	21 e0       	ldi	r18, 0x01	; 1
+  f6:	30 e0       	ldi	r19, 0x00	; 0
+  f8:	b9 01       	movw	r22, r18
+  fa:	02 c0       	rjmp	.+4      	; 0x100 <writePin+0x82>
+  fc:	66 0f       	add	r22, r22
+  fe:	77 1f       	adc	r23, r23
+ 100:	8a 95       	dec	r24
+ 102:	e2 f7       	brpl	.-8      	; 0xfc <writePin+0x7e>
+ 104:	cb 01       	movw	r24, r22
+ 106:	80 95       	com	r24
+ 108:	84 23       	and	r24, r20
+ 10a:	88 bb       	out	0x18, r24	; 24
+ 10c:	08 95       	ret
 		else{}
 	}
 	else if((pinNo>=PC0)&&(pinNo<=PC7)){
- 168:	89 81       	ldd	r24, Y+1	; 0x01
- 16a:	88 30       	cpi	r24, 0x08	; 8
- 16c:	90 f5       	brcc	.+100    	; 0x1d2 <writePin+0x14c>
+ 10e:	90 ef       	ldi	r25, 0xF0	; 240
+ 110:	98 0f       	add	r25, r24
+ 112:	98 30       	cpi	r25, 0x08	; 8
+ 114:	18 f5       	brcc	.+70     	; 0x15c <writePin+0xde>
 		if(logic==HIGH)
- 16e:	8a 81       	ldd	r24, Y+2	; 0x02
- 170:	81 30       	cpi	r24, 0x01	; 1
- 172:	a9 f4       	brne	.+42     	; 0x19e <writePin+0x118>
-		SETBit(PORTC,pinNo);
- 174:	85 e3       	ldi	r24, 0x35	; 53
- 176:	90 e0       	ldi	r25, 0x00	; 0
- 178:	25 e3       	ldi	r18, 0x35	; 53
- 17a:	30 e0       	ldi	r19, 0x00	; 0
- 17c:	f9 01       	movw	r30, r18
- 17e:	20 81       	ld	r18, Z
- 180:	62 2f       	mov	r22, r18
- 182:	29 81       	ldd	r18, Y+1	; 0x01
- 184:	42 2f       	mov	r20, r18
- 186:	50 e0       	ldi	r21, 0x00	; 0
- 188:	21 e0       	ldi	r18, 0x01	; 1
- 18a:	30 e0       	ldi	r19, 0x00	; 0
- 18c:	02 c0       	rjmp	.+4      	; 0x192 <writePin+0x10c>
- 18e:	22 0f       	add	r18, r18
- 190:	33 1f       	adc	r19, r19
- 192:	4a 95       	dec	r20
- 194:	e2 f7       	brpl	.-8      	; 0x18e <writePin+0x108>
- 196:	26 2b       	or	r18, r22
- 198:	fc 01       	movw	r30, r24
- 19a:	20 83       	st	Z, r18
- 19c:	4d c0       	rjmp	.+154    	; 0x238 <writePin+0x1b2>
+ 116:	61 30       	cpi	r22, 0x01	; 1
+ 118:	79 f4       	brne	.+30     	; 0x138 <writePin+0xba>
+		SETBit(PORTC,(pinNo-16));
+ 11a:	45 b3       	in	r20, 0x15	; 21
+ 11c:	90 e0       	ldi	r25, 0x00	; 0
+ 11e:	40 97       	sbiw	r24, 0x10	; 16
+ 120:	21 e0       	ldi	r18, 0x01	; 1
+ 122:	30 e0       	ldi	r19, 0x00	; 0
+ 124:	b9 01       	movw	r22, r18
+ 126:	02 c0       	rjmp	.+4      	; 0x12c <writePin+0xae>
+ 128:	66 0f       	add	r22, r22
+ 12a:	77 1f       	adc	r23, r23
+ 12c:	8a 95       	dec	r24
+ 12e:	e2 f7       	brpl	.-8      	; 0x128 <writePin+0xaa>
+ 130:	cb 01       	movw	r24, r22
+ 132:	84 2b       	or	r24, r20
+ 134:	85 bb       	out	0x15, r24	; 21
+ 136:	08 95       	ret
 		else if(logic==LOW)
- 19e:	8a 81       	ldd	r24, Y+2	; 0x02
- 1a0:	88 23       	and	r24, r24
- 1a2:	09 f0       	breq	.+2      	; 0x1a6 <writePin+0x120>
- 1a4:	49 c0       	rjmp	.+146    	; 0x238 <writePin+0x1b2>
-		CLRBit(PORTC,pinNo);
- 1a6:	85 e3       	ldi	r24, 0x35	; 53
- 1a8:	90 e0       	ldi	r25, 0x00	; 0
- 1aa:	25 e3       	ldi	r18, 0x35	; 53
- 1ac:	30 e0       	ldi	r19, 0x00	; 0
- 1ae:	f9 01       	movw	r30, r18
- 1b0:	20 81       	ld	r18, Z
- 1b2:	62 2f       	mov	r22, r18
- 1b4:	29 81       	ldd	r18, Y+1	; 0x01
- 1b6:	42 2f       	mov	r20, r18
- 1b8:	50 e0       	ldi	r21, 0x00	; 0
- 1ba:	21 e0       	ldi	r18, 0x01	; 1
- 1bc:	30 e0       	ldi	r19, 0x00	; 0
- 1be:	02 c0       	rjmp	.+4      	; 0x1c4 <writePin+0x13e>
- 1c0:	22 0f       	add	r18, r18
- 1c2:	33 1f       	adc	r19, r19
- 1c4:	4a 95       	dec	r20
- 1c6:	e2 f7       	brpl	.-8      	; 0x1c0 <writePin+0x13a>
- 1c8:	20 95       	com	r18
- 1ca:	26 23       	and	r18, r22
- 1cc:	fc 01       	movw	r30, r24
- 1ce:	20 83       	st	Z, r18
- 1d0:	33 c0       	rjmp	.+102    	; 0x238 <writePin+0x1b2>
+ 138:	61 11       	cpse	r22, r1
+ 13a:	36 c0       	rjmp	.+108    	; 0x1a8 <writePin+0x12a>
+		CLRBit(PORTC,(pinNo-16));
+ 13c:	45 b3       	in	r20, 0x15	; 21
+ 13e:	90 e0       	ldi	r25, 0x00	; 0
+ 140:	40 97       	sbiw	r24, 0x10	; 16
+ 142:	21 e0       	ldi	r18, 0x01	; 1
+ 144:	30 e0       	ldi	r19, 0x00	; 0
+ 146:	b9 01       	movw	r22, r18
+ 148:	02 c0       	rjmp	.+4      	; 0x14e <writePin+0xd0>
+ 14a:	66 0f       	add	r22, r22
+ 14c:	77 1f       	adc	r23, r23
+ 14e:	8a 95       	dec	r24
+ 150:	e2 f7       	brpl	.-8      	; 0x14a <writePin+0xcc>
+ 152:	cb 01       	movw	r24, r22
+ 154:	80 95       	com	r24
+ 156:	84 23       	and	r24, r20
+ 158:	85 bb       	out	0x15, r24	; 21
+ 15a:	08 95       	ret
 		else{}
 	}
 	else if((pinNo>=PD0)&&(pinNo<=PD7)){
- 1d2:	89 81       	ldd	r24, Y+1	; 0x01
- 1d4:	88 30       	cpi	r24, 0x08	; 8
- 1d6:	80 f5       	brcc	.+96     	; 0x238 <writePin+0x1b2>
+ 15c:	98 ee       	ldi	r25, 0xE8	; 232
+ 15e:	98 0f       	add	r25, r24
+ 160:	98 30       	cpi	r25, 0x08	; 8
+ 162:	10 f5       	brcc	.+68     	; 0x1a8 <writePin+0x12a>
 		if(logic==HIGH)
- 1d8:	8a 81       	ldd	r24, Y+2	; 0x02
- 1da:	81 30       	cpi	r24, 0x01	; 1
- 1dc:	a9 f4       	brne	.+42     	; 0x208 <writePin+0x182>
-		SETBit(PORTD,pinNo);
- 1de:	82 e3       	ldi	r24, 0x32	; 50
- 1e0:	90 e0       	ldi	r25, 0x00	; 0
- 1e2:	22 e3       	ldi	r18, 0x32	; 50
- 1e4:	30 e0       	ldi	r19, 0x00	; 0
- 1e6:	f9 01       	movw	r30, r18
- 1e8:	20 81       	ld	r18, Z
- 1ea:	62 2f       	mov	r22, r18
- 1ec:	29 81       	ldd	r18, Y+1	; 0x01
- 1ee:	42 2f       	mov	r20, r18
- 1f0:	50 e0       	ldi	r21, 0x00	; 0
- 1f2:	21 e0       	ldi	r18, 0x01	; 1
- 1f4:	30 e0       	ldi	r19, 0x00	; 0
- 1f6:	02 c0       	rjmp	.+4      	; 0x1fc <writePin+0x176>
- 1f8:	22 0f       	add	r18, r18
- 1fa:	33 1f       	adc	r19, r19
- 1fc:	4a 95       	dec	r20
- 1fe:	e2 f7       	brpl	.-8      	; 0x1f8 <writePin+0x172>
- 200:	26 2b       	or	r18, r22
- 202:	fc 01       	movw	r30, r24
- 204:	20 83       	st	Z, r18
- 206:	18 c0       	rjmp	.+48     	; 0x238 <writePin+0x1b2>
+ 164:	61 30       	cpi	r22, 0x01	; 1
+ 166:	79 f4       	brne	.+30     	; 0x186 <writePin+0x108>
+		SETBit(PORTD,(pinNo-24));
+ 168:	42 b3       	in	r20, 0x12	; 18
+ 16a:	90 e0       	ldi	r25, 0x00	; 0
+ 16c:	48 97       	sbiw	r24, 0x18	; 24
+ 16e:	21 e0       	ldi	r18, 0x01	; 1
+ 170:	30 e0       	ldi	r19, 0x00	; 0
+ 172:	b9 01       	movw	r22, r18
+ 174:	02 c0       	rjmp	.+4      	; 0x17a <writePin+0xfc>
+ 176:	66 0f       	add	r22, r22
+ 178:	77 1f       	adc	r23, r23
+ 17a:	8a 95       	dec	r24
+ 17c:	e2 f7       	brpl	.-8      	; 0x176 <writePin+0xf8>
+ 17e:	cb 01       	movw	r24, r22
+ 180:	84 2b       	or	r24, r20
+ 182:	82 bb       	out	0x12, r24	; 18
+ 184:	08 95       	ret
 		else if(logic==LOW)
- 208:	8a 81       	ldd	r24, Y+2	; 0x02
- 20a:	88 23       	and	r24, r24
- 20c:	a9 f4       	brne	.+42     	; 0x238 <writePin+0x1b2>
-		CLRBit(PORTD,pinNo);
- 20e:	82 e3       	ldi	r24, 0x32	; 50
- 210:	90 e0       	ldi	r25, 0x00	; 0
- 212:	22 e3       	ldi	r18, 0x32	; 50
- 214:	30 e0       	ldi	r19, 0x00	; 0
- 216:	f9 01       	movw	r30, r18
- 218:	20 81       	ld	r18, Z
- 21a:	62 2f       	mov	r22, r18
- 21c:	29 81       	ldd	r18, Y+1	; 0x01
- 21e:	42 2f       	mov	r20, r18
- 220:	50 e0       	ldi	r21, 0x00	; 0
- 222:	21 e0       	ldi	r18, 0x01	; 1
- 224:	30 e0       	ldi	r19, 0x00	; 0
- 226:	02 c0       	rjmp	.+4      	; 0x22c <writePin+0x1a6>
- 228:	22 0f       	add	r18, r18
- 22a:	33 1f       	adc	r19, r19
- 22c:	4a 95       	dec	r20
- 22e:	e2 f7       	brpl	.-8      	; 0x228 <writePin+0x1a2>
- 230:	20 95       	com	r18
- 232:	26 23       	and	r18, r22
- 234:	fc 01       	movw	r30, r24
- 236:	20 83       	st	Z, r18
+ 186:	61 11       	cpse	r22, r1
+ 188:	0f c0       	rjmp	.+30     	; 0x1a8 <writePin+0x12a>
+		CLRBit(PORTD,(pinNo-24));
+ 18a:	42 b3       	in	r20, 0x12	; 18
+ 18c:	90 e0       	ldi	r25, 0x00	; 0
+ 18e:	48 97       	sbiw	r24, 0x18	; 24
+ 190:	21 e0       	ldi	r18, 0x01	; 1
+ 192:	30 e0       	ldi	r19, 0x00	; 0
+ 194:	b9 01       	movw	r22, r18
+ 196:	02 c0       	rjmp	.+4      	; 0x19c <writePin+0x11e>
+ 198:	66 0f       	add	r22, r22
+ 19a:	77 1f       	adc	r23, r23
+ 19c:	8a 95       	dec	r24
+ 19e:	e2 f7       	brpl	.-8      	; 0x198 <writePin+0x11a>
+ 1a0:	cb 01       	movw	r24, r22
+ 1a2:	80 95       	com	r24
+ 1a4:	84 23       	and	r24, r20
+ 1a6:	82 bb       	out	0x12, r24	; 18
+ 1a8:	08 95       	ret
+
+000001aa <pinDirection>:
 		else{}
 	}
 	else{}
 }
- 238:	0f 90       	pop	r0
- 23a:	0f 90       	pop	r0
- 23c:	df 91       	pop	r29
- 23e:	cf 91       	pop	r28
- 240:	08 95       	ret
-
-00000242 <pinDirection>:
 void pinDirection(u8 pinNo, u8 direction){
- 242:	cf 93       	push	r28
- 244:	df 93       	push	r29
- 246:	00 d0       	rcall	.+0      	; 0x248 <pinDirection+0x6>
- 248:	cd b7       	in	r28, 0x3d	; 61
- 24a:	de b7       	in	r29, 0x3e	; 62
- 24c:	89 83       	std	Y+1, r24	; 0x01
- 24e:	6a 83       	std	Y+2, r22	; 0x02
 	if((pinNo >= PA0) && (pinNo <= PA7)){
- 250:	89 81       	ldd	r24, Y+1	; 0x01
- 252:	88 30       	cpi	r24, 0x08	; 8
- 254:	90 f5       	brcc	.+100    	; 0x2ba <pinDirection+0x78>
+ 1aa:	88 30       	cpi	r24, 0x08	; 8
+ 1ac:	f8 f4       	brcc	.+62     	; 0x1ec <pinDirection+0x42>
 		if(direction == OUTPUT)
- 256:	8a 81       	ldd	r24, Y+2	; 0x02
- 258:	81 30       	cpi	r24, 0x01	; 1
- 25a:	a9 f4       	brne	.+42     	; 0x286 <pinDirection+0x44>
+ 1ae:	61 30       	cpi	r22, 0x01	; 1
+ 1b0:	69 f4       	brne	.+26     	; 0x1cc <pinDirection+0x22>
 		SETBit(DDRA,pinNo);
- 25c:	8a e3       	ldi	r24, 0x3A	; 58
- 25e:	90 e0       	ldi	r25, 0x00	; 0
- 260:	2a e3       	ldi	r18, 0x3A	; 58
- 262:	30 e0       	ldi	r19, 0x00	; 0
- 264:	f9 01       	movw	r30, r18
- 266:	20 81       	ld	r18, Z
- 268:	62 2f       	mov	r22, r18
- 26a:	29 81       	ldd	r18, Y+1	; 0x01
- 26c:	42 2f       	mov	r20, r18
- 26e:	50 e0       	ldi	r21, 0x00	; 0
- 270:	21 e0       	ldi	r18, 0x01	; 1
- 272:	30 e0       	ldi	r19, 0x00	; 0
- 274:	02 c0       	rjmp	.+4      	; 0x27a <pinDirection+0x38>
- 276:	22 0f       	add	r18, r18
- 278:	33 1f       	adc	r19, r19
- 27a:	4a 95       	dec	r20
- 27c:	e2 f7       	brpl	.-8      	; 0x276 <pinDirection+0x34>
- 27e:	26 2b       	or	r18, r22
- 280:	fc 01       	movw	r30, r24
- 282:	20 83       	st	Z, r18
- 284:	b7 c0       	rjmp	.+366    	; 0x3f4 <pinDirection+0x1b2>
+ 1b2:	4a b3       	in	r20, 0x1a	; 26
+ 1b4:	21 e0       	ldi	r18, 0x01	; 1
+ 1b6:	30 e0       	ldi	r19, 0x00	; 0
+ 1b8:	b9 01       	movw	r22, r18
+ 1ba:	02 c0       	rjmp	.+4      	; 0x1c0 <pinDirection+0x16>
+ 1bc:	66 0f       	add	r22, r22
+ 1be:	77 1f       	adc	r23, r23
+ 1c0:	8a 95       	dec	r24
+ 1c2:	e2 f7       	brpl	.-8      	; 0x1bc <pinDirection+0x12>
+ 1c4:	cb 01       	movw	r24, r22
+ 1c6:	84 2b       	or	r24, r20
+ 1c8:	8a bb       	out	0x1a, r24	; 26
+ 1ca:	08 95       	ret
 		else if(direction == INPUT)
- 286:	8a 81       	ldd	r24, Y+2	; 0x02
- 288:	88 23       	and	r24, r24
- 28a:	09 f0       	breq	.+2      	; 0x28e <pinDirection+0x4c>
- 28c:	b3 c0       	rjmp	.+358    	; 0x3f4 <pinDirection+0x1b2>
+ 1cc:	61 11       	cpse	r22, r1
+ 1ce:	82 c0       	rjmp	.+260    	; 0x2d4 <pinDirection+0x12a>
 		CLRBit(DDRA,pinNo);
- 28e:	8a e3       	ldi	r24, 0x3A	; 58
- 290:	90 e0       	ldi	r25, 0x00	; 0
- 292:	2a e3       	ldi	r18, 0x3A	; 58
- 294:	30 e0       	ldi	r19, 0x00	; 0
- 296:	f9 01       	movw	r30, r18
- 298:	20 81       	ld	r18, Z
- 29a:	62 2f       	mov	r22, r18
- 29c:	29 81       	ldd	r18, Y+1	; 0x01
- 29e:	42 2f       	mov	r20, r18
- 2a0:	50 e0       	ldi	r21, 0x00	; 0
- 2a2:	21 e0       	ldi	r18, 0x01	; 1
- 2a4:	30 e0       	ldi	r19, 0x00	; 0
- 2a6:	02 c0       	rjmp	.+4      	; 0x2ac <pinDirection+0x6a>
- 2a8:	22 0f       	add	r18, r18
- 2aa:	33 1f       	adc	r19, r19
- 2ac:	4a 95       	dec	r20
- 2ae:	e2 f7       	brpl	.-8      	; 0x2a8 <pinDirection+0x66>
- 2b0:	20 95       	com	r18
- 2b2:	26 23       	and	r18, r22
- 2b4:	fc 01       	movw	r30, r24
- 2b6:	20 83       	st	Z, r18
- 2b8:	9d c0       	rjmp	.+314    	; 0x3f4 <pinDirection+0x1b2>
+ 1d0:	4a b3       	in	r20, 0x1a	; 26
+ 1d2:	21 e0       	ldi	r18, 0x01	; 1
+ 1d4:	30 e0       	ldi	r19, 0x00	; 0
+ 1d6:	b9 01       	movw	r22, r18
+ 1d8:	02 c0       	rjmp	.+4      	; 0x1de <pinDirection+0x34>
+ 1da:	66 0f       	add	r22, r22
+ 1dc:	77 1f       	adc	r23, r23
+ 1de:	8a 95       	dec	r24
+ 1e0:	e2 f7       	brpl	.-8      	; 0x1da <pinDirection+0x30>
+ 1e2:	cb 01       	movw	r24, r22
+ 1e4:	80 95       	com	r24
+ 1e6:	84 23       	and	r24, r20
+ 1e8:	8a bb       	out	0x1a, r24	; 26
+ 1ea:	08 95       	ret
 		else{}
 	}
 	else if((pinNo >= PB0) && (pinNo <= PB7)){
- 2ba:	89 81       	ldd	r24, Y+1	; 0x01
- 2bc:	88 30       	cpi	r24, 0x08	; 8
- 2be:	90 f5       	brcc	.+100    	; 0x324 <pinDirection+0xe2>
+ 1ec:	98 ef       	ldi	r25, 0xF8	; 248
+ 1ee:	98 0f       	add	r25, r24
+ 1f0:	98 30       	cpi	r25, 0x08	; 8
+ 1f2:	18 f5       	brcc	.+70     	; 0x23a <pinDirection+0x90>
 		if(direction == OUTPUT)
- 2c0:	8a 81       	ldd	r24, Y+2	; 0x02
- 2c2:	81 30       	cpi	r24, 0x01	; 1
- 2c4:	a9 f4       	brne	.+42     	; 0x2f0 <pinDirection+0xae>
-		SETBit(DDRB,pinNo);
- 2c6:	87 e3       	ldi	r24, 0x37	; 55
- 2c8:	90 e0       	ldi	r25, 0x00	; 0
- 2ca:	27 e3       	ldi	r18, 0x37	; 55
- 2cc:	30 e0       	ldi	r19, 0x00	; 0
- 2ce:	f9 01       	movw	r30, r18
- 2d0:	20 81       	ld	r18, Z
- 2d2:	62 2f       	mov	r22, r18
- 2d4:	29 81       	ldd	r18, Y+1	; 0x01
- 2d6:	42 2f       	mov	r20, r18
- 2d8:	50 e0       	ldi	r21, 0x00	; 0
- 2da:	21 e0       	ldi	r18, 0x01	; 1
- 2dc:	30 e0       	ldi	r19, 0x00	; 0
- 2de:	02 c0       	rjmp	.+4      	; 0x2e4 <pinDirection+0xa2>
- 2e0:	22 0f       	add	r18, r18
- 2e2:	33 1f       	adc	r19, r19
- 2e4:	4a 95       	dec	r20
- 2e6:	e2 f7       	brpl	.-8      	; 0x2e0 <pinDirection+0x9e>
- 2e8:	26 2b       	or	r18, r22
- 2ea:	fc 01       	movw	r30, r24
- 2ec:	20 83       	st	Z, r18
- 2ee:	82 c0       	rjmp	.+260    	; 0x3f4 <pinDirection+0x1b2>
+ 1f4:	61 30       	cpi	r22, 0x01	; 1
+ 1f6:	79 f4       	brne	.+30     	; 0x216 <pinDirection+0x6c>
+		SETBit(DDRB,(pinNo-8));
+ 1f8:	47 b3       	in	r20, 0x17	; 23
+ 1fa:	90 e0       	ldi	r25, 0x00	; 0
+ 1fc:	08 97       	sbiw	r24, 0x08	; 8
+ 1fe:	21 e0       	ldi	r18, 0x01	; 1
+ 200:	30 e0       	ldi	r19, 0x00	; 0
+ 202:	b9 01       	movw	r22, r18
+ 204:	02 c0       	rjmp	.+4      	; 0x20a <pinDirection+0x60>
+ 206:	66 0f       	add	r22, r22
+ 208:	77 1f       	adc	r23, r23
+ 20a:	8a 95       	dec	r24
+ 20c:	e2 f7       	brpl	.-8      	; 0x206 <pinDirection+0x5c>
+ 20e:	cb 01       	movw	r24, r22
+ 210:	84 2b       	or	r24, r20
+ 212:	87 bb       	out	0x17, r24	; 23
+ 214:	08 95       	ret
 		else if(direction == LOW)
- 2f0:	8a 81       	ldd	r24, Y+2	; 0x02
- 2f2:	88 23       	and	r24, r24
- 2f4:	09 f0       	breq	.+2      	; 0x2f8 <pinDirection+0xb6>
- 2f6:	7e c0       	rjmp	.+252    	; 0x3f4 <pinDirection+0x1b2>
-		CLRBit(DDRB,pinNo);
- 2f8:	87 e3       	ldi	r24, 0x37	; 55
- 2fa:	90 e0       	ldi	r25, 0x00	; 0
- 2fc:	27 e3       	ldi	r18, 0x37	; 55
- 2fe:	30 e0       	ldi	r19, 0x00	; 0
- 300:	f9 01       	movw	r30, r18
- 302:	20 81       	ld	r18, Z
- 304:	62 2f       	mov	r22, r18
- 306:	29 81       	ldd	r18, Y+1	; 0x01
- 308:	42 2f       	mov	r20, r18
- 30a:	50 e0       	ldi	r21, 0x00	; 0
- 30c:	21 e0       	ldi	r18, 0x01	; 1
- 30e:	30 e0       	ldi	r19, 0x00	; 0
- 310:	02 c0       	rjmp	.+4      	; 0x316 <pinDirection+0xd4>
- 312:	22 0f       	add	r18, r18
- 314:	33 1f       	adc	r19, r19
- 316:	4a 95       	dec	r20
- 318:	e2 f7       	brpl	.-8      	; 0x312 <pinDirection+0xd0>
- 31a:	20 95       	com	r18
- 31c:	26 23       	and	r18, r22
- 31e:	fc 01       	movw	r30, r24
- 320:	20 83       	st	Z, r18
- 322:	68 c0       	rjmp	.+208    	; 0x3f4 <pinDirection+0x1b2>
+ 216:	61 11       	cpse	r22, r1
+ 218:	5d c0       	rjmp	.+186    	; 0x2d4 <pinDirection+0x12a>
+		CLRBit(DDRB,(pinNo-8));
+ 21a:	47 b3       	in	r20, 0x17	; 23
+ 21c:	90 e0       	ldi	r25, 0x00	; 0
+ 21e:	08 97       	sbiw	r24, 0x08	; 8
+ 220:	21 e0       	ldi	r18, 0x01	; 1
+ 222:	30 e0       	ldi	r19, 0x00	; 0
+ 224:	b9 01       	movw	r22, r18
+ 226:	02 c0       	rjmp	.+4      	; 0x22c <pinDirection+0x82>
+ 228:	66 0f       	add	r22, r22
+ 22a:	77 1f       	adc	r23, r23
+ 22c:	8a 95       	dec	r24
+ 22e:	e2 f7       	brpl	.-8      	; 0x228 <pinDirection+0x7e>
+ 230:	cb 01       	movw	r24, r22
+ 232:	80 95       	com	r24
+ 234:	84 23       	and	r24, r20
+ 236:	87 bb       	out	0x17, r24	; 23
+ 238:	08 95       	ret
 		else{}
 	}
 	else if((pinNo >= PC0) && (pinNo <= PC7)){
- 324:	89 81       	ldd	r24, Y+1	; 0x01
- 326:	88 30       	cpi	r24, 0x08	; 8
- 328:	90 f5       	brcc	.+100    	; 0x38e <pinDirection+0x14c>
+ 23a:	90 ef       	ldi	r25, 0xF0	; 240
+ 23c:	98 0f       	add	r25, r24
+ 23e:	98 30       	cpi	r25, 0x08	; 8
+ 240:	18 f5       	brcc	.+70     	; 0x288 <pinDirection+0xde>
 		if(direction == OUTPUT)
- 32a:	8a 81       	ldd	r24, Y+2	; 0x02
- 32c:	81 30       	cpi	r24, 0x01	; 1
- 32e:	a9 f4       	brne	.+42     	; 0x35a <pinDirection+0x118>
-		SETBit(DDRC,pinNo);
- 330:	84 e3       	ldi	r24, 0x34	; 52
- 332:	90 e0       	ldi	r25, 0x00	; 0
- 334:	24 e3       	ldi	r18, 0x34	; 52
- 336:	30 e0       	ldi	r19, 0x00	; 0
- 338:	f9 01       	movw	r30, r18
- 33a:	20 81       	ld	r18, Z
- 33c:	62 2f       	mov	r22, r18
- 33e:	29 81       	ldd	r18, Y+1	; 0x01
- 340:	42 2f       	mov	r20, r18
- 342:	50 e0       	ldi	r21, 0x00	; 0
- 344:	21 e0       	ldi	r18, 0x01	; 1
- 346:	30 e0       	ldi	r19, 0x00	; 0
- 348:	02 c0       	rjmp	.+4      	; 0x34e <pinDirection+0x10c>
- 34a:	22 0f       	add	r18, r18
- 34c:	33 1f       	adc	r19, r19
- 34e:	4a 95       	dec	r20
- 350:	e2 f7       	brpl	.-8      	; 0x34a <pinDirection+0x108>
- 352:	26 2b       	or	r18, r22
- 354:	fc 01       	movw	r30, r24
- 356:	20 83       	st	Z, r18
- 358:	4d c0       	rjmp	.+154    	; 0x3f4 <pinDirection+0x1b2>
+ 242:	61 30       	cpi	r22, 0x01	; 1
+ 244:	79 f4       	brne	.+30     	; 0x264 <pinDirection+0xba>
+		SETBit(DDRC,(pinNo-16));
+ 246:	44 b3       	in	r20, 0x14	; 20
+ 248:	90 e0       	ldi	r25, 0x00	; 0
+ 24a:	40 97       	sbiw	r24, 0x10	; 16
+ 24c:	21 e0       	ldi	r18, 0x01	; 1
+ 24e:	30 e0       	ldi	r19, 0x00	; 0
+ 250:	b9 01       	movw	r22, r18
+ 252:	02 c0       	rjmp	.+4      	; 0x258 <pinDirection+0xae>
+ 254:	66 0f       	add	r22, r22
+ 256:	77 1f       	adc	r23, r23
+ 258:	8a 95       	dec	r24
+ 25a:	e2 f7       	brpl	.-8      	; 0x254 <pinDirection+0xaa>
+ 25c:	cb 01       	movw	r24, r22
+ 25e:	84 2b       	or	r24, r20
+ 260:	84 bb       	out	0x14, r24	; 20
+ 262:	08 95       	ret
 		else if(direction==INPUT)
- 35a:	8a 81       	ldd	r24, Y+2	; 0x02
- 35c:	88 23       	and	r24, r24
- 35e:	09 f0       	breq	.+2      	; 0x362 <pinDirection+0x120>
- 360:	49 c0       	rjmp	.+146    	; 0x3f4 <pinDirection+0x1b2>
-		CLRBit(DDRC,pinNo);
- 362:	84 e3       	ldi	r24, 0x34	; 52
- 364:	90 e0       	ldi	r25, 0x00	; 0
- 366:	24 e3       	ldi	r18, 0x34	; 52
- 368:	30 e0       	ldi	r19, 0x00	; 0
- 36a:	f9 01       	movw	r30, r18
- 36c:	20 81       	ld	r18, Z
- 36e:	62 2f       	mov	r22, r18
- 370:	29 81       	ldd	r18, Y+1	; 0x01
- 372:	42 2f       	mov	r20, r18
- 374:	50 e0       	ldi	r21, 0x00	; 0
- 376:	21 e0       	ldi	r18, 0x01	; 1
- 378:	30 e0       	ldi	r19, 0x00	; 0
- 37a:	02 c0       	rjmp	.+4      	; 0x380 <pinDirection+0x13e>
- 37c:	22 0f       	add	r18, r18
- 37e:	33 1f       	adc	r19, r19
- 380:	4a 95       	dec	r20
- 382:	e2 f7       	brpl	.-8      	; 0x37c <pinDirection+0x13a>
- 384:	20 95       	com	r18
- 386:	26 23       	and	r18, r22
- 388:	fc 01       	movw	r30, r24
- 38a:	20 83       	st	Z, r18
- 38c:	33 c0       	rjmp	.+102    	; 0x3f4 <pinDirection+0x1b2>
+ 264:	61 11       	cpse	r22, r1
+ 266:	36 c0       	rjmp	.+108    	; 0x2d4 <pinDirection+0x12a>
+		CLRBit(DDRC,(pinNo-16));
+ 268:	44 b3       	in	r20, 0x14	; 20
+ 26a:	90 e0       	ldi	r25, 0x00	; 0
+ 26c:	40 97       	sbiw	r24, 0x10	; 16
+ 26e:	21 e0       	ldi	r18, 0x01	; 1
+ 270:	30 e0       	ldi	r19, 0x00	; 0
+ 272:	b9 01       	movw	r22, r18
+ 274:	02 c0       	rjmp	.+4      	; 0x27a <pinDirection+0xd0>
+ 276:	66 0f       	add	r22, r22
+ 278:	77 1f       	adc	r23, r23
+ 27a:	8a 95       	dec	r24
+ 27c:	e2 f7       	brpl	.-8      	; 0x276 <pinDirection+0xcc>
+ 27e:	cb 01       	movw	r24, r22
+ 280:	80 95       	com	r24
+ 282:	84 23       	and	r24, r20
+ 284:	84 bb       	out	0x14, r24	; 20
+ 286:	08 95       	ret
 		else{}
 	}
 	else if((pinNo >= PD0) && (pinNo <= PD7)){
- 38e:	89 81       	ldd	r24, Y+1	; 0x01
- 390:	88 30       	cpi	r24, 0x08	; 8
- 392:	80 f5       	brcc	.+96     	; 0x3f4 <pinDirection+0x1b2>
+ 288:	98 ee       	ldi	r25, 0xE8	; 232
+ 28a:	98 0f       	add	r25, r24
+ 28c:	98 30       	cpi	r25, 0x08	; 8
+ 28e:	10 f5       	brcc	.+68     	; 0x2d4 <pinDirection+0x12a>
 		if(direction == OUTPUT)
- 394:	8a 81       	ldd	r24, Y+2	; 0x02
- 396:	81 30       	cpi	r24, 0x01	; 1
- 398:	a9 f4       	brne	.+42     	; 0x3c4 <pinDirection+0x182>
-		SETBit(DDRD,pinNo);
- 39a:	81 e3       	ldi	r24, 0x31	; 49
- 39c:	90 e0       	ldi	r25, 0x00	; 0
- 39e:	21 e3       	ldi	r18, 0x31	; 49
- 3a0:	30 e0       	ldi	r19, 0x00	; 0
- 3a2:	f9 01       	movw	r30, r18
- 3a4:	20 81       	ld	r18, Z
- 3a6:	62 2f       	mov	r22, r18
- 3a8:	29 81       	ldd	r18, Y+1	; 0x01
- 3aa:	42 2f       	mov	r20, r18
- 3ac:	50 e0       	ldi	r21, 0x00	; 0
- 3ae:	21 e0       	ldi	r18, 0x01	; 1
- 3b0:	30 e0       	ldi	r19, 0x00	; 0
- 3b2:	02 c0       	rjmp	.+4      	; 0x3b8 <pinDirection+0x176>
- 3b4:	22 0f       	add	r18, r18
- 3b6:	33 1f       	adc	r19, r19
- 3b8:	4a 95       	dec	r20
- 3ba:	e2 f7       	brpl	.-8      	; 0x3b4 <pinDirection+0x172>
- 3bc:	26 2b       	or	r18, r22
- 3be:	fc 01       	movw	r30, r24
- 3c0:	20 83       	st	Z, r18
- 3c2:	18 c0       	rjmp	.+48     	; 0x3f4 <pinDirection+0x1b2>
+ 290:	61 30       	cpi	r22, 0x01	; 1
+ 292:	79 f4       	brne	.+30     	; 0x2b2 <pinDirection+0x108>
+		SETBit(DDRD,(pinNo-24));
+ 294:	41 b3       	in	r20, 0x11	; 17
+ 296:	90 e0       	ldi	r25, 0x00	; 0
+ 298:	48 97       	sbiw	r24, 0x18	; 24
+ 29a:	21 e0       	ldi	r18, 0x01	; 1
+ 29c:	30 e0       	ldi	r19, 0x00	; 0
+ 29e:	b9 01       	movw	r22, r18
+ 2a0:	02 c0       	rjmp	.+4      	; 0x2a6 <pinDirection+0xfc>
+ 2a2:	66 0f       	add	r22, r22
+ 2a4:	77 1f       	adc	r23, r23
+ 2a6:	8a 95       	dec	r24
+ 2a8:	e2 f7       	brpl	.-8      	; 0x2a2 <pinDirection+0xf8>
+ 2aa:	cb 01       	movw	r24, r22
+ 2ac:	84 2b       	or	r24, r20
+ 2ae:	81 bb       	out	0x11, r24	; 17
+ 2b0:	08 95       	ret
 		else if(direction == INPUT)
- 3c4:	8a 81       	ldd	r24, Y+2	; 0x02
- 3c6:	88 23       	and	r24, r24
- 3c8:	a9 f4       	brne	.+42     	; 0x3f4 <pinDirection+0x1b2>
-		CLRBit(DDRD,pinNo);
- 3ca:	81 e3       	ldi	r24, 0x31	; 49
- 3cc:	90 e0       	ldi	r25, 0x00	; 0
- 3ce:	21 e3       	ldi	r18, 0x31	; 49
- 3d0:	30 e0       	ldi	r19, 0x00	; 0
- 3d2:	f9 01       	movw	r30, r18
- 3d4:	20 81       	ld	r18, Z
- 3d6:	62 2f       	mov	r22, r18
- 3d8:	29 81       	ldd	r18, Y+1	; 0x01
- 3da:	42 2f       	mov	r20, r18
- 3dc:	50 e0       	ldi	r21, 0x00	; 0
- 3de:	21 e0       	ldi	r18, 0x01	; 1
- 3e0:	30 e0       	ldi	r19, 0x00	; 0
- 3e2:	02 c0       	rjmp	.+4      	; 0x3e8 <pinDirection+0x1a6>
- 3e4:	22 0f       	add	r18, r18
- 3e6:	33 1f       	adc	r19, r19
- 3e8:	4a 95       	dec	r20
- 3ea:	e2 f7       	brpl	.-8      	; 0x3e4 <pinDirection+0x1a2>
- 3ec:	20 95       	com	r18
- 3ee:	26 23       	and	r18, r22
- 3f0:	fc 01       	movw	r30, r24
- 3f2:	20 83       	st	Z, r18
-		else{}
-	}
-	else{}
-}
- 3f4:	0f 90       	pop	r0
- 3f6:	0f 90       	pop	r0
- 3f8:	df 91       	pop	r29
- 3fa:	cf 91       	pop	r28
- 3fc:	08 95       	ret
+ 2b2:	61 11       	cpse	r22, r1
+ 2b4:	0f c0       	rjmp	.+30     	; 0x2d4 <pinDirection+0x12a>
+		CLRBit(DDRD,(pinNo-24));
+ 2b6:	41 b3       	in	r20, 0x11	; 17
+ 2b8:	90 e0       	ldi	r25, 0x00	; 0
+ 2ba:	48 97       	sbiw	r24, 0x18	; 24
+ 2bc:	21 e0       	ldi	r18, 0x01	; 1
+ 2be:	30 e0       	ldi	r19, 0x00	; 0
+ 2c0:	b9 01       	movw	r22, r18
+ 2c2:	02 c0       	rjmp	.+4      	; 0x2c8 <pinDirection+0x11e>
+ 2c4:	66 0f       	add	r22, r22
+ 2c6:	77 1f       	adc	r23, r23
+ 2c8:	8a 95       	dec	r24
+ 2ca:	e2 f7       	brpl	.-8      	; 0x2c4 <pinDirection+0x11a>
+ 2cc:	cb 01       	movw	r24, r22
+ 2ce:	80 95       	com	r24
+ 2d0:	84 23       	and	r24, r20
+ 2d2:	81 bb       	out	0x11, r24	; 17
+ 2d4:	08 95       	ret
 
-000003fe <_exit>:
- 3fe:	f8 94       	cli
+000002d6 <_exit>:
+ 2d6:	f8 94       	cli
 
-00000400 <__stop_program>:
- 400:	ff cf       	rjmp	.-2      	; 0x400 <__stop_program>
+000002d8 <__stop_program>:
+ 2d8:	ff cf       	rjmp	.-2      	; 0x2d8 <__stop_program>
