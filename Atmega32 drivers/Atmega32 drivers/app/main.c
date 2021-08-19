@@ -9,13 +9,20 @@
 
 int main(void)
 {
+	pinsDirection(&DDRB,0x11,INPUT);
+	writePins(&PORTB,0x11,HIGH);
 	pinsDirection(&DDRC,0x84,OUTPUT);
-	writePins(&PORTC,0x84,HIGH);
+	writePins(&PORTC,0x84,LOW);
+	
+	
     /* Replace with your application code */
     while (1) 
     {
-
+	if (!readPin(PB0))
+	{
+		writePins(&PORTC,0x84,HIGH);
 		
+	}	
     }
 }
 

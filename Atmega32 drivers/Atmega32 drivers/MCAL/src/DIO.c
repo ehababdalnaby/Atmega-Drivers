@@ -78,11 +78,11 @@ u8 readPin(u8 pinNo){
 	if((pinNo>=PA0)&&(pinNo<=PA7))
 		result=GETBit(PINA,pinNo);
 	else if((pinNo>=PB0)&&(pinNo<=PB7))
-		result=GETBit(PINB,pinNo);
+		result=GETBit(PINB,pinNo-8);
 	else if((pinNo>=PC0)&&(pinNo<=PC7))
-		result=GETBit(PINB,pinNo);
+		result=GETBit(PINC,pinNo-16);
 	else if((pinNo>=PD0)&&(pinNo<=PD7))
-		result=GETBit(PINB,pinNo);
+		result=GETBit(PIND,pinNo-24);
 	else{}
 	return result;
 }
