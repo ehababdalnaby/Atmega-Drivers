@@ -41,4 +41,10 @@ void LCD_send_data(u8 data);
 void LCD_latch(void);
 void LCD_CLEAR (void);
 void disp_char(u8 letter);
+void disp_str(u8* str);
+void LCD_GOTXY(u8 row,u8 col);
+void disp_charXY(u8 row,u8 col,u8 letter);
+void disp_strXY(u8 row,u8 col,u8* str);
+void disp_int(u32 intvalue);
+void disp_intXY(u8 row,u8 col,u32 intvalue);
 #endif /* LCD_H_ */

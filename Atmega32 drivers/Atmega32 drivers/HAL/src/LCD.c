@@ -6,8 +6,8 @@
  */ 
 
 #include "includes.h"
-
-
+#include <stdio.h>
+/*clear must be the last command*/
 void LCD_init(void)
 {
 	pinsDirection(&data_ddr, data_pins, OUTPUT);
@@ -65,3 +65,52 @@ void disp_char(u8 letter)
 {
 	LCD_send_data(letter);
 }
+
+void disp_charXY(u8 row,u8 col,u8 letter)
+{
+	LCD_GOTXY(row,col);
+	disp_char(letter);	
+}
+void disp_str(u8* str)
+{
+	u8 indx=0;
+	while(str[indx]!='\0')
+	{
+		disp_char(indx[str]);
+		indx++;
+	}
+}
+void LCD_GOTXY(u8 row,u8 col)
+{
+	if (row==1)
+	{
+		LCD_send_cmd(DDRAM_ADD+0x00+col-1);
+	}
+	else if(row==2)
+	{
+		LCD_send_cmd(DDRAM_ADD+0x40+col-1);	
+	}
+	else{}
+	
+}
+
+void disp_strXY(u8 row,u8 col,u8* str)
+{
+	LCD_GOTXY(row,col);
+	disp_str(str);
+}
+
+
+void disp_int(u32 intvalue)
+{
+	u8 string[11]={0};
+		sprintf(string,"%u",intvalue);
+		disp_str(string);
+}
+void disp_intXY(u8 row,u8 col,u32 intvalue)
+{
+	LCD_GOTXY(row,col);
+	disp_int(intvalue);
+}
+
+
