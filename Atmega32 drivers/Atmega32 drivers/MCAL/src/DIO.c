@@ -102,6 +102,7 @@ void pinsDirection(volatile u8* ddr, u8 mask, u8 direction){
 		CLRBits(*ddr,mask);
 	else{}
 }
+
 /*for all bits*/
 void writeAllPin(volatile u8* port,u8 logic){
 	if(logic==HIGH)

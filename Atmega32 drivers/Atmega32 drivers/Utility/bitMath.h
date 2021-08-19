@@ -15,6 +15,7 @@
 #define SETBit(REG,BIT_NO)	REG |= (1<<BIT_NO)   
 #define CLRBit(REG,BIT_NO)	REG &= ~(1<<BIT_NO) 
 #define TGLBit(REG,BIT_NO)	REG ^= (1<<BIT_NO)
+#define GETBit(REG,BIT_NO)	(((REG) >> (BIT_NO))& 0x01)
 
 /*For custom number of bits in the register*/
 #define SETBits(REG,bMsk)	REG |= (bMsk)
