@@ -5,14 +5,14 @@
  *  Author: Mahmoud-PC
  */ 
 
-#include"includes.h
+#include "includes.h"
 
 
 void LCD_init(void)
 {
-	pinsDirection(& data_ddr,data_pins,OUTPUT);
-	pinsDirection(& ctr_ddr,ctr_pin,OUTPUT);
-	writePin( LCD_RW , LOW );
+	pinsDirection(&data_ddr, data_pins, OUTPUT);
+	pinsDirection(&ctr_ddr, ctr_pin, OUTPUT);
+	writePin(LCD_RW , LOW);
 	LCD_CLEAR();
 	LCD_send_cmd(CMD_RET);
 	LCD_send_cmd(CMD_CUR_INC);

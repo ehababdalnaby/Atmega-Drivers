@@ -4,5 +4,7 @@
 
 app\main.c
 
+HAL\src\LCD.c
+
 MCAL\src\DIO.c
 

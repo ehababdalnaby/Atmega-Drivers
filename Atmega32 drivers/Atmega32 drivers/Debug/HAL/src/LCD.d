@@ -1,4 +1,4 @@
-app/main.d app/main.o: ../app/main.c ../Utility/includes.h \
+HAL/src/LCD.d HAL/src/LCD.o: ../HAL/src/LCD.c ../Utility/includes.h \
  ../Utility/bitMath.h ../Utility/includes.h ../Utility/dataTypes.h \
  ../MCAL/inc/registers.h ../MCAL/inc/DIO.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
