@@ -59,15 +59,13 @@ void KeyPadAPP(void)
 {
 	LCD_init();
 	KEYPAD_Init();
-	disp_charXY(1,1,'x');
-	u8 _key=0;
 	while(1)
 	{
-		_key=GetKey();
-		if (_key!=0)
+		if (GetKey())
 		{
-			disp_charXY(1,1,_key);
-			_key=0;
-		}	
+			disp_charXY(1,1,GetKey());
+			_delay_ms(100);
+		}
+			
 	}
 }
