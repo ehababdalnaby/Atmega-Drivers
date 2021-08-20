@@ -40,6 +40,7 @@ int main(void)
 		}
 		else
 		{
+			row=1;
 			delay =1000;
 			disp_strXY(1,11,"    ");
 			disp_intXY(1,11,count++);

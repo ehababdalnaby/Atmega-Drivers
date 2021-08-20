@@ -19,9 +19,9 @@
 #define data_ddr  DDRA
 #define ctr_ddr   DDRB
 			/* LCD CONTROL PINS */
-#define LCD_RS	  PB1
-#define LCD_RW    PB2
-#define LCD_E	  PB3
+#define LCD_RS	  PB1    //0->to select instruction mode  1->to select data mode
+#define LCD_RW    PB2   //0->to write in LCD  1->read from LCD
+#define LCD_E	  PB3  //
 			/* COMMAND LIST */
 #define CMD_CLR			0X01
 #define CMD_RET			0X02
