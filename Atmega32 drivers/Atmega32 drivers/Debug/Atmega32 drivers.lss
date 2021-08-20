@@ -437,9 +437,9 @@ void disp_charXY(u8 row,u8 col,u8 letter)
 	}
 	else if((pinNo >= PD0) && (pinNo <= PD7)){
 		if(direction == OUTPUT)
-			SETBit(DDRD,(pinNo-24));
+			SETBit(DDRD,(pinNo-PORTD_OFFSET));
 		else if(direction == INPUT)
-			CLRBit(DDRD,(pinNo-24));
+			CLRBit(DDRD,(pinNo-PORTD_OFFSET));
  29e:	88 30       	cpi	r24, 0x08	; 8
  2a0:	f8 f4       	brcc	.+62     	; 0x2e0 <writePin+0x42>
  2a2:	61 30       	cpi	r22, 0x01	; 1
@@ -600,7 +600,7 @@ u8 readPin(u8 pinNo){
 	if((pinNo>=PA0)&&(pinNo<=PA7))
  3ca:	88 30       	cpi	r24, 0x08	; 8
  3cc:	58 f4       	brcc	.+22     	; 0x3e4 <readPin+0x1a>
-		result=GETBit(PINA,pinNo);
+		result=GETBit(PINA,(pinNo-PORTA_OFFSET));
  3ce:	29 b3       	in	r18, 0x19	; 25
  3d0:	30 e0       	ldi	r19, 0x00	; 0
  3d2:	a9 01       	movw	r20, r18
@@ -617,7 +617,7 @@ u8 readPin(u8 pinNo){
  3e6:	98 0f       	add	r25, r24
  3e8:	98 30       	cpi	r25, 0x08	; 8
  3ea:	70 f4       	brcc	.+28     	; 0x408 <__LOCK_REGION_LENGTH__+0x8>
-		result=GETBit(PINB,pinNo-8);
+		result=GETBit(PINB,(pinNo-PORTB_OFFSET));
  3ec:	96 b3       	in	r25, 0x16	; 22
  3ee:	28 2f       	mov	r18, r24
  3f0:	30 e0       	ldi	r19, 0x00	; 0
@@ -637,7 +637,7 @@ u8 readPin(u8 pinNo){
  40a:	98 0f       	add	r25, r24
  40c:	98 30       	cpi	r25, 0x08	; 8
  40e:	70 f4       	brcc	.+28     	; 0x42c <__LOCK_REGION_LENGTH__+0x2c>
-		result=GETBit(PINC,pinNo-16);
+		result=GETBit(PINC,(pinNo-PORTC_OFFSET));
  410:	93 b3       	in	r25, 0x13	; 19
  412:	28 2f       	mov	r18, r24
  414:	30 e0       	ldi	r19, 0x00	; 0
@@ -657,7 +657,7 @@ u8 readPin(u8 pinNo){
  42e:	98 0f       	add	r25, r24
  430:	98 30       	cpi	r25, 0x08	; 8
  432:	70 f4       	brcc	.+28     	; 0x450 <__LOCK_REGION_LENGTH__+0x50>
-		result=GETBit(PIND,pinNo-24);
+		result=GETBit(PIND,(pinNo-PORTD_OFFSET));
  434:	90 b3       	in	r25, 0x10	; 16
  436:	28 2f       	mov	r18, r24
  438:	30 e0       	ldi	r19, 0x00	; 0
@@ -679,9 +679,9 @@ u8 readPin(u8 pinNo){
 u8 readPin(u8 pinNo){
 	u8 result=0;
  450:	80 e0       	ldi	r24, 0x00	; 0
-		result=GETBit(PINC,pinNo-16);
+		result=GETBit(PINC,(pinNo-PORTC_OFFSET));
 	else if((pinNo>=PD0)&&(pinNo<=PD7))
-		result=GETBit(PIND,pinNo-24);
+		result=GETBit(PIND,(pinNo-PORTD_OFFSET));
 	else{}
 	return result;
 }

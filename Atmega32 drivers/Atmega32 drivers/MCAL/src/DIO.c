@@ -10,33 +10,33 @@
 void writePin(u8 pinNo,u8 logic){
 	if((pinNo>=PA0)&&(pinNo<=PA7)){
 		if(logic==HIGH)
-			SETBit(PORTA,pinNo);
+			SETBit(PORTA,(pinNo-PORTA_OFFSET));
 		else if(logic==LOW)
-			CLRBit(PORTA,pinNo);
+			CLRBit(PORTA,(pinNo-PORTA_OFFSET));
 		else{}
 }
 
 	else if((pinNo>=PB0)&&(pinNo<=PB7)){
 		if(logic==HIGH)
-			SETBit(PORTB,(pinNo-8));
+			SETBit(PORTB,(pinNo-PORTB_OFFSET));
 		else if(logic==LOW)
-			CLRBit(PORTB,(pinNo-8));
+			CLRBit(PORTB,(pinNo-PORTB_OFFSET));
 		else{}
 	}
 	
 	else if((pinNo>=PC0)&&(pinNo<=PC7)){
 		if(logic==HIGH)
-			SETBit(PORTC,(pinNo-16));
+			SETBit(PORTC,(pinNo-PORTC_OFFSET));
 		else if(logic==LOW)
-			CLRBit(PORTC,(pinNo-16));
+			CLRBit(PORTC,(pinNo-PORTC_OFFSET));
 		else{}
 	}
 	
 	else if((pinNo>=PD0)&&(pinNo<=PD7)){
 		if(logic==HIGH)
-			SETBit(PORTD,(pinNo-24));
+			SETBit(PORTD,(pinNo-PORTD_OFFSET));
 		else if(logic==LOW)
-			CLRBit(PORTD,(pinNo-24));
+			CLRBit(PORTD,(pinNo-PORTD_OFFSET));
 		else{}
 	}
 	else{}
@@ -44,30 +44,30 @@ void writePin(u8 pinNo,u8 logic){
 void pinDirection(u8 pinNo, u8 direction){
 	if((pinNo >= PA0) && (pinNo <= PA7)){
 		if(direction == OUTPUT)
-			SETBit(DDRA,pinNo);
+			SETBit(DDRA,(pinNo-PORTA_OFFSET));
 		else if(direction == INPUT)
-			CLRBit(DDRA,pinNo);
+			CLRBit(DDRA,(pinNo-PORTA_OFFSET));
 		else{}
 	}
 	else if((pinNo >= PB0) && (pinNo <= PB7)){
 		if(direction == OUTPUT)
-			SETBit(DDRB,(pinNo-8));
+			SETBit(DDRB,(pinNo-PORTB_OFFSET));
 		else if(direction == LOW)
-			CLRBit(DDRB,(pinNo-8));
+			CLRBit(DDRB,(pinNo-PORTB_OFFSET));
 		else{}
 	}
 	else if((pinNo >= PC0) && (pinNo <= PC7)){
 		if(direction == OUTPUT)
-			SETBit(DDRC,(pinNo-16));
+			SETBit(DDRC,(pinNo-PORTC_OFFSET));
 		else if(direction==INPUT)
-			CLRBit(DDRC,(pinNo-16));
+			CLRBit(DDRC,(pinNo-PORTC_OFFSET));
 		else{}
 	}
 	else if((pinNo >= PD0) && (pinNo <= PD7)){
 		if(direction == OUTPUT)
-			SETBit(DDRD,(pinNo-24));
+			SETBit(DDRD,(pinNo-PORTD_OFFSET));
 		else if(direction == INPUT)
-			CLRBit(DDRD,(pinNo-24));
+			CLRBit(DDRD,(pinNo-PORTD_OFFSET));
 		else{}
 	}
 	else{}
@@ -76,13 +76,13 @@ void pinDirection(u8 pinNo, u8 direction){
 u8 readPin(u8 pinNo){
 	u8 result=0;
 	if((pinNo>=PA0)&&(pinNo<=PA7))
-		result=GETBit(PINA,pinNo);
+		result=GETBit(PINA,(pinNo-PORTA_OFFSET));
 	else if((pinNo>=PB0)&&(pinNo<=PB7))
-		result=GETBit(PINB,pinNo-8);
+		result=GETBit(PINB,(pinNo-PORTB_OFFSET));
 	else if((pinNo>=PC0)&&(pinNo<=PC7))
-		result=GETBit(PINC,pinNo-16);
+		result=GETBit(PINC,(pinNo-PORTC_OFFSET));
 	else if((pinNo>=PD0)&&(pinNo<=PD7))
-		result=GETBit(PIND,pinNo-24);
+		result=GETBit(PIND,(pinNo-PORTD_OFFSET));
 	else{}
 	return result;
 }
