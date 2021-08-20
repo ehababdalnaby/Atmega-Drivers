@@ -15,5 +15,7 @@
 #include "DIO.h"
 #include "util/delay.h"
 #include "LCD.h"
+#include "KEYPAD.h"
+#include "APPS.h"
 
 #endif /* INCLUDES_H_ */
