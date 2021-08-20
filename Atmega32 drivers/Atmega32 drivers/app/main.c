@@ -17,7 +17,7 @@ int main(void)
 	 
 	u32 count=0,i=0;
 	u32 delay =1000,row=1;
-	disp_strXY(1,1,"counter = ");
+	disp_strXY(1,1,(u8 *)"counter = ");
 	//disp_intXY(2,3,2021);
     while (1) 
     {
@@ -30,7 +30,7 @@ int main(void)
 			{
 				delay=100;
 			}
-			disp_strXY(1,11,"    ");
+			disp_strXY(1,11,(u8 *)"    ");
 			disp_intXY(1,11,count++);
 			for (i=0;i<=delay;i++)
 			{
@@ -42,7 +42,7 @@ int main(void)
 		{
 			row=1;
 			delay =1000;
-			disp_strXY(1,11,"    ");
+			disp_strXY(1,11,(u8 *)"    ");
 			disp_intXY(1,11,count++);
 			for (i=0;i<=delay;i++)
 			{

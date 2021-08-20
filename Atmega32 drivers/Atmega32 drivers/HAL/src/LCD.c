@@ -7,6 +7,9 @@
 
 #include "includes.h"
 #include <stdio.h>
+
+
+
 /*clear must be the last command*/
 void LCD_init(void)
 {
@@ -14,8 +17,7 @@ void LCD_init(void)
 	pinsDirection(&ctr_ddr, ctr_pin, OUTPUT);
 	writePin(LCD_RW , LOW);
 	_delay_ms(40);
-	LCD_send_cmd(CMD_RET);
-	_delay_ms(40);
+	LCD_ret_Home();
 	LCD_send_cmd(CMD_CUR_INC);
 	LCD_send_cmd(CMD_CUR_SIT);
 	LCD_send_cmd(CMD_SHIFT);
@@ -28,23 +30,13 @@ void LCD_CLEAR(void)
 	LCD_send_cmd(CMD_CLR);
 	_delay_ms(2);
 }
-
-
-void LCD_send_cmd(u8 command)
+void LCD_ret_Home(void)
 {
-	writePin(LCD_RS,LOW);
-	writePins(&PORTA,data_pins,LOW);
-	writePins(&PORTA,(command&data_pins),HIGH);	
-	LCD_latch();
-	writePins(&PORTA,data_pins,LOW);
-	writePins(&PORTA,((command<<4)&data_pins),HIGH);
-	LCD_latch();
-	_delay_us(40);
+	LCD_send_cmd(CMD_RET);
+	_delay_ms(2);
 }
-
-void LCD_send_data(u8 data)
+void SendToLCD(u8 data)
 {
-	writePin(LCD_RS,HIGH);
 	writePins(&PORTA,data_pins,LOW);
 	writePins(&PORTA,(data&data_pins),HIGH);
 	LCD_latch();
@@ -52,6 +44,18 @@ void LCD_send_data(u8 data)
 	writePins(&PORTA,((data<<4)&data_pins),HIGH);
 	LCD_latch();
 	_delay_us(40);
+}
+
+void LCD_send_cmd(u8 command)
+{
+	writePin(LCD_RS,LOW);
+	SendToLCD(command);
+}
+
+void LCD_send_data(u8 data)
+{
+	writePin(LCD_RS,HIGH);
+	SendToLCD(data);
 }
 
 void LCD_latch(void)

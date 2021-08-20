@@ -14,7 +14,11 @@
 #define SELECTOR(ADDRESS) (*((volatile u8*)ADDRESS))
 
 /*Port A Register*/ 
-#define PORTA  SELECTOR(0x3B)    //1->high output				0->low output
+
+/*if the DDRx is set to be output and we write High to the PORTx 
+* this will activate the internal Pull up resistor.
+*/
+#define PORTA  SELECTOR(0x3B)    //1->high output				0->low output  
 #define DDRA   SELECTOR(0x3A)   //1->to make it output			0->to make it input    
 #define PINA   SELECTOR(0x39)  //this register to read a value from a pin 
 
