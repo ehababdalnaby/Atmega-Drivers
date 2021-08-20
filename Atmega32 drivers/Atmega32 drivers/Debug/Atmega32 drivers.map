@@ -378,7 +378,11 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
+<<<<<<< Updated upstream
 .text           0x00000000      0x496
+=======
+.text           0x00000000      0x494
+>>>>>>> Stashed changes
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -464,6 +468,7 @@ END GROUP
  .text.main     0x000000b4        0xa app/main.o
                 0x000000b4                main
  .text.KEYPAD_Init
+<<<<<<< Updated upstream
                 0x000000be       0x26 HAL/src/KEYPAD.o
                 0x000000be                KEYPAD_Init
  .text.GetKey   0x000000e4       0x6e HAL/src/KEYPAD.o
@@ -514,6 +519,58 @@ END GROUP
  .fini9         0x00000492        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                 0x00000492                _exit
                 0x00000492                exit
+=======
+                0x000000b2       0x32 HAL/src/KEYPAD.o
+                0x000000b2                KEYPAD_Init
+ .text.GetKey   0x000000e4       0x6c HAL/src/KEYPAD.o
+                0x000000e4                GetKey
+ .text.LCD_latch
+                0x00000150       0x22 HAL/src/LCD.o
+                0x00000150                LCD_latch
+ .text.SendToLCD
+                0x00000172       0x50 HAL/src/LCD.o
+                0x00000172                SendToLCD
+ .text.LCD_send_cmd
+                0x000001c2       0x16 HAL/src/LCD.o
+                0x000001c2                LCD_send_cmd
+ .text.LCD_CLEAR
+                0x000001d8       0x14 HAL/src/LCD.o
+                0x000001d8                LCD_CLEAR
+ .text.LCD_ret_Home
+                0x000001ec       0x14 HAL/src/LCD.o
+                0x000001ec                LCD_ret_Home
+ .text.LCD_init
+                0x00000200       0x54 HAL/src/LCD.o
+                0x00000200                LCD_init
+ .text.LCD_send_data
+                0x00000254       0x16 HAL/src/LCD.o
+                0x00000254                LCD_send_data
+ .text.disp_char
+                0x0000026a        0x6 HAL/src/LCD.o
+                0x0000026a                disp_char
+ .text.LCD_GOTXY
+                0x00000270       0x1c HAL/src/LCD.o
+                0x00000270                LCD_GOTXY
+ .text.disp_charXY
+                0x0000028c       0x12 HAL/src/LCD.o
+                0x0000028c                disp_charXY
+ .text.writePin
+                0x0000029e      0x12c MCAL/src/DIO.o
+                0x0000029e                writePin
+ .text.readPin  0x000003ca       0x8a MCAL/src/DIO.o
+                0x000003ca                readPin
+ .text.writePins
+                0x00000454       0x1e MCAL/src/DIO.o
+                0x00000454                writePins
+ .text.pinsDirection
+                0x00000472       0x1e MCAL/src/DIO.o
+                0x00000472                pinsDirection
+                0x00000490                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000490        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000490                _exit
+                0x00000490                exit
+>>>>>>> Stashed changes
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -532,11 +589,19 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
+<<<<<<< Updated upstream
  .fini0         0x00000492        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
                 0x00000496                _etext = .
 
 .data           0x00800060       0x10 load address 0x00000496
+=======
+ .fini0         0x00000490        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000494                _etext = .
+
+.data           0x00800060       0x10 load address 0x00000494
+>>>>>>> Stashed changes
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -556,8 +621,13 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 [!provide]                PROVIDE (__bss_end, .)
+<<<<<<< Updated upstream
                 0x00000496                __data_load_start = LOADADDR (.data)
                 0x000004a6                __data_load_end = (__data_load_start + SIZEOF (.data))
+=======
+                0x00000494                __data_load_start = LOADADDR (.data)
+                0x000004a4                __data_load_end = (__data_load_start + SIZEOF (.data))
+>>>>>>> Stashed changes
 
 .noinit         0x00800070        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -648,6 +718,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
+<<<<<<< Updated upstream
 .debug_info     0x00000000     0x180a
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
@@ -674,6 +745,34 @@ END GROUP
  .debug_line    0x000003a8       0xfe HAL/src/KEYPAD.o
  .debug_line    0x000004a6      0x382 HAL/src/LCD.o
  .debug_line    0x00000828      0x25f MCAL/src/DIO.o
+=======
+.debug_info     0x00000000     0x1807
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
+ .debug_info    0x000004e6      0x3b4 APPs/src/APPS.o
+ .debug_info    0x0000089a       0x97 app/main.o
+ .debug_info    0x00000931      0x2c4 HAL/src/KEYPAD.o
+ .debug_info    0x00000bf5      0x8a0 HAL/src/LCD.o
+ .debug_info    0x00001495      0x372 MCAL/src/DIO.o
+
+.debug_abbrev   0x00000000      0xa34
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
+ .debug_abbrev  0x000004a3      0x168 APPs/src/APPS.o
+ .debug_abbrev  0x0000060b       0x65 app/main.o
+ .debug_abbrev  0x00000670       0xf8 HAL/src/KEYPAD.o
+ .debug_abbrev  0x00000768      0x1cb HAL/src/LCD.o
+ .debug_abbrev  0x00000933      0x101 MCAL/src/DIO.o
+
+.debug_line     0x00000000      0xa94
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
+ .debug_line    0x00000115      0x239 APPs/src/APPS.o
+ .debug_line    0x0000034e       0x5d app/main.o
+ .debug_line    0x000003ab      0x108 HAL/src/KEYPAD.o
+ .debug_line    0x000004b3      0x382 HAL/src/LCD.o
+ .debug_line    0x00000835      0x25f MCAL/src/DIO.o
+>>>>>>> Stashed changes
 
 .debug_frame    0x00000000      0x290
  *(.debug_frame)
@@ -683,13 +782,18 @@ END GROUP
  .debug_frame   0x000000ac      0x160 HAL/src/LCD.o
  .debug_frame   0x0000020c       0x84 MCAL/src/DIO.o
 
+<<<<<<< Updated upstream
 .debug_str      0x00000000      0x51c
+=======
+.debug_str      0x00000000      0x525
+>>>>>>> Stashed changes
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_str     0x00000196      0x20d APPs/src/APPS.o
                                 0x241 (size before relaxing)
  .debug_str     0x000003a3       0x13 app/main.o
                                 0x17f (size before relaxing)
+<<<<<<< Updated upstream
  .debug_str     0x000003b6       0x48 HAL/src/KEYPAD.o
                                 0x1d2 (size before relaxing)
  .debug_str     0x000003fe       0xb8 HAL/src/LCD.o
@@ -703,6 +807,21 @@ END GROUP
  .debug_loc     0x00000214       0xbc HAL/src/KEYPAD.o
  .debug_loc     0x000002d0      0x647 HAL/src/LCD.o
  .debug_loc     0x00000917      0x4d0 MCAL/src/DIO.o
+=======
+ .debug_str     0x000003bb       0x4c HAL/src/KEYPAD.o
+                                0x1d6 (size before relaxing)
+ .debug_str     0x00000407       0xb8 HAL/src/LCD.o
+                                0x2d6 (size before relaxing)
+ .debug_str     0x000004bf       0x66 MCAL/src/DIO.o
+                                0x210 (size before relaxing)
+
+.debug_loc      0x00000000      0xdee
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x23e APPs/src/APPS.o
+ .debug_loc     0x0000023e       0x99 HAL/src/KEYPAD.o
+ .debug_loc     0x000002d7      0x647 HAL/src/LCD.o
+ .debug_loc     0x0000091e      0x4d0 MCAL/src/DIO.o
+>>>>>>> Stashed changes
 
 .debug_macinfo
  *(.debug_macinfo)

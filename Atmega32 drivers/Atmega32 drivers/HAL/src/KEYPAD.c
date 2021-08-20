@@ -8,7 +8,11 @@
 
 
 
+<<<<<<< Updated upstream
 u8 keys[][4]=
+=======
+u8 key_CHAR[KEYPAD_ROW][KEYPAD_COL]=
+>>>>>>> Stashed changes
 {
 	{'7','8','9','/'},
 	{'4','5','6','*'},
@@ -30,15 +34,26 @@ u8 GetKey(void)
 {
 	u8 key=0;
 	u8 row=0,col=0;
+<<<<<<< Updated upstream
 	writePins(&ROW_PORT,ROW_PINS,HIGH);	
 	for (row=PD4;row<=PD7;row++)
+=======
+	
+	for (row=FIRSTOFROW;row<=LASTOFROW;row++)
+>>>>>>> Stashed changes
 	{
 		writePin(row,LOW);
-		for (col=PC3;col<=PC6;col++)
+		for (col=FIRSTOFCOL;col<=LASTOFCOL;col++)
 		{
 			if (!readPin(col))
 			{
+<<<<<<< Updated upstream
 				key=keys[row-4][col-3];
+=======
+				while(!readPin(col));
+				key=key_CHAR[row-ROWOFFSET][col-COLOFFSET];
+				return key;
+>>>>>>> Stashed changes
 			}	
 		}
 		writePin(row,HIGH);
