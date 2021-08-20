@@ -71,3 +71,11 @@ void KeyPadAPP(void)
 		}	
 	}
 }
+
+
+
+void CLockAPP(void)
+{
+	LCD_init();
+	disp_strXY(1,1,__TIME__);
+}

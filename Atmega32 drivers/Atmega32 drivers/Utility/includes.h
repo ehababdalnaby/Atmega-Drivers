@@ -17,5 +17,6 @@
 #include "LCD.h"
 #include "KEYPAD.h"
 #include "APPS.h"
+#include <stdio.h>
 
 #endif /* INCLUDES_H_ */

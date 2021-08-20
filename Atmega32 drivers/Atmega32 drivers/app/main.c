@@ -6,10 +6,14 @@
  */ 
 
 #include "includes.h"
-#include "LCD.h"
-#include <math.h>
+
+#ifndef INCLUDES_H_
+#error define includes.h file
+#endif
+
 int main(void)
 {
+	 //CLockAPP();
 	KeyPadAPP();
 }
 

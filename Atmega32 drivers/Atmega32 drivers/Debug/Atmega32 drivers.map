@@ -55,9 +55,11 @@ Discarded input sections
  .data          0x00000000        0x0 APPs/src/APPS.o
  .bss           0x00000000        0x0 APPs/src/APPS.o
  .rodata.str1.1
-                0x00000000       0x10 APPs/src/APPS.o
+                0x00000000       0x19 APPs/src/APPS.o
  .text.counterAPP
                 0x00000000      0x140 APPs/src/APPS.o
+ .text.CLockAPP
+                0x00000000       0x12 APPs/src/APPS.o
  .text          0x00000000        0x0 app/main.o
  .data          0x00000000        0x0 app/main.o
  .bss           0x00000000        0x0 app/main.o
@@ -633,70 +635,70 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x148
+.debug_aranges  0x00000000      0x150
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x28 APPs/src/APPS.o
+                0x00000000       0x30 APPs/src/APPS.o
  .debug_aranges
-                0x00000028       0x20 app/main.o
+                0x00000030       0x20 app/main.o
  .debug_aranges
-                0x00000048       0x28 HAL/src/KEYPAD.o
+                0x00000050       0x28 HAL/src/KEYPAD.o
  .debug_aranges
-                0x00000070       0x88 HAL/src/LCD.o
+                0x00000078       0x88 HAL/src/LCD.o
  .debug_aranges
-                0x000000f8       0x50 MCAL/src/DIO.o
+                0x00000100       0x50 MCAL/src/DIO.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1807
+.debug_info     0x00000000     0x1869
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_info    0x000004e6      0x3b4 APPs/src/APPS.o
- .debug_info    0x0000089a       0x97 app/main.o
- .debug_info    0x00000931      0x2c4 HAL/src/KEYPAD.o
- .debug_info    0x00000bf5      0x8a0 HAL/src/LCD.o
- .debug_info    0x00001495      0x372 MCAL/src/DIO.o
+ .debug_info    0x000004e6      0x401 APPs/src/APPS.o
+ .debug_info    0x000008e7       0x9e app/main.o
+ .debug_info    0x00000985      0x2cb HAL/src/KEYPAD.o
+ .debug_info    0x00000c50      0x8a0 HAL/src/LCD.o
+ .debug_info    0x000014f0      0x379 MCAL/src/DIO.o
 
-.debug_abbrev   0x00000000      0xa34
+.debug_abbrev   0x00000000      0xa4e
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_abbrev  0x000004a3      0x168 APPs/src/APPS.o
- .debug_abbrev  0x0000060b       0x65 app/main.o
- .debug_abbrev  0x00000670       0xf8 HAL/src/KEYPAD.o
- .debug_abbrev  0x00000768      0x1cb HAL/src/LCD.o
- .debug_abbrev  0x00000933      0x101 MCAL/src/DIO.o
+ .debug_abbrev  0x000004a3      0x182 APPs/src/APPS.o
+ .debug_abbrev  0x00000625       0x65 app/main.o
+ .debug_abbrev  0x0000068a       0xf8 HAL/src/KEYPAD.o
+ .debug_abbrev  0x00000782      0x1cb HAL/src/LCD.o
+ .debug_abbrev  0x0000094d      0x101 MCAL/src/DIO.o
 
-.debug_line     0x00000000      0xa94
+.debug_line     0x00000000      0xab1
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_line    0x00000115      0x239 APPs/src/APPS.o
- .debug_line    0x0000034e       0x5d app/main.o
- .debug_line    0x000003ab      0x108 HAL/src/KEYPAD.o
- .debug_line    0x000004b3      0x382 HAL/src/LCD.o
- .debug_line    0x00000835      0x25f MCAL/src/DIO.o
+ .debug_line    0x00000115      0x256 APPs/src/APPS.o
+ .debug_line    0x0000036b       0x5d app/main.o
+ .debug_line    0x000003c8      0x108 HAL/src/KEYPAD.o
+ .debug_line    0x000004d0      0x382 HAL/src/LCD.o
+ .debug_line    0x00000852      0x25f MCAL/src/DIO.o
 
-.debug_frame    0x00000000      0x28c
+.debug_frame    0x00000000      0x29c
  *(.debug_frame)
- .debug_frame   0x00000000       0x44 APPs/src/APPS.o
- .debug_frame   0x00000044       0x24 app/main.o
- .debug_frame   0x00000068       0x40 HAL/src/KEYPAD.o
- .debug_frame   0x000000a8      0x160 HAL/src/LCD.o
- .debug_frame   0x00000208       0x84 MCAL/src/DIO.o
+ .debug_frame   0x00000000       0x54 APPs/src/APPS.o
+ .debug_frame   0x00000054       0x24 app/main.o
+ .debug_frame   0x00000078       0x40 HAL/src/KEYPAD.o
+ .debug_frame   0x000000b8      0x160 HAL/src/LCD.o
+ .debug_frame   0x00000218       0x84 MCAL/src/DIO.o
 
-.debug_str      0x00000000      0x520
+.debug_str      0x00000000      0x529
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_str     0x00000196      0x20d APPs/src/APPS.o
-                                0x241 (size before relaxing)
- .debug_str     0x000003a3       0x13 app/main.o
-                                0x17f (size before relaxing)
- .debug_str     0x000003b6       0x4c HAL/src/KEYPAD.o
-                                0x1d6 (size before relaxing)
- .debug_str     0x00000402       0xb8 HAL/src/LCD.o
+ .debug_str     0x00000196      0x216 APPs/src/APPS.o
+                                0x24f (size before relaxing)
+ .debug_str     0x000003ac       0x13 app/main.o
+                                0x184 (size before relaxing)
+ .debug_str     0x000003bf       0x4c HAL/src/KEYPAD.o
+                                0x1db (size before relaxing)
+ .debug_str     0x0000040b       0xb8 HAL/src/LCD.o
                                 0x2d6 (size before relaxing)
- .debug_str     0x000004ba       0x66 MCAL/src/DIO.o
-                                0x210 (size before relaxing)
+ .debug_str     0x000004c3       0x66 MCAL/src/DIO.o
+                                0x215 (size before relaxing)
 
 .debug_loc      0x00000000      0xdee
  *(.debug_loc)
@@ -723,13 +725,13 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0xf8
+.debug_ranges   0x00000000      0x100
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x18 APPs/src/APPS.o
- .debug_ranges  0x00000018       0x10 app/main.o
- .debug_ranges  0x00000028       0x18 HAL/src/KEYPAD.o
- .debug_ranges  0x00000040       0x78 HAL/src/LCD.o
- .debug_ranges  0x000000b8       0x40 MCAL/src/DIO.o
+ .debug_ranges  0x00000000       0x20 APPs/src/APPS.o
+ .debug_ranges  0x00000020       0x10 app/main.o
+ .debug_ranges  0x00000030       0x18 HAL/src/KEYPAD.o
+ .debug_ranges  0x00000048       0x78 HAL/src/LCD.o
+ .debug_ranges  0x000000c0       0x40 MCAL/src/DIO.o
 
 .debug_macro
  *(.debug_macro)
