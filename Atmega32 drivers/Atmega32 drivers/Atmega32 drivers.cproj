@@ -145,10 +145,16 @@
     <Compile Include="HAL\src\LCD.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\inc\ADC.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\inc\DIO.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\inc\registers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\src\ADC.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\src\DIO.c">

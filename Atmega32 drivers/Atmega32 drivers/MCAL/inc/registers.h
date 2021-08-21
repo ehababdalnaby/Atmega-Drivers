@@ -12,7 +12,7 @@
 #include "includes.h"
 /*A general function to provide the address*/
 #define SELECTOR(ADDRESS) (*((volatile u8*)ADDRESS))
-
+#define SELECTOR_16(ADDRESS) (*((volatile u16*)ADDRESS))
 /*Port A Register*/ 
 
 /*if the DDRx is set to be output and we write High to the PORTx 
@@ -37,7 +37,14 @@
 #define DDRD   SELECTOR(0x31)
 #define PIND  SELECTOR(0x30)
 
+/*ADC registers*/
 
+#define ADMUX	 SELECTOR(0x27)
+#define ADCSRA	 SELECTOR(0x26)
+
+#define ADCH	 SELECTOR(0x25)
+#define ADCL	 SELECTOR(0x24)
+#define ADC		 SELECTOR_16(0x24)
 
 
 
