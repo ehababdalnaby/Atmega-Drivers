@@ -53,6 +53,11 @@
 #define	GIFR   SELECTOR(0X5A)
 #define SREG   SELECTOR(0x5F)
 
-
+/*Timers Registers*/
+#define TCCR0	SELECTOR(0x53)
+#define OCR0	SELECTOR(0x5C)
+#define TCNT0	SELECTOR(0x52)
+#define TIMSK	SELECTOR(0x59)
+#define TIFR	SELECTOR(0x58)
 
 #endif /* REGISTERS_H_ */

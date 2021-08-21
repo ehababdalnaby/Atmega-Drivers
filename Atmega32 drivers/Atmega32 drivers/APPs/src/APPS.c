@@ -9,7 +9,7 @@
 
 void counterAPP(void)
 {
-	INT_init(INT_0,2);
+	INT_init(INT_0,falling_edge);
 	GLOBAL_INT_EN();
 	pinDirection(PC2,OUTPUT);
 	

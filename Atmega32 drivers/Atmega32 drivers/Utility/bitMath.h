@@ -26,6 +26,9 @@
 #define SETALLBits(REG)		REG = (0xFF)
 #define CLRALLBits(REG)		REG = (0x00)
 #define TGLALLBits(REG)		REG ^= (0xFF)
+
+
+
  
 
 
