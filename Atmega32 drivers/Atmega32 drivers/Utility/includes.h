@@ -18,6 +18,7 @@
 #include "KEYPAD.h"
 #include "APPS.h"
 #include "ADC.h"
+#include "EXT_INT.h"
 #include <stdio.h>
 
 #endif /* INCLUDES_H_ */

@@ -11,11 +11,18 @@
 #error define includes.h file
 #endif
 
+ISR(INT0_vect)
+{
+	TGLBit(PORTC,2);
+}
+
 int main(void)
 {
 	 //CLockAPP();
 	//KeyPadAPP();
-	 ADCAPP();
+	 //ADCAPP();
+	 counterAPP();
+	 
 	
 }
 

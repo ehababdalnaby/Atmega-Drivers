@@ -9,6 +9,10 @@
 
 void counterAPP(void)
 {
+	INT_init(INT_0,2);
+	GLOBAL_INT_EN();
+	pinDirection(PC2,OUTPUT);
+	
 	LCD_init();
 	
 	/* Replace with your application code */
