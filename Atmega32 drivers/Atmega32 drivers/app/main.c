@@ -6,15 +6,14 @@
  */ 
 
 #include "includes.h"
-#include <avr/interrupt.h>
 #ifndef INCLUDES_H_
 #error define includes.h file
 #endif
 
-ISR(INT0_vect)
-{
-	TGLBit(PORTC,2);
-}
+// ISR(INT0_vect)
+// {
+// 	TGLBit(PORTC,2);
+// }
 
 
 
