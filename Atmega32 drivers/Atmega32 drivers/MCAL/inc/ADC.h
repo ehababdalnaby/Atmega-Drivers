@@ -12,15 +12,14 @@
 
 enum {ADC0,ADC1,ADC2,ADC3,ADC4,ADC5,ADC6,ADC7}ADC_SELECT;
 enum {AREF,AVCC,Internal_2=3}voltageRef;
-enum{DIV_2=1,DIV_4,DIV_8,DIV_16,DIV_32,DIV_64,DIV_128}prescaler;	
-#define ADLAR 0     //0 for right adjustment   1  for left adjustment	
-
-//#define MUXSELCREG  ADMUX|(AVCC<<6)|(ADLAR<<5)
-
-#define ADEN  1
-#define ADATE 0
-#define ADIE  0
-#define SELEPRESC  DIV_128
+enum{DIV_2=1,DIV_4,DIV_8,DIV_16,DIV_32,DIV_64,DIV_128}prescaler;
+	
+		
+#define ADLAR		0		//0 -> for right adjustment			1 -> for left adjustment	
+#define ADEN		1		//1 -> to enable ADC				    0 -> to disable ADC
+#define ADATE		0		//1 -> to enable Auto trigger			0 -> to disable Auto trigger
+#define ADIE		0		//1 -> to enable interupt		    	0 -> to disable interupt
+#define SELEPRESC  DIV_128  // the prescaler for ADC (determine the division factor between the XTAL frequency and the input clock to the ADC.)
 
 void ADC_init(void);
 u16 read_analog(u16 ADC_NUM);

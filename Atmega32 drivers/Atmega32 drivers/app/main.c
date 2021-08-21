@@ -25,6 +25,9 @@ int main(void)
 		u16 aDCvalue1=read_analog(ADC1);
 		disp_strXY(2,1,(u8 *)"    ");
 		disp_intXY(2,1,aDCvalue1);
+		u16 aDCvalue2=read_analog(ADC2);
+		disp_strXY(2,8,(u8 *)"    ");
+		disp_intXY(2,8,aDCvalue2);
 		_delay_ms(1000);
 	}
 	
