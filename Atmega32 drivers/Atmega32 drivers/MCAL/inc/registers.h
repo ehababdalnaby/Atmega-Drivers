@@ -52,6 +52,7 @@
 #define GICR   SELECTOR(0X5B)
 #define	GIFR   SELECTOR(0X5A)
 #define SREG   SELECTOR(0x5F)
+<<<<<<< Updated upstream
 
 /*Timers Registers*/
 #define TCCR0	SELECTOR(0x53)
@@ -60,4 +61,13 @@
 #define TIMSK	SELECTOR(0x59)
 #define TIFR	SELECTOR(0x58)
 
+=======
+/*UART registers*/
+#define UDR		SELECTOR(0x2C) //tx and rx data register 
+#define UCSRA	SELECTOR(0x2B)
+#define UCSRB	SELECTOR(0x2A)
+#define UCSRC   SELECTOR(0x40)
+#define UBRRH   SELECTOR(0x40)
+#define UBRRL   SELECTOR(0x29)
+>>>>>>> Stashed changes
 #endif /* REGISTERS_H_ */

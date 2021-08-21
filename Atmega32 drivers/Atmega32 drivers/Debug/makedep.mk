@@ -16,3 +16,5 @@ MCAL\src\ADC.c
 
 MCAL\src\DIO.c
 
+MCAL\src\UART.c
+

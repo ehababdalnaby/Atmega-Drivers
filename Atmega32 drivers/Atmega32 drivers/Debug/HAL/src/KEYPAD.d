@@ -9,7 +9,7 @@ HAL/src/KEYPAD.d HAL/src/KEYPAD.o: ../HAL/src/KEYPAD.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../HAL/inc/LCD.h ../APPs/inc/APPS.h ../MCAL/inc/ADC.h \
- ../MCAL/inc/EXT_INT.h \
+ ../MCAL/inc/EXT_INT.h ../MCAL/inc/UART.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h
@@ -47,6 +47,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../MCAL/inc/ADC.h:
 
 ../MCAL/inc/EXT_INT.h:
+
+../MCAL/inc/UART.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 

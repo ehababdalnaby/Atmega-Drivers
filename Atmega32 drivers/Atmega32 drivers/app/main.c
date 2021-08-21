@@ -23,7 +23,9 @@ int main(void)
 	 //CLockAPP();
 	 //KeyPadAPP();
 	 //ADCAPP();
-	 counterAPP();
+	 UART_INIT(9600);
+	 UART_TX('A');
+	 //counterAPP();
 	 
 	
 }
