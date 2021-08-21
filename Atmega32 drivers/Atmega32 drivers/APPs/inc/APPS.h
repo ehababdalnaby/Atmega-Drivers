@@ -14,6 +14,7 @@
 void counterAPP(void); 
 void KeyPadAPP(void);
 void CLockAPP(void);
+void ADCAPP(void);
 
 
 
