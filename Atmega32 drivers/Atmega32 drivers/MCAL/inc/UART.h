@@ -1,3 +1,4 @@
+
 /*
  * UART.h
  *
@@ -26,8 +27,12 @@ enum {NORMAL_MODE,DOUBLE_SPEED}OPERATING_MODE;
 #define TXEN   3
 #define RXEN   4
 #define RXC    7
+#define UCSZ1   2
+#define UCSZ0   1
+#define URSEL   7
 
 void UART_INIT(u16 BaudRate);
 void UART_TX(u8 data);
 u8 UART_RX(void);
 #endif /* UART_H_ */
+

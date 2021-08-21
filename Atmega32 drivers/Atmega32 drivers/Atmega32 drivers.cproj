@@ -30,7 +30,6 @@
     <EraseKey />
     <AsfFrameworkConfig>
       <framework-data>
-<<<<<<< Updated upstream
   <options />
   <configurations />
   <files />
@@ -40,17 +39,6 @@
     <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.28.1" />
   </dependencies>
 </framework-data>
-=======
-        <options />
-        <configurations />
-        <files />
-        <documentation help="" />
-        <offline-documentation help="" />
-        <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
-        </dependencies>
-      </framework-data>
->>>>>>> Stashed changes
     </AsfFrameworkConfig>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -172,11 +160,10 @@
     <Compile Include="MCAL\inc\registers.h">
       <SubType>compile</SubType>
     </Compile>
-<<<<<<< Updated upstream
     <Compile Include="MCAL\inc\Timers.h">
-=======
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\inc\UART.h">
->>>>>>> Stashed changes
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\src\ADC.c">
@@ -185,11 +172,10 @@
     <Compile Include="MCAL\src\DIO.c">
       <SubType>compile</SubType>
     </Compile>
-<<<<<<< Updated upstream
     <Compile Include="MCAL\src\Timers.c">
-=======
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\src\UART.c">
->>>>>>> Stashed changes
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Utility\bitMath.h">

@@ -16,5 +16,7 @@ MCAL\src\ADC.c
 
 MCAL\src\DIO.c
 
+MCAL\src\Timers.c
+
 MCAL\src\UART.c
 

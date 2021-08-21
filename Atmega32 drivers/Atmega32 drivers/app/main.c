@@ -18,14 +18,17 @@ ISR(INT0_vect)
 
 
 
+
 int main(void)
 {
 	 //CLockAPP();
 	 //KeyPadAPP();
 	 //ADCAPP();
-	 UART_INIT(9600);
-	 UART_TX('A');
-	 //counterAPP();
+	//counterAPP();
+	UART_INIT(9600);
+	UART_TX('A');
+	
+
 	 
 	
 }

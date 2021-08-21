@@ -6,12 +6,11 @@
  */ 
 
 
-#ifndef TIMERS_H_
-#define TIMERS_H_
-#define "includes.h"
-enum{NORMAL,CTC,FPWM,PWM}mode;
+// #ifndef TIMERS_H_
+// #define TIMERS_H_
+// #define "includes.h"
+// enum{NORMAL,CTC,FPWM,PWM}mode;
 
 
 
 
-#endif /* TIMERS_H_ */
