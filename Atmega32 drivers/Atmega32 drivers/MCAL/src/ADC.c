@@ -21,5 +21,5 @@ u16 read_analog(u16 ADC_NUM)
 	ADMUX|=(ADC_NUM);
 	ADCSRA|=(1<<6);	//start conversion
 	while((ADCSRA>>6)&0x01); //wait until conversion complete
-	return ADC;		
+	return (ADC&(~(0x03)));		
 }
