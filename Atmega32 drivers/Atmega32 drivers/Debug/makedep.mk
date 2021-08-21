@@ -10,6 +10,8 @@ HAL\src\KEYPAD.c
 
 HAL\src\LCD.c
 
+MCAL\EXT_INT.c
+
 MCAL\src\ADC.c
 
 MCAL\src\DIO.c

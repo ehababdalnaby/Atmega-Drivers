@@ -36,7 +36,7 @@
   <documentation help="" />
   <offline-documentation help="" />
   <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.28.1" />
+    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
   </dependencies>
 </framework-data>
     </AsfFrameworkConfig>
@@ -145,10 +145,16 @@
     <Compile Include="HAL\src\LCD.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\EXT_INT.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\inc\ADC.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\inc\DIO.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\inc\EXT_INT.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\inc\registers.h">
