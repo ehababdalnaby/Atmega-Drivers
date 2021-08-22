@@ -105,3 +105,18 @@ void ADCAPP(void)
 		_delay_ms(100);
 	}
 }
+void SPI_app(void)
+{
+	u8 data='A';
+	u8 receive;
+	u8 col=1;
+	while(1)
+	{
+	SPI_Transceive(data);
+	_delay_ms(1000);
+	disp_charXY(1,col,data);
+	disp_charXY(2,col,receive);
+	data++;
+	col++;
+	}
+}
