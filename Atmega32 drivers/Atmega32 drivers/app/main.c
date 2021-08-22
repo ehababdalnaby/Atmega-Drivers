@@ -25,8 +25,15 @@ int main(void)
 	 //ADCAPP();
 	//counterAPP();
 	UART_INIT(9600);
-	UART_TX('A');
 	
+	u8 x='a';
+	
+	while(1)
+	{
+		UART_TX(x+1);
+		x= UART_RX();
+		
+	}
 
 	 
 	
