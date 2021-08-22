@@ -23,16 +23,24 @@ int main(void)
 	 //CLockAPP();
 	 //KeyPadAPP();
 	 //ADCAPP();
-	//counterAPP();
-	UART_INIT(9600);
-	
-	u8 x='a';
-	
+	 //counterAPP();
+	 // 	UART_INIT(9600);
+	SPI_Init(SPI_MASTER);
+	LCD_init();
+
 	while(1)
 	{
-		UART_TX(x+1);
-		x= UART_RX();
-		
+		u8 data='A';
+		u8 receive;
+		u8 col=1;
+	// 	UART_TX(x+1);
+	// 	x= UART_RX();
+		receive=SPI_Transceive(data);
+		_delay_ms(1000);
+		disp_charXY(1,col,data);
+		disp_charXY(2,col,receive);
+		data++;
+		col++;
 	}
 
 	 

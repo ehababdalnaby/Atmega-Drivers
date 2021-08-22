@@ -68,5 +68,9 @@
 #define UBRRH   SELECTOR(0x40)
 #define UBRRL   SELECTOR(0x29)
 
+/*SPI registers*/
+#define SPDR   SELECTOR(0x2F)
+#define SPSR   SELECTOR(0x2E)
+#define SPCR   SELECTOR(0x2D)
 
 #endif /* REGISTERS_H_ */

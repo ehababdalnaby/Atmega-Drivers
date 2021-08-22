@@ -2,24 +2,24 @@
 void SPI_Init(SPI_Mode spiMode){
 	switch(spiMode){
 	case SPI_MASTER:
-	setBit(SPI_DDR,SPI_SS);
-	setBit(SPI_DDR,SPI_SCK);
-	setBit(SPI_DDR,SPI_MOSI);
-	clearBit(SPI_DDR,SPI_MISO);
+	SETBit(SPI_DDR,SPI_SS);
+	SETBit(SPI_DDR,SPI_SCK);
+	SETBit(SPI_DDR,SPI_MOSI);
+	CLRBit(SPI_DDR,SPI_MISO);
 	
-		setBit(SPCR,SPR0);
-		setBit(SPCR,MSTR);
-		setBit(SPCR,SPE);
+		SETBit(SPCR,SPR0);
+		SETBit(SPCR,MSTR);
+		SETBit(SPCR,SPE);
 
 	break;
 	case SPI_SLAVE:
-	clearBit(SPI_DDR,SPI_SS);
-	clearBit(SPI_DDR,SPI_SCK);
-	clearBit(SPI_DDR,SPI_MOSI);
-	setBit(SPI_DDR,SPI_MISO);
+	CLRBit(SPI_DDR,SPI_SS);
+	CLRBit(SPI_DDR,SPI_SCK);
+	CLRBit(SPI_DDR,SPI_MOSI);
+	SETBit(SPI_DDR,SPI_MISO);
 	
-		clearBit(SPCR,MSTR);
-		setBit(SPCR,SPE);
+		CLRBit(SPCR,MSTR);
+		SETBit(SPCR,SPE);
 
 	break;
 	}

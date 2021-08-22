@@ -20,7 +20,9 @@
 #include "ADC.h"
 #include "EXT_INT.h"
 #include "UART.h"
+#include "SPI.h"
 #include "Timers.h"
+
 #include <stdio.h>
 
 #endif /* INCLUDES_H_ */
