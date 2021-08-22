@@ -6,10 +6,10 @@
  */ 
 #include "ExtEEPROM.h"
 
- 
+ static u16 autoAddress = 0x00;
  void writeEEPROM(u16 location,u8 data)
  {
-	  WRITE_EN();    
+	 WRITE_EN();    
 	 writePin(PB4,LOW);
 	 SPI_Transceive(((location>>5)& ~(0x7))|EROM_COM_WRITE);
 	 SPI_Transceive((u8) location);
@@ -62,6 +62,8 @@
 	  {
 		  SPI_Transceive(str[index]);
 		  index++;
+		  autoAddress++;
+		  
 	  }
 	  writePin(PB4,HIGH);  
 	  _delay_ms(10);
@@ -75,4 +77,18 @@ void ReadEEPROMSTR(u16 location,u8 CharNum,u8 * ReadStr)
 	{
 		ReadStr[Counter]=readEEPROM((location+Counter));
 	}
+}
+void write_EEPROM_auto(u8* str){
+	u8 i=0,size=0,calls=0;
+	while(str[i]!='\0')
+	{
+		size++;
+	}
+	calls = (size/16)+1;
+	for(i=0 ; i < calls ; i++)
+	{
+		writePageEEPROM(autoAddress,&str[i*16]);
+	}
+	
+
 }
