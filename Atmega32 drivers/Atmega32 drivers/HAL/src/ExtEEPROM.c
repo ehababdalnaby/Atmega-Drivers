@@ -79,6 +79,18 @@ void ReadEEPROMSTR(u16 location,u8 CharNum,u8 * ReadStr)
 	}
 }
 
+void CLR_EEPROM(void)
+{
+	u16 counter=0;
+	while(readEEPROM(counter)!='\0')
+	counter++;
+	u16 x;
+	for(x=0;x<counter;x++)
+	{
+		writeEEPROM(x,'\0');
+	}
+}
+
 void write_EEPROM_auto(u8* str){
 	u8 i=0,size=0,calls=0;
 	while(str[i]!='\0')

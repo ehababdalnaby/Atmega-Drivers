@@ -21,8 +21,8 @@ void WRITE_DI(void);
 void WRITE_EN(void);
 void writePageEEPROM(u16 location,u8* str);
 void ReadEEPROMSTR(u16 location,u8 CharNum,u8 * ReadStr);
-
-
+void write_EEPROM_auto(u8* str);
+void CLR_EEPROM(void);
 
 
 #endif /* EXTEEPROM_H_ */
