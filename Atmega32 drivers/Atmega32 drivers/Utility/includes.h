@@ -22,7 +22,7 @@
 #include "UART.h"
 #include "SPI.h"
 #include "Timers.h"
-
+#include "ExtEEPROM.h"
 #include <stdio.h>
 
 #endif /* INCLUDES_H_ */

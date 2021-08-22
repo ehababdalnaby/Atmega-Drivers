@@ -6,6 +6,8 @@ APPs\src\APPS.c
 
 app\main.c
 
+HAL\src\ExtEEPROM.c
+
 HAL\src\KEYPAD.c
 
 HAL\src\LCD.c

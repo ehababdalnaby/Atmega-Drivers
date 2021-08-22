@@ -22,11 +22,21 @@ int main(void)
 {
 	SPI_Init(SPI_MASTER);
 	LCD_init();
-
-	while(1)
+	u8 col=1;
+	// writeEEPROM(0x00,'A');
+	u8 name[]="ehab abdo mahmoud";
+	writePageEEPROM(0x00,name);
+	u8 data= 0;
+	for (col=1;col<=16;col++)
 	{
-		
+		disp_charXY(1,col,readEEPROM(0x00+col));
 	}
+	
+// 		while(1)
+// 		{
+// 			
+// 		
+// 		}
 
 	 
 	

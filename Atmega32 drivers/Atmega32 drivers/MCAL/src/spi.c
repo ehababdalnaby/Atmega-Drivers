@@ -10,6 +10,7 @@ void SPI_Init(SPI_Mode spiMode){
 		SETBit(SPCR,SPR0);
 		SETBit(SPCR,MSTR);
 		SETBit(SPCR,SPE);
+	    writePin(PB4,HIGH);
 
 	break;
 	case SPI_SLAVE:

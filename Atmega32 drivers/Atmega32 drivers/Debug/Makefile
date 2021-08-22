@@ -50,6 +50,7 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../APPs/src/APPS.c \
 ../app/main.c \
+../HAL/src/ExtEEPROM.c \
 ../HAL/src/KEYPAD.c \
 ../HAL/src/LCD.c \
 ../MCAL/EXT_INT.c \
@@ -69,6 +70,7 @@ ASM_SRCS +=
 OBJS +=  \
 APPs/src/APPS.o \
 app/main.o \
+HAL/src/ExtEEPROM.o \
 HAL/src/KEYPAD.o \
 HAL/src/LCD.o \
 MCAL/EXT_INT.o \
@@ -81,6 +83,7 @@ MCAL/src/UART.o
 OBJS_AS_ARGS +=  \
 APPs/src/APPS.o \
 app/main.o \
+HAL/src/ExtEEPROM.o \
 HAL/src/KEYPAD.o \
 HAL/src/LCD.o \
 MCAL/EXT_INT.o \
@@ -93,6 +96,7 @@ MCAL/src/UART.o
 C_DEPS +=  \
 APPs/src/APPS.d \
 app/main.d \
+HAL/src/ExtEEPROM.d \
 HAL/src/KEYPAD.d \
 HAL/src/LCD.d \
 MCAL/EXT_INT.d \
@@ -105,6 +109,7 @@ MCAL/src/UART.d
 C_DEPS_AS_ARGS +=  \
 APPs/src/APPS.d \
 app/main.d \
+HAL/src/ExtEEPROM.d \
 HAL/src/KEYPAD.d \
 HAL/src/LCD.d \
 MCAL/EXT_INT.d \
@@ -136,6 +141,13 @@ APPs/src/APPS.o: ../APPs/src/APPS.c
 	
 
 app/main.o: ../app/main.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../Utility" -I"../MCAL/inc" -I"../HAL/inc" -I"../app" -I"../APPs/inc"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+HAL/src/ExtEEPROM.o: ../HAL/src/ExtEEPROM.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../Utility" -I"../MCAL/inc" -I"../HAL/inc" -I"../app" -I"../APPs/inc"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

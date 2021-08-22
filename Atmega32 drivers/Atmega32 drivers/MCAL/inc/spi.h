@@ -22,6 +22,6 @@ typedef enum{
 
 void SPI_Init(SPI_Mode spiMode);
 u8 SPI_Transceive(u8 data);
-void EEPROM
+
 
 #endif
