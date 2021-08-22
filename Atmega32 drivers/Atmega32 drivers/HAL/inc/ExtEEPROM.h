@@ -20,7 +20,7 @@ u8 readEEPROM(u16 location);
 void WRITE_DI(void);
 void WRITE_EN(void);
 void writePageEEPROM(u16 location,u8* str);
-
+void ReadEEPROMSTR(u16 location,u8 CharNum,u8 * ReadStr);
 
 
 

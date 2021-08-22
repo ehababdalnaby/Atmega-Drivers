@@ -88,7 +88,7 @@ Discarded input sections
                 0x00000000       0x38 APPs/src/APPS.o
  .debug_ranges  0x00000000       0x28 APPs/src/APPS.o
  .debug_line    0x00000000      0x30c APPs/src/APPS.o
- .debug_str     0x00000000      0x421 APPs/src/APPS.o
+ .debug_str     0x00000000      0x42d APPs/src/APPS.o
  .comment       0x00000000       0x31 APPs/src/APPS.o
  .debug_frame   0x00000000       0x64 APPs/src/APPS.o
  COMMON         0x00000000        0xa APPs/src/APPS.o
@@ -115,16 +115,14 @@ Discarded input sections
                 0x00000000       0x28 HAL/src/KEYPAD.o
  .debug_ranges  0x00000000       0x18 HAL/src/KEYPAD.o
  .debug_line    0x00000000      0x128 HAL/src/KEYPAD.o
- .debug_str     0x00000000      0x35d HAL/src/KEYPAD.o
+ .debug_str     0x00000000      0x369 HAL/src/KEYPAD.o
  .comment       0x00000000       0x31 HAL/src/KEYPAD.o
  .debug_frame   0x00000000       0x40 HAL/src/KEYPAD.o
  .text          0x00000000        0x0 HAL/src/LCD.o
  .data          0x00000000        0x0 HAL/src/LCD.o
  .bss           0x00000000        0x0 HAL/src/LCD.o
- .text.disp_str
-                0x00000000       0x26 HAL/src/LCD.o
- .text.disp_strXY
-                0x00000000       0x16 HAL/src/LCD.o
+ .text.disp_charXY
+                0x00000000       0x12 HAL/src/LCD.o
  .rodata.str1.1
                 0x00000000        0x3 HAL/src/LCD.o
  .text.disp_int
@@ -147,7 +145,7 @@ Discarded input sections
                 0x00000000       0x30 MCAL/EXT_INT.o
  .debug_ranges  0x00000000       0x20 MCAL/EXT_INT.o
  .debug_line    0x00000000       0xe4 MCAL/EXT_INT.o
- .debug_str     0x00000000      0x337 MCAL/EXT_INT.o
+ .debug_str     0x00000000      0x343 MCAL/EXT_INT.o
  .comment       0x00000000       0x31 MCAL/EXT_INT.o
  .debug_frame   0x00000000       0x44 MCAL/EXT_INT.o
  .text          0x00000000        0x0 MCAL/src/ADC.o
@@ -164,7 +162,7 @@ Discarded input sections
                 0x00000000       0x28 MCAL/src/ADC.o
  .debug_ranges  0x00000000       0x18 MCAL/src/ADC.o
  .debug_line    0x00000000       0xc9 MCAL/src/ADC.o
- .debug_str     0x00000000      0x318 MCAL/src/ADC.o
+ .debug_str     0x00000000      0x324 MCAL/src/ADC.o
  .comment       0x00000000       0x31 MCAL/src/ADC.o
  .debug_frame   0x00000000       0x34 MCAL/src/ADC.o
  .text          0x00000000        0x0 MCAL/src/DIO.o
@@ -200,7 +198,7 @@ Discarded input sections
                 0x00000000       0x30 MCAL/src/UART.o
  .debug_ranges  0x00000000       0x20 MCAL/src/UART.o
  .debug_line    0x00000000       0xf6 MCAL/src/UART.o
- .debug_str     0x00000000      0x32e MCAL/src/UART.o
+ .debug_str     0x00000000      0x33a MCAL/src/UART.o
  .comment       0x00000000       0x31 MCAL/src/UART.o
  .debug_frame   0x00000000       0x44 MCAL/src/UART.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
@@ -533,7 +531,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x548
+.text           0x00000000      0x5b8
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -615,70 +613,76 @@ END GROUP
                 0x0000008e                __vector_20
                 0x00000092                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x00000092       0x74 app/main.o
+ .text.main     0x00000092       0x72 app/main.o
                 0x00000092                main
  .text.readEEPROM
-                0x00000106       0x5e HAL/src/ExtEEPROM.o
-                0x00000106                readEEPROM
+                0x00000104       0x5e HAL/src/ExtEEPROM.o
+                0x00000104                readEEPROM
  .text.WRITE_EN
-                0x00000164       0x24 HAL/src/ExtEEPROM.o
-                0x00000164                WRITE_EN
+                0x00000162       0x24 HAL/src/ExtEEPROM.o
+                0x00000162                WRITE_EN
  .text.WRITE_DI
-                0x00000188       0x24 HAL/src/ExtEEPROM.o
-                0x00000188                WRITE_DI
+                0x00000186       0x24 HAL/src/ExtEEPROM.o
+                0x00000186                WRITE_DI
  .text.writePageEEPROM
-                0x000001ac       0x74 HAL/src/ExtEEPROM.o
-                0x000001ac                writePageEEPROM
+                0x000001aa       0x74 HAL/src/ExtEEPROM.o
+                0x000001aa                writePageEEPROM
+ .text.ReadEEPROMSTR
+                0x0000021e       0x48 HAL/src/ExtEEPROM.o
+                0x0000021e                ReadEEPROMSTR
  .text.LCD_latch
-                0x00000220       0x22 HAL/src/LCD.o
-                0x00000220                LCD_latch
+                0x00000266       0x22 HAL/src/LCD.o
+                0x00000266                LCD_latch
  .text.SendToLCD
-                0x00000242       0x50 HAL/src/LCD.o
-                0x00000242                SendToLCD
+                0x00000288       0x50 HAL/src/LCD.o
+                0x00000288                SendToLCD
  .text.LCD_send_cmd
-                0x00000292       0x16 HAL/src/LCD.o
-                0x00000292                LCD_send_cmd
+                0x000002d8       0x16 HAL/src/LCD.o
+                0x000002d8                LCD_send_cmd
  .text.LCD_CLEAR
-                0x000002a8       0x14 HAL/src/LCD.o
-                0x000002a8                LCD_CLEAR
+                0x000002ee       0x14 HAL/src/LCD.o
+                0x000002ee                LCD_CLEAR
  .text.LCD_ret_Home
-                0x000002bc       0x14 HAL/src/LCD.o
-                0x000002bc                LCD_ret_Home
+                0x00000302       0x14 HAL/src/LCD.o
+                0x00000302                LCD_ret_Home
  .text.LCD_init
-                0x000002d0       0x54 HAL/src/LCD.o
-                0x000002d0                LCD_init
+                0x00000316       0x54 HAL/src/LCD.o
+                0x00000316                LCD_init
  .text.LCD_send_data
-                0x00000324       0x16 HAL/src/LCD.o
-                0x00000324                LCD_send_data
+                0x0000036a       0x16 HAL/src/LCD.o
+                0x0000036a                LCD_send_data
  .text.disp_char
-                0x0000033a        0x6 HAL/src/LCD.o
-                0x0000033a                disp_char
+                0x00000380        0x6 HAL/src/LCD.o
+                0x00000380                disp_char
+ .text.disp_str
+                0x00000386       0x26 HAL/src/LCD.o
+                0x00000386                disp_str
  .text.LCD_GOTXY
-                0x00000340       0x1c HAL/src/LCD.o
-                0x00000340                LCD_GOTXY
- .text.disp_charXY
-                0x0000035c       0x12 HAL/src/LCD.o
-                0x0000035c                disp_charXY
+                0x000003ac       0x1c HAL/src/LCD.o
+                0x000003ac                LCD_GOTXY
+ .text.disp_strXY
+                0x000003c8       0x16 HAL/src/LCD.o
+                0x000003c8                disp_strXY
  .text.writePin
-                0x0000036e      0x12c MCAL/src/DIO.o
-                0x0000036e                writePin
+                0x000003de      0x12c MCAL/src/DIO.o
+                0x000003de                writePin
  .text.writePins
-                0x0000049a       0x1e MCAL/src/DIO.o
-                0x0000049a                writePins
+                0x0000050a       0x1e MCAL/src/DIO.o
+                0x0000050a                writePins
  .text.pinsDirection
-                0x000004b8       0x1e MCAL/src/DIO.o
-                0x000004b8                pinsDirection
+                0x00000528       0x1e MCAL/src/DIO.o
+                0x00000528                pinsDirection
  .text.SPI_Init
-                0x000004d6       0x64 MCAL/src/spi.o
-                0x000004d6                SPI_Init
+                0x00000546       0x64 MCAL/src/spi.o
+                0x00000546                SPI_Init
  .text.SPI_Transceive
-                0x0000053a        0xa MCAL/src/spi.o
-                0x0000053a                SPI_Transceive
-                0x00000544                . = ALIGN (0x2)
+                0x000005aa        0xa MCAL/src/spi.o
+                0x000005aa                SPI_Transceive
+                0x000005b4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000544        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000544                _exit
-                0x00000544                exit
+ .fini9         0x000005b4        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x000005b4                _exit
+                0x000005b4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -697,11 +701,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000544        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x000005b4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000548                _etext = .
+                0x000005b8                _etext = .
 
-.data           0x00800060       0x12 load address 0x00000548
+.data           0x00800060       0x12 load address 0x000005b8
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -721,8 +725,8 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 0x00800072                PROVIDE (__bss_end, .)
-                0x00000548                __data_load_start = LOADADDR (.data)
-                0x0000055a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000005b8                __data_load_start = LOADADDR (.data)
+                0x000005ca                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800072        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -797,78 +801,78 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x160
+.debug_aranges  0x00000000      0x168
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 app/main.o
  .debug_aranges
-                0x00000020       0x40 HAL/src/ExtEEPROM.o
+                0x00000020       0x48 HAL/src/ExtEEPROM.o
  .debug_aranges
-                0x00000060       0x88 HAL/src/LCD.o
+                0x00000068       0x88 HAL/src/LCD.o
  .debug_aranges
-                0x000000e8       0x50 MCAL/src/DIO.o
+                0x000000f0       0x50 MCAL/src/DIO.o
  .debug_aranges
-                0x00000138       0x28 MCAL/src/spi.o
+                0x00000140       0x28 MCAL/src/spi.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x23b3
+.debug_info     0x00000000     0x244b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_info    0x000004e6      0x3a3 app/main.o
- .debug_info    0x00000889      0x759 HAL/src/ExtEEPROM.o
- .debug_info    0x00000fe2      0xaba HAL/src/LCD.o
- .debug_info    0x00001a9c      0x597 MCAL/src/DIO.o
- .debug_info    0x00002033      0x380 MCAL/src/spi.o
+ .debug_info    0x000004e6      0x3db app/main.o
+ .debug_info    0x000008c1      0x7b9 HAL/src/ExtEEPROM.o
+ .debug_info    0x0000107a      0xaba HAL/src/LCD.o
+ .debug_info    0x00001b34      0x597 MCAL/src/DIO.o
+ .debug_info    0x000020cb      0x380 MCAL/src/spi.o
 
-.debug_abbrev   0x00000000      0xb0d
+.debug_abbrev   0x00000000      0xafe
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_abbrev  0x000004a3      0x107 app/main.o
- .debug_abbrev  0x000005aa      0x1a7 HAL/src/ExtEEPROM.o
- .debug_abbrev  0x00000751      0x1dc HAL/src/LCD.o
- .debug_abbrev  0x0000092d       0xfa MCAL/src/DIO.o
- .debug_abbrev  0x00000a27       0xe6 MCAL/src/spi.o
+ .debug_abbrev  0x000004a3       0xf8 app/main.o
+ .debug_abbrev  0x0000059b      0x1a7 HAL/src/ExtEEPROM.o
+ .debug_abbrev  0x00000742      0x1dc HAL/src/LCD.o
+ .debug_abbrev  0x0000091e       0xfa MCAL/src/DIO.o
+ .debug_abbrev  0x00000a18       0xe6 MCAL/src/spi.o
 
-.debug_line     0x00000000      0xbfa
+.debug_line     0x00000000      0xc23
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_line    0x00000115       0xf1 app/main.o
- .debug_line    0x00000206      0x2b2 HAL/src/ExtEEPROM.o
- .debug_line    0x000004b8      0x3a2 HAL/src/LCD.o
- .debug_line    0x0000085a      0x27f MCAL/src/DIO.o
- .debug_line    0x00000ad9      0x121 MCAL/src/spi.o
+ .debug_line    0x00000115       0xd7 app/main.o
+ .debug_line    0x000001ec      0x2f5 HAL/src/ExtEEPROM.o
+ .debug_line    0x000004e1      0x3a2 HAL/src/LCD.o
+ .debug_line    0x00000883      0x27f MCAL/src/DIO.o
+ .debug_line    0x00000b02      0x121 MCAL/src/spi.o
 
-.debug_frame    0x00000000      0x2e8
+.debug_frame    0x00000000      0x318
  *(.debug_frame)
- .debug_frame   0x00000000       0x3c app/main.o
- .debug_frame   0x0000003c       0x94 HAL/src/ExtEEPROM.o
- .debug_frame   0x000000d0      0x160 HAL/src/LCD.o
- .debug_frame   0x00000230       0x84 MCAL/src/DIO.o
- .debug_frame   0x000002b4       0x34 MCAL/src/spi.o
+ .debug_frame   0x00000000       0x34 app/main.o
+ .debug_frame   0x00000034       0xcc HAL/src/ExtEEPROM.o
+ .debug_frame   0x00000100      0x160 HAL/src/LCD.o
+ .debug_frame   0x00000260       0x84 MCAL/src/DIO.o
+ .debug_frame   0x000002e4       0x34 MCAL/src/spi.o
 
-.debug_str      0x00000000      0x6e6
+.debug_str      0x00000000      0x726
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_str     0x00000196      0x313 app/main.o
-                                0x35d (size before relaxing)
- .debug_str     0x000004a9       0xac HAL/src/ExtEEPROM.o
-                                0x3b5 (size before relaxing)
- .debug_str     0x00000555       0xf3 HAL/src/LCD.o
-                                0x458 (size before relaxing)
- .debug_str     0x00000648       0x7b MCAL/src/DIO.o
-                                0x397 (size before relaxing)
- .debug_str     0x000006c3       0x23 MCAL/src/spi.o
-                                0x34c (size before relaxing)
+ .debug_str     0x00000196      0x32f app/main.o
+                                0x374 (size before relaxing)
+ .debug_str     0x000004c5       0xcf HAL/src/ExtEEPROM.o
+                                0x3e7 (size before relaxing)
+ .debug_str     0x00000594       0xf4 HAL/src/LCD.o
+                                0x464 (size before relaxing)
+ .debug_str     0x00000688       0x7b MCAL/src/DIO.o
+                                0x3a3 (size before relaxing)
+ .debug_str     0x00000703       0x23 MCAL/src/spi.o
+                                0x358 (size before relaxing)
 
-.debug_loc      0x00000000      0xf8d
+.debug_loc      0x00000000     0x1095
  *(.debug_loc)
- .debug_loc     0x00000000       0x73 app/main.o
- .debug_loc     0x00000073      0x3aa HAL/src/ExtEEPROM.o
- .debug_loc     0x0000041d      0x647 HAL/src/LCD.o
- .debug_loc     0x00000a64      0x4d0 MCAL/src/DIO.o
- .debug_loc     0x00000f34       0x59 MCAL/src/spi.o
+ .debug_loc     0x00000000       0x47 app/main.o
+ .debug_loc     0x00000047      0x4de HAL/src/ExtEEPROM.o
+ .debug_loc     0x00000525      0x647 HAL/src/LCD.o
+ .debug_loc     0x00000b6c      0x4d0 MCAL/src/DIO.o
+ .debug_loc     0x0000103c       0x59 MCAL/src/spi.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -888,13 +892,13 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x110
+.debug_ranges   0x00000000      0x118
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x10 app/main.o
- .debug_ranges  0x00000010       0x30 HAL/src/ExtEEPROM.o
- .debug_ranges  0x00000040       0x78 HAL/src/LCD.o
- .debug_ranges  0x000000b8       0x40 MCAL/src/DIO.o
- .debug_ranges  0x000000f8       0x18 MCAL/src/spi.o
+ .debug_ranges  0x00000010       0x38 HAL/src/ExtEEPROM.o
+ .debug_ranges  0x00000048       0x78 HAL/src/LCD.o
+ .debug_ranges  0x000000c0       0x40 MCAL/src/DIO.o
+ .debug_ranges  0x00000100       0x18 MCAL/src/spi.o
 
 .debug_macro
  *(.debug_macro)
