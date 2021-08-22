@@ -26,21 +26,24 @@ int main(void)
 	 //counterAPP();
 	 // 	UART_INIT(9600);
 	SPI_Init(SPI_MASTER);
-	LCD_init();
-
+ 	LCD_init();
+	u8 col=1;
+	u8 h7mbozo='a';
+	u8 receive;
+	
+	disp_charXY(1,col,h7mbozo);
 	while(1)
-	{
-		u8 data='A';
-		u8 receive;
-		u8 col=1;
-	// 	UART_TX(x+1);
+	{	disp_charXY(1,col,h7mbozo);
+
+	 //	UART_TX(x+1);
 	// 	x= UART_RX();
-		receive=SPI_Transceive(data);
+		receive=SPI_Transceive(h7mbozo);
 		_delay_ms(1000);
-		disp_charXY(1,col,data);
-		disp_charXY(2,col,receive);
-		data++;
-		col++;
+ 	
+		 if(receive!=0xff)
+ 		disp_charXY(2,col,receive);
+		 h7mbozo++;
+		 col++;
 	}
 
 	 
