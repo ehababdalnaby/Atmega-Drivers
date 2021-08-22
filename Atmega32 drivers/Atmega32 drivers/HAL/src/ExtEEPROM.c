@@ -6,7 +6,7 @@
  */ 
 #include "ExtEEPROM.h"
 
- static u16 autoAddress = 0x00;
+ u16 autoAddress = 0x00;
  void writeEEPROM(u16 location,u8 data)
  {
 	 WRITE_EN();    
@@ -78,11 +78,13 @@ void ReadEEPROMSTR(u16 location,u8 CharNum,u8 * ReadStr)
 		ReadStr[Counter]=readEEPROM((location+Counter));
 	}
 }
+
 void write_EEPROM_auto(u8* str){
 	u8 i=0,size=0,calls=0;
 	while(str[i]!='\0')
 	{
 		size++;
+		i++;
 	}
 	calls = (size/16)+1;
 	for(i=0 ; i < calls ; i++)
