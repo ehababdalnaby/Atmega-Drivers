@@ -25,7 +25,7 @@ int main(void)
 	u8 col=1;
 	// writeEEPROM(0x00,'A');
 	u8 name[]="ehab abdo mahmoud";
-	writePageEEPROM(0x00,name);
+	write_EEPROM_auto("mahmoud el sayed gadallah darwish abdelhamid es7ak ya3koub");
 	u8 name_modified[16];
 	ReadEEPROMSTR(0x05,4,name_modified);
 	disp_strXY(1,1,name_modified);
