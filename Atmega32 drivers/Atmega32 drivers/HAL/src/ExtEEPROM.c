@@ -15,17 +15,18 @@
 	 SPI_Transceive((u8) location);
 	 SPI_Transceive(data);
 	 writePin(PB4,HIGH);
-	 _delay_ms(20);
+	 _delay_ms(10);
 	 WRITE_DI();
  }
  u8 readEEPROM(u16 location)
  {
 	 u8 data;
 	 writePin(PB4,LOW);
+	 _delay_ms(1);
 	 SPI_Transceive(((location>>5)& ~(0x7))|EROM_COM_READ);
 	 SPI_Transceive((u8)location);
 	 data= SPI_Transceive(0xff);	//send garbage to recieve right data
-	 _delay_ms(20);
+	 _delay_ms(10);
 	  writePin(PB4,HIGH);
 	 return data;
  }
@@ -35,7 +36,6 @@
  {
 	 writePin(PB4,LOW);
 	 SPI_Transceive(0x06);
-	  _delay_ms(2);
 	 writePin(PB4,HIGH);
 	 _delay_ms(2);
  }
@@ -62,10 +62,11 @@
 	  {
 		  SPI_Transceive(str[index]);
 		  index++;
-		  autoAddress++; 
+		  autoAddress++;
+		  
 	  }
 	  writePin(PB4,HIGH);  
-	  _delay_ms(50);
+	  _delay_ms(10);
 	  WRITE_DI();//write disable
  }
  
