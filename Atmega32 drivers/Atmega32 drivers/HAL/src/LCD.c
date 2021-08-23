@@ -43,7 +43,7 @@ void SendToLCD(u8 data)
 	writePins(&PORTA,data_pins,LOW);
 	writePins(&PORTA,((data<<4)&data_pins),HIGH);
 	LCD_latch();
-	_delay_us(40);
+	_delay_us(50);
 }
 
 void LCD_send_cmd(u8 command)
@@ -61,9 +61,9 @@ void LCD_send_data(u8 data)
 void LCD_latch(void)
 {
 	writePin(LCD_E,HIGH);
-	_delay_us(40);
+	_delay_us(50);
 	writePin(LCD_E,LOW);
-	_delay_us(40);
+	_delay_us(50);
 }
 void disp_char(u8 letter)
 {

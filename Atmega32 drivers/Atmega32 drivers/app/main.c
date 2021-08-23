@@ -14,17 +14,17 @@
 // {
 // 	TGLBit(PORTC,2);
 // }
+
+
 extern u16 autoAddress ;
-
-
 
 int main(void)
 {
 	
 	SPI_Init(SPI_MASTER);
 	LCD_init();
-    CLR_EEPROM();
-	u8 name[]="NTI Group -- External EEPROM Task With Automated Filling -- Thank you Dr mahmoud for you efforts ";
+    //CLR_EEPROM();
+	u8 name[]="NTI Group -- External EEPROM Task With Automated Filling -- Thank you Dr mahmoud for your efforts ";
 	write_EEPROM_auto(name);
 	u8 name_modified[16];
 	u8 i=0;
@@ -40,7 +40,7 @@ int main(void)
 			disp_strXY(1,1,name_modified);
 			ReadEEPROMSTR(down++,16,name_modified);
 			disp_strXY(2,1,name_modified);
-			_delay_ms(200);
+			//_delay_ms(50);
 			i++;i++;
 		}
 	}

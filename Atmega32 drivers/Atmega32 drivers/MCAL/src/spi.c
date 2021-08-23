@@ -28,5 +28,6 @@ void SPI_Init(SPI_Mode spiMode){
 u8 SPI_Transceive(u8 data){
 		SPDR = data;
 		while(!(SPSR & (1<<SPIF)));
+		_delay_ms(1);
 		return SPDR;
 }

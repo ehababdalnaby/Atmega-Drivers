@@ -5,7 +5,7 @@
  *  Author: ehab2_phjirwi
  */ 
 #include "includes.h"
-#define  F_CPU 8000000UL
+#define  F_CPU 16000000UL
 void UART_INIT(u16 BaudRate)
 {
 	u16 BAUD_TEMP=0;
