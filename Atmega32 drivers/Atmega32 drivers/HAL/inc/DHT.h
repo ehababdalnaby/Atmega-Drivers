@@ -21,6 +21,8 @@
 void DHT_start(void);
 u8 DHT_read(void);
 void DHT_Response(void);
+BOOL DHT_Represent(u16* hum,u16* temp);
+
 
 
 #endif /* HDT_H_ */
