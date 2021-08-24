@@ -20,7 +20,7 @@
 
 void DHT_start(void);
 u8 DHT_read(void);
-
+void DHT_Response(void);
 
 
 #endif /* HDT_H_ */
