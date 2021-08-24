@@ -13,6 +13,13 @@
 #include "includes.h"
 
 
+#define DHT_BIT		PD7
+#define DHT_PORT	PORTD
+#define DHT_DDR		DDRD
+#define DHT_PIN		PIND
+
+void DHT_start(void);
+s8 DHT_read(void);
 
 
 
