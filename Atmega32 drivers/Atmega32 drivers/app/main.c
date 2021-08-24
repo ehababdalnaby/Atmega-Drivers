@@ -31,6 +31,16 @@ int main(void)
 			{
 				disp_strXY(1,1,"7ambozo");
 			}
+	u8 temp[60];
+	u8 hum[60];
+		while(1)
+		{
+			disp_strXY(1,1,"Humid=     %RH");
+			disp_strXY(2,1,"temp=      Deg.c");
+			DHT_Represent(hum,temp);
+			disp_strXY(1,7,hum);
+			disp_strXY(2,6,temp);
+			_delay_ms(500);
 		}
 	 
 }

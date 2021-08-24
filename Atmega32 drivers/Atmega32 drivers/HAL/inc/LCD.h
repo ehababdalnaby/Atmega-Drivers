@@ -46,7 +46,7 @@ void disp_str(u8* str);
 void LCD_GOTXY(u8 row,u8 col);
 void disp_charXY(u8 row,u8 col,u8 letter);
 void disp_strXY(u8 row,u8 col,u8* str);
-void disp_int(float intvalue);
-void disp_intXY(u8 row,u8 col,float intvalue);
+void disp_int(u32 intvalue);
+void disp_intXY(u8 row,u8 col,u32 intvalue);
 void LCD_ret_Home(void);
 #endif /* LCD_H_ */

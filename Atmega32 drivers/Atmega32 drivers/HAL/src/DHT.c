@@ -5,7 +5,7 @@
  *  Author: Mahmoud-PC
  */ 
 #include "DHT.h"
-
+#include <string.h>
 void DHT_start(void)
 {
 	pinDirection(DHT_PIN,OUTPUT);		
@@ -36,16 +36,39 @@ BOOL DHT_Represent(u8* hum,u8* temp)
 	u8 humidity_I = 0 , humidity_D = 0, temp_I = 0, temp_D = 0 , sumCheck = 0;
 	DHT_start();
 	DHT_Response();
+	
 	humidity_I=DHT_read();
 	humidity_D=DHT_read();
 	temp_I=DHT_read();
 	temp_D=DHT_read();
-	sumCheck=DHT_read();
-	if( (humidity_I+humidity_D+temp_I+temp_D) == sumCheck )
-	{
+	
 		hum_1=((humidity_I<<8)|humidity_D);
 		temp_1=((temp_I<<8)|temp_D);
+		
+		intTostring(hum_1,temp_1,temp,hum);
 		return TRUE;
-	}
-	return FALSE;
+	
+}
+
+
+void intTostring(u16 hum_1,u16 temp_1,u8* temp,u8* hum )
+{
+	u8 dot[]=".";
+	u8 temp_2[10]={0},hum_2[10]={0};
+			if (GETBit(temp_1,15)==1)
+			{
+				CLRBit(temp_1,15);
+				temp[0]='-';
+				temp++;
+			}
+			sprintf(temp,"%u",(temp_1)/10);
+			sprintf(hum,"%u",(hum_1)/10);
+			
+			sprintf(temp_2,"%u",((temp_1)%10));
+			sprintf(hum_2,"%u",((hum_1)%10));
+			
+			strcat(hum,dot);
+			strcat(temp,dot);
+			strcat(hum,hum_2);
+			strcat(temp,temp_2);
 }
