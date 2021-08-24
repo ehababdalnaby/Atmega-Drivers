@@ -1,6 +1,6 @@
-MCAL/src/UART.d MCAL/src/UART.o: ../MCAL/src/UART.c ../Utility/includes.h \
- ../Utility/bitMath.h ../Utility/includes.h ../Utility/dataTypes.h \
- ../MCAL/inc/registers.h ../MCAL/inc/DIO.h \
+HAL/src/DHT.d HAL/src/DHT.o: ../HAL/src/DHT.c ../HAL/inc/DHT.h \
+ ../Utility/includes.h ../Utility/bitMath.h ../Utility/includes.h \
+ ../Utility/dataTypes.h ../MCAL/inc/registers.h ../MCAL/inc/DIO.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h \
@@ -10,10 +10,11 @@ MCAL/src/UART.d MCAL/src/UART.o: ../MCAL/src/UART.c ../Utility/includes.h \
  ../HAL/inc/LCD.h ../HAL/inc/KEYPAD.h ../APPs/inc/APPS.h \
  ../MCAL/inc/ADC.h ../MCAL/inc/EXT_INT.h ../MCAL/inc/UART.h \
  ../MCAL/inc/SPI.h ../MCAL/inc/Timers.h ../HAL/inc/ExtEEPROM.h \
- ../HAL/inc/DHT.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h
+
+../HAL/inc/DHT.h:
 
 ../Utility/includes.h:
 
@@ -56,8 +57,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../MCAL/inc/Timers.h:
 
 ../HAL/inc/ExtEEPROM.h:
-
-../HAL/inc/DHT.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 

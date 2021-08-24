@@ -23,6 +23,7 @@
 #include "SPI.h"
 #include "Timers.h"
 #include "ExtEEPROM.h"
+#include "DHT.h"
 #include <stdio.h>
 
 #endif /* INCLUDES_H_ */

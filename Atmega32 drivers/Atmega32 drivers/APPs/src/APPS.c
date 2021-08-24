@@ -6,7 +6,7 @@
  */ 
 #include "APPS.h"
 
-
+extern u8 autoAddress;
 void counterAPP(void)
 {
 	INT_init(INT_0,falling_edge);

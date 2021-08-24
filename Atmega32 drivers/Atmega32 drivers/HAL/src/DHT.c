@@ -15,7 +15,7 @@ void DHT_start(void)
 	_delay_us(40);						//wait to ensure sensors response signals
 }
 
-s8 DHT_read(void)
+u8 DHT_read(void)
 {
 	u8 bitLogic=0 ,i;
 	pinDirection(DHT_PIN,INPUT);

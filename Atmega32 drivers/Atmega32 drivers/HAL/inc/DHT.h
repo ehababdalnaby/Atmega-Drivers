@@ -19,7 +19,7 @@
 
 
 void DHT_start(void);
-s8 DHT_read(void);
+u8 DHT_read(void);
 
 
 

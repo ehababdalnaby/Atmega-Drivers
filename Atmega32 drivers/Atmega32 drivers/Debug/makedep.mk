@@ -8,6 +8,8 @@ app\main.c
 
 HAL\src\ExtEEPROM.c
 
+HAL\src\DHT.c
+
 HAL\src\KEYPAD.c
 
 HAL\src\LCD.c
