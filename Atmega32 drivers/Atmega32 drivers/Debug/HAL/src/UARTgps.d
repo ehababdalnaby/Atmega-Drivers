@@ -1,5 +1,5 @@
-HAL/src/ExtEEPROM.d HAL/src/ExtEEPROM.o: ../HAL/src/ExtEEPROM.c \
- ../HAL/inc/ExtEEPROM.h ../Utility/includes.h ../Utility/bitMath.h \
+HAL/src/UARTgps.d HAL/src/UARTgps.o: ../HAL/src/UARTgps.c \
+ ../HAL/inc/UARTgps.h ../Utility/includes.h ../Utility/bitMath.h \
  ../Utility/includes.h ../Utility/dataTypes.h ../MCAL/inc/registers.h \
  ../MCAL/inc/DIO.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
@@ -10,13 +10,13 @@ HAL/src/ExtEEPROM.d HAL/src/ExtEEPROM.o: ../HAL/src/ExtEEPROM.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../HAL/inc/LCD.h ../HAL/inc/KEYPAD.h ../APPs/inc/APPS.h \
  ../MCAL/inc/ADC.h ../MCAL/inc/EXT_INT.h ../MCAL/inc/UART.h \
- ../MCAL/inc/SPI.h ../MCAL/inc/Timers.h ../HAL/inc/DHT.h \
- ../HAL/inc/UARTgps.h \
+ ../MCAL/inc/SPI.h ../MCAL/inc/Timers.h ../HAL/inc/ExtEEPROM.h \
+ ../HAL/inc/DHT.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h
 
-../HAL/inc/ExtEEPROM.h:
+../HAL/inc/UARTgps.h:
 
 ../Utility/includes.h:
 
@@ -58,9 +58,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../MCAL/inc/Timers.h:
 
-../HAL/inc/DHT.h:
+../HAL/inc/ExtEEPROM.h:
 
-../HAL/inc/UARTgps.h:
+../HAL/inc/DHT.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 

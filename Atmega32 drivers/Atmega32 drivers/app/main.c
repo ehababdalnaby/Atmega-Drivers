@@ -10,22 +10,42 @@
 #error define includes.h file
 #endif
 
+LCD_init();
+UART_INIT(9600);
+void GPS_Read(void){
+	pinDirection(PD0,INPUT);
+	u8 i=0;
+	u8 longitude[10], latitude[10], gpsTime[10], altidude[10], buffer[100], temp;
+	u8 gpgga[]="$GPGGA",gpggaTemp[7];
+	temp=UART_RX();
 
+		while(temp != '\n');
+		while(temp!=',')
+		{
+			gpggaTemp[i]=temp;
+			i++;
+		}
+		i=0;
+		if((strcmp(gpgga,gpggaTemp))==0){
+			while(temp != '\n')
+			{
+				buffer[i]=temp;
+				i++;
+			}
+		}
+	disp_strXY(1,1,buffer);
+	
+	
+}
 int main(void)
 {
+	_delay_ms(12000);
+	while(1){
 	
-	LCD_init();
-	u8 temp[60];
-	u8 hum[60];
-		while(1)
-		{
-			disp_strXY(1,1,"Humid=     %RH");
-			disp_strXY(2,1,"temp=      Deg.c");
-			DHT_Represent(hum,temp);
-			disp_strXY(1,7,hum);
-			disp_strXY(2,6,temp);
-			_delay_ms(500);
-		}
-	 
+   GPS_Read();	
+	
+	
+	}
+		
 }
 

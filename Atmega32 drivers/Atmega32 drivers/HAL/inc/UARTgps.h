@@ -9,7 +9,7 @@
 #ifndef UARTGPS_H_
 #define UARTGPS_H_
 #include "includes.h"
-
+void GPS_Read(void);
 
 
 
