@@ -136,6 +136,9 @@
     <Compile Include="HAL\inc\ExtEEPROM.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\inc\HDT.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\inc\KEYPAD.h">
       <SubType>compile</SubType>
     </Compile>
@@ -143,6 +146,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\src\ExtEEPROM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\src\HDT.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\src\KEYPAD.c">

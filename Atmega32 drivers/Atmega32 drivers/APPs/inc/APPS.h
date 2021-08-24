@@ -16,7 +16,7 @@ void KeyPadAPP(void);
 void CLockAPP(void);
 void ADCAPP(void);
 void SPI_app(void);
-
+void EEPROM_25aa040(void);
 
 
 
