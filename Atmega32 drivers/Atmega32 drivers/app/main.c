@@ -15,14 +15,22 @@ int main(void)
 {
 	
 	LCD_init();
-	u8 a[10],b[10];
+	u8 hum[10],temp[10];
+	BOOL checkSensor;
 		while(1)
 		{
-			DHT_Represent(a,b);
-			disp_strXY(1,1,a);
-			disp_strXY(2,1,b);
-			_delay_ms(2000);
-			LCD_CLEAR();
+			checkSensor=DHT_Represent(hum,temp);
+			if(checkSensor==1)
+			{
+				disp_strXY(1,1,hum);
+				disp_strXY(2,1,temp);
+				disp_strXY(1,10,"bb");
+				_delay_ms(2000);
+			}
+			else
+			{
+				disp_strXY(1,1,"7ambozo");
+			}
 		}
 	 
 }
