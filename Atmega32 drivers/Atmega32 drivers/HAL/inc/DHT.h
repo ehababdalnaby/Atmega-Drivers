@@ -7,8 +7,8 @@
 
 
 
-#ifndef HDT_H_
-#define HDT_H_
+#ifndef DHT_H_
+#define DHT_H_
 
 #include "includes.h"
 

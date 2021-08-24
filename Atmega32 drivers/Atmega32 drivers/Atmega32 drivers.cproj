@@ -36,7 +36,7 @@
   <documentation help="" />
   <offline-documentation help="" />
   <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
+    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.28.1" />
   </dependencies>
 </framework-data>
     </AsfFrameworkConfig>
@@ -136,7 +136,7 @@
     <Compile Include="HAL\inc\ExtEEPROM.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\inc\HDT.h">
+    <Compile Include="HAL\inc\DHT.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\inc\KEYPAD.h">
@@ -148,7 +148,7 @@
     <Compile Include="HAL\src\ExtEEPROM.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\src\HDT.c">
+    <Compile Include="HAL\src\DHT.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\src\KEYPAD.c">
