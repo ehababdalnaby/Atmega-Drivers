@@ -15,13 +15,14 @@ int main(void)
 {
 	
 	LCD_init();
-	u16 a,b;
+	u8 a[10],b[10];
 		while(1)
 		{
-			DHT_Represent(&a,&b);
-			disp_intXY(1,1,a);
-			disp_intXY(2,1,b);
+			DHT_Represent(a,b);
+			disp_strXY(1,1,a);
+			disp_strXY(2,1,b);
 			_delay_ms(2000);
+			LCD_CLEAR();
 		}
 	 
 }

@@ -30,8 +30,10 @@ void DHT_Response(void)
 	while(readPin(DHT_PIN));
 }
 
-BOOL DHT_Represent(u16* hum,u16* temp)
+BOOL DHT_Represent(u8* hum,u8* temp)
 {
+	u16 temp_1=0,hum_1=0;
+	float temp_2=0,hum_2=0;
 	u8 humidity_I = 0 , humidity_D = 0, temp_I = 0, temp_D = 0 , sumCheck = 0;
 	DHT_start();
 	DHT_Response();
@@ -42,8 +44,12 @@ BOOL DHT_Represent(u16* hum,u16* temp)
 	sumCheck=DHT_read();
 	if( (humidity_I+humidity_D+temp_I+temp_D) == sumCheck )
 	{
-		*hum=(humidity_I<<8)|humidity_D;
-		*temp=(temp_I<<8)|temp_D;
+		hum_1=((humidity_I<<8)|humidity_D);
+		temp_1=((temp_I<<8)|temp_D);
+// 		*hum=((float)(hum_1)/10);
+// 		*temp=((float)(temp_1)/10);
+		sprintf(temp,"%0.1f",((float)(temp_1)/10));
+		sprintf(hum,"%0.1f",((float)(hum_1)/10));
 		return TRUE;
 	}
 	return FALSE;

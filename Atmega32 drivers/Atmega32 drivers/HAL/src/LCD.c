@@ -105,13 +105,13 @@ void disp_strXY(u8 row,u8 col,u8* str)
 }
 
 
-void disp_int(u32 intvalue)
+void disp_int(float intvalue)
 {
 	u8 string[11]={0};
-		sprintf(string,"%u",intvalue);
+		sprintf(string,"%0.1f",intvalue);
 		disp_str(string);
 }
-void disp_intXY(u8 row,u8 col,u32 intvalue)
+void disp_intXY(u8 row,u8 col,float intvalue)
 {
 	LCD_GOTXY(row,col);
 	disp_int(intvalue);
