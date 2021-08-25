@@ -24,7 +24,7 @@
 #include "Timers.h"
 #include "ExtEEPROM.h"
 #include "DHT.h"
-#include "UARTgps.h"
+#include "GPS.h"
 #include <stdio.h>
 
 #endif /* INCLUDES_H_ */

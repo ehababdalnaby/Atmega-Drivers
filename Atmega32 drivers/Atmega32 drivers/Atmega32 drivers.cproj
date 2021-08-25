@@ -36,7 +36,7 @@
   <documentation help="" />
   <offline-documentation help="" />
   <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
+    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.34.1" />
   </dependencies>
 </framework-data>
     </AsfFrameworkConfig>
@@ -145,7 +145,7 @@
     <Compile Include="HAL\inc\LCD.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\inc\UARTgps.h">
+    <Compile Include="HAL\inc\GPS.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\src\ExtEEPROM.c">
@@ -154,13 +154,13 @@
     <Compile Include="HAL\src\DHT.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\src\GPS.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\src\KEYPAD.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\src\LCD.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="HAL\src\UARTgps.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\EXT_INT.c">

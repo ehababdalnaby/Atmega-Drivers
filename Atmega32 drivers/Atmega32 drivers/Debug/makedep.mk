@@ -10,11 +10,11 @@ HAL\src\ExtEEPROM.c
 
 HAL\src\DHT.c
 
+HAL\src\GPS.c
+
 HAL\src\KEYPAD.c
 
 HAL\src\LCD.c
-
-HAL\src\UARTgps.c
 
 MCAL\EXT_INT.c
 
