@@ -11,7 +11,52 @@
 #include "LCD.h"
 
 
-
+void GPS_READing(u8* lati_value,u8* lati_dir,u8* longi_value,u8* longi_dir,u8* alti,u8* time)
+{
+	u8 value,i;
+	if(UART_RX()=='$' && UART_RX()=='G'&&UART_RX()=='P'&&UART_RX()=='G'&&UART_RX()=='G'&&UART_RX()=='A')
+	{
+		UART_RX();
+		//time
+		time[0]=UART_RX();
+		value=time[0];
+		for(i=1;value!=',';i++)
+		{
+			time[i]=UART_RX();
+			value=time[i];
+		}
+		time[i-1]=' ';
+		//latitude
+		lati_value[0]=UART_RX();
+		value=lati_value[0];
+		for(i=1;value!=',';i++)
+		{
+			lati_value[i]=UART_RX();
+			value=lati_value[i];
+		}
+		lati_value[i-1]=' ';
+		lati_dir=UART_RX();
+		value=UART_RX();//remove next comma (,)
+		//longitude
+		longi_value[0]=UART_RX();
+		value=longi_value[0];
+		for(i=1;value!=',';i++)
+		{
+			longi_value[i]=UART_RX();
+			value=longi_value[i];
+		}
+		longi_value[i-1]=' ';
+		longi_dir=UART_RX();
+		 convert_time_to_UTC(time);
+		 disp_strXY(1,1,time);
+		 convert_to_degrees(lati_value);
+		 //disp_strXY(1,1,lati_value);
+		 disp_char(lati_dir);
+		 convert_to_degrees(longi_value);
+		 disp_strXY(2,1,longi_value);
+		 disp_char(longi_dir);
+	}//if
+}
 
 
 

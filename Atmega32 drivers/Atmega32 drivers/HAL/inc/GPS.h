@@ -13,7 +13,7 @@
 
 
 
-
+void GPS_READing(u8* lati_value,u8* lati_dir,u8* longi_value,u8* longi_dir,u8* alti,u8* time);
 void GPS_Read(void);
 void strfToint(u8* strf);
 void convert_to_degrees(u8 *raw);

@@ -19,53 +19,7 @@ int main(void)
 	UART_INIT(9600);
 	while(1)
 	{
-		if(UART_RX()=='$' && UART_RX()=='G'&&UART_RX()=='P'&&UART_RX()=='G'&&UART_RX()=='G'&&UART_RX()=='A')
-		{
-				UART_RX();
-				//time
-				time[0]=UART_RX();
-				value=time[0];
-				for(i=1;value!=',';i++)
-				{
-					time[i]=UART_RX();
-					value=time[i];
-				}
-				time[i-1]=' ';
-				//latitude
-				lati_value[0]=UART_RX();
-				value=lati_value[0];
-				for(i=1;value!=',';i++)
-				{
-					lati_value[i]=UART_RX();
-					value=lati_value[i];
-				}
-				lati_value[i-1]=' ';
-				lati_dir=UART_RX();
-				value=UART_RX();//remove next comma (,)
-				//longitude
-				longi_value[0]=UART_RX();
-				value=longi_value[0];
-				for(i=1;value!=',';i++)
-				{
-					longi_value[i]=UART_RX();
-					value=longi_value[i];
-				}
-				longi_value[i-1]=' ';
-				longi_dir=UART_RX();
-				
-				convert_time_to_UTC(time);
-				disp_strXY(1,1,time);
-				convert_to_degrees(lati_value);
-				//disp_strXY(1,1,lati_value);
- 				disp_char(lati_dir);
-				
-				convert_to_degrees(longi_value);
-				disp_strXY(2,1,longi_value);
- 				disp_char(longi_dir);
-				
-				_delay_ms(1000);
-			
-		}//if
+		 GPS_READing(lati_value,&lati_dir,longi_value,&longi_dir,alti,time);
 	}//while
 }
 
