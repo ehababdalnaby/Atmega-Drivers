@@ -47,15 +47,20 @@ void GPS_READing(u8* lati_value,u8* lati_dir,u8* longi_value,u8* longi_dir,u8* a
 		}
 		longi_value[i-1]=' ';
 		longi_dir=UART_RX();
-		 convert_time_to_UTC(time);
-		 disp_strXY(1,1,time);
-		 convert_to_degrees(lati_value);
-		 //disp_strXY(1,1,lati_value);
+		 //convert_time_to_UTC(time);
+		 //disp_strXY(1,1,time);
+		 //convert_to_degrees(lati_value);
+		 strfToint(lati_value);
+		 disp_strXY(1,1,lati_value);
+		 disp_char(',');
 		 disp_char(lati_dir);
-		 convert_to_degrees(longi_value);
+// 		 convert_to_degrees(longi_value);
+		 strfToint(longi_value);
 		 disp_strXY(2,1,longi_value);
+		 disp_char(',');
 		 disp_char(longi_dir);
 	}//if
+	
 }
 
 
@@ -65,21 +70,28 @@ void GPS_READing(u8* lati_value,u8* lati_dir,u8* longi_value,u8* longi_dir,u8* a
 void strfToint(u8* strf) //{"12312.1234"} // {"1212.1234"}
 {
 	u8 i=0;
-	u8 dotIndex=0;
+	u8 dotIndex;
 	u32 Num=0;
+	u32 Num2=0;
 	while (strf[i]!='.')
-	{
-			i++;
-	}
+	i++;
 	dotIndex=i;
-	i=i-2;
-	
-	Num=atoi(&strf[i])*(10000UL);
-	Num=Num+atoi(&strf[dotIndex+1]); /// 121234
-	Num=(Num)/60UL;
+	for (i;i<dotIndex+4;i++)
+	{
+		strf[i]=strf[i+1];
+	}
+	strf[i]='.';
+	Num2=atoi(&(strf[dotIndex])); //
+	disp_intXY(2,1,Num2);
+	for (i=dotIndex;i<dotIndex+4;i++)
+	strf[i]=' ';
+	Num=atoi(&(strf[dotIndex-2]));
+	Num=(Num*10000+Num2)*100/6UL;
+	//disp_intXY(1,1,Num);
 	strf[dotIndex-2]='.';
-	sprintf(&strf[dotIndex-1],"%u",Num);
-	//disp_strXY(1,1,strf);
+	sprintf(&strf[dotIndex-1],"%lu",Num);
+	//disp_strXY(2,1,strf);
+
 }
 
 
