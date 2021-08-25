@@ -16,7 +16,7 @@
 
 void GPS_Read(void);
 void strfToint(u8* strf);
-
-
+void convert_to_degrees(u8 *raw);
+void convert_time_to_UTC(u8 *time);
 
 #endif /* GPS_H_ */

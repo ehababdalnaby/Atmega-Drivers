@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	u8 value,i,lati_value[20],lati_dir, longi_value[20], longi_dir, alti[5],time[20] ;
+	u8 value,i,lati_value[20]={0},lati_dir, longi_value[20]={0}, longi_dir, alti[5],time[20] ;
 	LCD_init();
 	UART_INIT(9600);
 	while(1)
@@ -53,12 +53,13 @@ int main(void)
 				longi_value[i-1]=' ';
 				longi_dir=UART_RX();
 				
-				//disp_strXY(1,1,time);
-				strfToint(lati_value);
-				disp_strXY(1,1,lati_value);
+				convert_time_to_UTC(time);
+				disp_strXY(1,1,time);
+				convert_to_degrees(lati_value);
+				//disp_strXY(1,1,lati_value);
  				disp_char(lati_dir);
 				
-				strfToint(longi_value);
+				convert_to_degrees(longi_value);
 				disp_strXY(2,1,longi_value);
  				disp_char(longi_dir);
 				
