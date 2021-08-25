@@ -20,7 +20,7 @@ void strfToint(u8* strf) //{"12312.1234"} // {"1212.1234"}
 	i=i-2;
 	Num=atoi(&strf[i])*(10000UL);
 	Num=Num+atoi(&strf[dotIndex+1]); /// 121234
-	Num=(Num*100)/60UL;
+	Num=(Num*10)/60UL;
 	strf[dotIndex-2]='.';
 	sprintf(&strf[dotIndex-1],"%u",Num);
 	//disp_strXY(1,1,strf);
