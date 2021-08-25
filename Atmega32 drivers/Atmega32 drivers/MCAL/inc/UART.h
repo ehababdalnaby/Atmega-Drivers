@@ -30,6 +30,7 @@ enum {NORMAL_MODE,DOUBLE_SPEED}OPERATING_MODE;
 #define UCSZ1   2
 #define UCSZ0   1
 #define URSEL   7
+#define RXCIE   7
 
 void UART_INIT(u16 BaudRate);
 void UART_TX(u8 data);
