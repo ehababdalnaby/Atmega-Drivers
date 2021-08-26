@@ -10,6 +10,7 @@
 #define RTC_H_
 
 #include "includes.h"
+
 #define RTC_READ_ADDRESS     0xD1
 #define RTC_WRITE_ADDRESS    0xD0
 
@@ -21,12 +22,10 @@
 #define RTC_MONTH_ADDRESS	 0X05	
 #define RTC_YEAR_ADDRESS	 0X06
 
-typedef enum{
-	Sun=1,Mon,Tus,Wed,Thr,Fri,Sat
-	}DAYS_NAMES;
+typedef enum{Sun=1,Mon,Tus,Wed,Thr,Fri,Sat}DAYS_NAMES;
 
 
-void Write_RTC();
-void Read_RTC();
+void Write_RTC(u8 Seconds,u8 Minutes,u8 Hours,u8 Day,u8 Date,u8 Month,u8 Year);
+void Read_RTC(u8* Time,u8* Calen);
 
 #endif /* RTC_H_ */

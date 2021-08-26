@@ -26,6 +26,7 @@
 #include "DHT.h"
 #include "GPS.h"
 #include "I2C.h"
+#include "RTC.h"
 #include <stdio.h>
 
 #endif /* INCLUDES_H_ */
