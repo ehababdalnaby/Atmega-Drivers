@@ -15,7 +15,7 @@ enum {AREF,AVCC,Internal_2=3}voltageRef;
 enum{DIV_2=1,DIV_4,DIV_8,DIV_16,DIV_32,DIV_64,DIV_128}prescaler;
 	
 		
-#define ADLAR		0		//0 -> for right adjustment			1 -> for left adjustment	
+#define ADLAR		0		//0 -> for right adjustment				1 -> for left adjustment	
 #define ADEN		1		//1 -> to enable ADC				    0 -> to disable ADC
 #define ADATE		0		//1 -> to enable Auto trigger			0 -> to disable Auto trigger
 #define ADIE		0		//1 -> to enable interupt		    	0 -> to disable interupt
