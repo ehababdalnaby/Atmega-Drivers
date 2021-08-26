@@ -41,15 +41,35 @@ void I2C_EEPROM_Read(u8 add,u8 *data)
 	_delay_ms(1);
 }
 
+
+void I2C_EEPROM_Seq_Read(u8 add,u8 Numchar,u8 *data)
+{
+	u8 i=0;
+	I2C_start(); //send start
+	I2C_Write(((add>>7)&0x02)|(CMD_WRITE),SCMRSLA_Ack_Code); //send control Byte
+	I2C_Write(add,SCMRSLA_Ack_Code);  //send address word
+	I2C_Restart();
+	I2C_Write((CMD_READ),SCMRSLA_Ack_Code); //send control Byte
+	while(i<Numchar-1)
+	{
+		I2C_Read(&data[i],ReceiveData_Ack_code); //send data
+		i++;
+	}
+	I2C_Read(&data[i],ReceiveData_NAck_code); //send data
+	I2C_Stop();
+	_delay_ms(1);
+}
+
 void I2C_EEPROM_Page_Write(u16 add,u8* data)
 {
 	u8 i=0;
 	I2C_start(); //send start
 	I2C_Write(((add>>7)&0x02)|(CMD_WRITE),SCMTSLA_Ack_Code); //send control Byte
 	I2C_Write(add,SCMTSLA_Ack_Code);  //send address word
-	while(data[i]!='\0')
+	while(*data!='\0' && i<16)
 	{
-		I2C_Write(data[i],SlaveData_Ack_code); //send data
+		I2C_Write(*data,SlaveData_Ack_code); //send data
+		data++;
 		i++;
 	}
 	I2C_Stop();
