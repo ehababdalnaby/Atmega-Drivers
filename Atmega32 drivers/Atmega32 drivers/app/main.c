@@ -25,7 +25,7 @@ int main(void)
 		 Read_RTC(Time,Calen);
 		disp_strXY(1,1,Time);
 		disp_strXY(2,1,Calen);
-		_delay_ms(500);
+		_delay_ms(500);           //read every 0.5 second
 	}
 				
 }
