@@ -18,7 +18,7 @@ void ADCAPP(void);
 void SPI_app(void);
 void EEPROM_25aa040(void);
 void tempsensorAPP(void);
-
+void GPS_APP(void);
 
 
 #endif /* APPS_H_ */

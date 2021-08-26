@@ -9,25 +9,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   2 .bss          00000065  0080007e  0080007e  00000ffe  2**0
                   ALLOC
-  3 .comment      0000005c  00000000  00000000  00000ffe  2**0
+  3 .comment      0000008c  00000000  00000000  00000ffe  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000105c  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000108c  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000198  00000000  00000000  00001098  2**0
+  5 .debug_aranges 00000198  00000000  00000000  000010c8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000286c  00000000  00000000  00001230  2**0
+  6 .debug_info   0000286c  00000000  00000000  00001260  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000c1b  00000000  00000000  00003a9c  2**0
+  7 .debug_abbrev 00000c1b  00000000  00000000  00003acc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000dad  00000000  00000000  000046b7  2**0
+  8 .debug_line   00000ea8  00000000  00000000  000046e7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000430  00000000  00000000  00005464  2**2
+  9 .debug_frame  00000430  00000000  00000000  00005590  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000007b6  00000000  00000000  00005894  2**0
+ 10 .debug_str    00000806  00000000  00000000  000059c0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000147f  00000000  00000000  0000604a  2**0
+ 11 .debug_loc    0000147f  00000000  00000000  000061c6  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000138  00000000  00000000  000074c9  2**0
+ 12 .debug_ranges 00000138  00000000  00000000  00007645  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -155,8 +155,8 @@ int main(void)
   f2:	13 e0       	ldi	r17, 0x03	; 3
   f4:	0f c0       	rjmp	.+30     	; 0x114 <main+0x82>
 	{
-		disp_charXY(2,i,'-');
-  f6:	4d e2       	ldi	r20, 0x2D	; 45
+		disp_charXY(2,i,'*');
+  f6:	4a e2       	ldi	r20, 0x2A	; 42
   f8:	61 2f       	mov	r22, r17
   fa:	82 e0       	ldi	r24, 0x02	; 2
   fc:	0e 94 9d 02 	call	0x53a	; 0x53a <disp_charXY>
@@ -185,7 +185,7 @@ int main(void)
  114:	1f 30       	cpi	r17, 0x0F	; 15
  116:	78 f3       	brcs	.-34     	; 0xf6 <main+0x64>
 	{
-		disp_charXY(2,i,'-');
+		disp_charXY(2,i,'*');
 		_delay_ms(900);
 	}
 	LCD_CLEAR();
@@ -643,12 +643,6 @@ void GPS_READing(u8* lati_value,u8* lati_dir,u8* longi_value,u8* longi_dir,u8* a
  3ca:	08 95       	ret
 
 000003cc <LCD_latch>:
-	SendToLCD(data);
-}
-
-void LCD_latch(void)
-{
-	writePin(LCD_E,HIGH);
  3cc:	61 e0       	ldi	r22, 0x01	; 1
  3ce:	8b e0       	ldi	r24, 0x0B	; 11
  3d0:	0e 94 fc 02 	call	0x5f8	; 0x5f8 <writePin>
@@ -664,8 +658,6 @@ void LCD_latch(void)
  3da:	f1 f7       	brne	.-4      	; 0x3d8 <LCD_latch+0xc>
  3dc:	00 c0       	rjmp	.+0      	; 0x3de <LCD_latch+0x12>
  3de:	00 00       	nop
-	_delay_us(50);
-	writePin(LCD_E,LOW);
  3e0:	60 e0       	ldi	r22, 0x00	; 0
  3e2:	8b e0       	ldi	r24, 0x0B	; 11
  3e4:	0e 94 fc 02 	call	0x5f8	; 0x5f8 <writePin>
@@ -678,36 +670,25 @@ void LCD_latch(void)
  3f4:	08 95       	ret
 
 000003f6 <SendToLCD>:
-{
-	LCD_send_cmd(CMD_RET);
-	_delay_ms(2);
-}
-void SendToLCD(u8 data)
-{
  3f6:	cf 93       	push	r28
  3f8:	c8 2f       	mov	r28, r24
-	writePins(&PORTA,data_pins,LOW);
  3fa:	40 e0       	ldi	r20, 0x00	; 0
  3fc:	60 ef       	ldi	r22, 0xF0	; 240
  3fe:	8b e3       	ldi	r24, 0x3B	; 59
  400:	90 e0       	ldi	r25, 0x00	; 0
  402:	0e 94 92 03 	call	0x724	; 0x724 <writePins>
-	writePins(&PORTA,(data&data_pins),HIGH);
  406:	6c 2f       	mov	r22, r28
  408:	60 7f       	andi	r22, 0xF0	; 240
  40a:	41 e0       	ldi	r20, 0x01	; 1
  40c:	8b e3       	ldi	r24, 0x3B	; 59
  40e:	90 e0       	ldi	r25, 0x00	; 0
  410:	0e 94 92 03 	call	0x724	; 0x724 <writePins>
-	LCD_latch();
  414:	0e 94 e6 01 	call	0x3cc	; 0x3cc <LCD_latch>
-	writePins(&PORTA,data_pins,LOW);
  418:	40 e0       	ldi	r20, 0x00	; 0
  41a:	60 ef       	ldi	r22, 0xF0	; 240
  41c:	8b e3       	ldi	r24, 0x3B	; 59
  41e:	90 e0       	ldi	r25, 0x00	; 0
  420:	0e 94 92 03 	call	0x724	; 0x724 <writePins>
-	writePins(&PORTA,((data<<4)&data_pins),HIGH);
  424:	80 e1       	ldi	r24, 0x10	; 16
  426:	c8 9f       	mul	r28, r24
  428:	b0 01       	movw	r22, r0
@@ -716,7 +697,6 @@ void SendToLCD(u8 data)
  42e:	8b e3       	ldi	r24, 0x3B	; 59
  430:	90 e0       	ldi	r25, 0x00	; 0
  432:	0e 94 92 03 	call	0x724	; 0x724 <writePins>
-	LCD_latch();
  436:	0e 94 e6 01 	call	0x3cc	; 0x3cc <LCD_latch>
  43a:	87 ec       	ldi	r24, 0xC7	; 199
  43c:	90 e0       	ldi	r25, 0x00	; 0
@@ -724,35 +704,21 @@ void SendToLCD(u8 data)
  440:	f1 f7       	brne	.-4      	; 0x43e <__LOCK_REGION_LENGTH__+0x3e>
  442:	00 c0       	rjmp	.+0      	; 0x444 <__LOCK_REGION_LENGTH__+0x44>
  444:	00 00       	nop
-	_delay_us(50);
-}
  446:	cf 91       	pop	r28
  448:	08 95       	ret
 
 0000044a <LCD_send_cmd>:
-
-void LCD_send_cmd(u8 command)
-{
  44a:	cf 93       	push	r28
  44c:	c8 2f       	mov	r28, r24
-	writePin(LCD_RS,LOW);
  44e:	60 e0       	ldi	r22, 0x00	; 0
  450:	89 e0       	ldi	r24, 0x09	; 9
  452:	0e 94 fc 02 	call	0x5f8	; 0x5f8 <writePin>
-	SendToLCD(command);
  456:	8c 2f       	mov	r24, r28
  458:	0e 94 fb 01 	call	0x3f6	; 0x3f6 <SendToLCD>
-}
  45c:	cf 91       	pop	r28
  45e:	08 95       	ret
 
 00000460 <LCD_CLEAR>:
-	LCD_CLEAR();
-}
-
-void LCD_CLEAR(void)
-{
-	LCD_send_cmd(CMD_CLR);
  460:	81 e0       	ldi	r24, 0x01	; 1
  462:	0e 94 25 02 	call	0x44a	; 0x44a <LCD_send_cmd>
 	#else
@@ -770,11 +736,6 @@ void LCD_CLEAR(void)
  472:	08 95       	ret
 
 00000474 <LCD_ret_Home>:
-	_delay_ms(2);
-}
-void LCD_ret_Home(void)
-{
-	LCD_send_cmd(CMD_RET);
  474:	82 e0       	ldi	r24, 0x02	; 2
  476:	0e 94 25 02 	call	0x44a	; 0x44a <LCD_send_cmd>
  47a:	8f e3       	ldi	r24, 0x3F	; 63
@@ -786,24 +747,16 @@ void LCD_ret_Home(void)
  486:	08 95       	ret
 
 00000488 <LCD_init>:
-
-
-/*clear must be the last command*/
-void LCD_init(void)
-{
-	pinsDirection(&data_ddr, data_pins, OUTPUT);
  488:	41 e0       	ldi	r20, 0x01	; 1
  48a:	60 ef       	ldi	r22, 0xF0	; 240
  48c:	8a e3       	ldi	r24, 0x3A	; 58
  48e:	90 e0       	ldi	r25, 0x00	; 0
  490:	0e 94 a1 03 	call	0x742	; 0x742 <pinsDirection>
-	pinsDirection(&ctr_ddr, ctr_pin, OUTPUT);
  494:	41 e0       	ldi	r20, 0x01	; 1
  496:	6e e0       	ldi	r22, 0x0E	; 14
  498:	87 e3       	ldi	r24, 0x37	; 55
  49a:	90 e0       	ldi	r25, 0x00	; 0
  49c:	0e 94 a1 03 	call	0x742	; 0x742 <pinsDirection>
-	writePin(LCD_RW , LOW);
  4a0:	60 e0       	ldi	r22, 0x00	; 0
  4a2:	8a e0       	ldi	r24, 0x0A	; 10
  4a4:	0e 94 fc 02 	call	0x5f8	; 0x5f8 <writePin>
@@ -816,163 +769,88 @@ void LCD_init(void)
  4b4:	e1 f7       	brne	.-8      	; 0x4ae <LCD_init+0x26>
  4b6:	00 c0       	rjmp	.+0      	; 0x4b8 <LCD_init+0x30>
  4b8:	00 00       	nop
-	_delay_ms(40);
-	LCD_ret_Home();
  4ba:	0e 94 3a 02 	call	0x474	; 0x474 <LCD_ret_Home>
-	LCD_send_cmd(CMD_CUR_INC);
  4be:	86 e0       	ldi	r24, 0x06	; 6
  4c0:	0e 94 25 02 	call	0x44a	; 0x44a <LCD_send_cmd>
-	LCD_send_cmd(CMD_CUR_SIT);
  4c4:	8c e0       	ldi	r24, 0x0C	; 12
  4c6:	0e 94 25 02 	call	0x44a	; 0x44a <LCD_send_cmd>
-	LCD_send_cmd(CMD_SHIFT);
  4ca:	80 e1       	ldi	r24, 0x10	; 16
  4cc:	0e 94 25 02 	call	0x44a	; 0x44a <LCD_send_cmd>
-	LCD_send_cmd(CMD_FUN_SET);
  4d0:	88 e2       	ldi	r24, 0x28	; 40
  4d2:	0e 94 25 02 	call	0x44a	; 0x44a <LCD_send_cmd>
-	LCD_CLEAR();
  4d6:	0e 94 30 02 	call	0x460	; 0x460 <LCD_CLEAR>
  4da:	08 95       	ret
 
 000004dc <LCD_send_data>:
-	writePin(LCD_RS,LOW);
-	SendToLCD(command);
-}
-
-void LCD_send_data(u8 data)
-{
  4dc:	cf 93       	push	r28
  4de:	c8 2f       	mov	r28, r24
-	writePin(LCD_RS,HIGH);
  4e0:	61 e0       	ldi	r22, 0x01	; 1
  4e2:	89 e0       	ldi	r24, 0x09	; 9
  4e4:	0e 94 fc 02 	call	0x5f8	; 0x5f8 <writePin>
-	SendToLCD(data);
  4e8:	8c 2f       	mov	r24, r28
  4ea:	0e 94 fb 01 	call	0x3f6	; 0x3f6 <SendToLCD>
-}
  4ee:	cf 91       	pop	r28
  4f0:	08 95       	ret
 
 000004f2 <disp_char>:
-	writePin(LCD_E,LOW);
-	_delay_us(50);
-}
-void disp_char(u8 letter)
-{
-	LCD_send_data(letter);
  4f2:	0e 94 6e 02 	call	0x4dc	; 0x4dc <LCD_send_data>
  4f6:	08 95       	ret
 
 000004f8 <disp_str>:
-{
-	LCD_GOTXY(row,col);
-	disp_char(letter);	
-}
-void disp_str(u8* str)
-{
  4f8:	0f 93       	push	r16
  4fa:	1f 93       	push	r17
  4fc:	cf 93       	push	r28
  4fe:	8c 01       	movw	r16, r24
-	u8 indx=0;
  500:	c0 e0       	ldi	r28, 0x00	; 0
-	while(str[indx]!='\0')
  502:	03 c0       	rjmp	.+6      	; 0x50a <disp_str+0x12>
-	{
-		disp_char(indx[str]);
  504:	0e 94 79 02 	call	0x4f2	; 0x4f2 <disp_char>
-		indx++;
  508:	cf 5f       	subi	r28, 0xFF	; 255
-	disp_char(letter);	
-}
-void disp_str(u8* str)
-{
-	u8 indx=0;
-	while(str[indx]!='\0')
  50a:	f8 01       	movw	r30, r16
  50c:	ec 0f       	add	r30, r28
  50e:	f1 1d       	adc	r31, r1
  510:	80 81       	ld	r24, Z
  512:	81 11       	cpse	r24, r1
  514:	f7 cf       	rjmp	.-18     	; 0x504 <disp_str+0xc>
-	{
-		disp_char(indx[str]);
-		indx++;
-	}
-}
  516:	cf 91       	pop	r28
  518:	1f 91       	pop	r17
  51a:	0f 91       	pop	r16
  51c:	08 95       	ret
 
 0000051e <LCD_GOTXY>:
-void LCD_GOTXY(u8 row,u8 col)
-{
-	if (row==1)
  51e:	81 30       	cpi	r24, 0x01	; 1
  520:	29 f4       	brne	.+10     	; 0x52c <LCD_GOTXY+0xe>
-	{
-		LCD_send_cmd(DDRAM_ADD+0x00+col-1);
  522:	8f e7       	ldi	r24, 0x7F	; 127
  524:	86 0f       	add	r24, r22
  526:	0e 94 25 02 	call	0x44a	; 0x44a <LCD_send_cmd>
  52a:	08 95       	ret
-	}
-	else if(row==2)
  52c:	82 30       	cpi	r24, 0x02	; 2
  52e:	21 f4       	brne	.+8      	; 0x538 <LCD_GOTXY+0x1a>
-	{
-		LCD_send_cmd(DDRAM_ADD+0x40+col-1);	
  530:	8f eb       	ldi	r24, 0xBF	; 191
  532:	86 0f       	add	r24, r22
  534:	0e 94 25 02 	call	0x44a	; 0x44a <LCD_send_cmd>
  538:	08 95       	ret
 
 0000053a <disp_charXY>:
-{
-	LCD_send_data(letter);
-}
-
-void disp_charXY(u8 row,u8 col,u8 letter)
-{
  53a:	cf 93       	push	r28
  53c:	c4 2f       	mov	r28, r20
-	LCD_GOTXY(row,col);
  53e:	0e 94 8f 02 	call	0x51e	; 0x51e <LCD_GOTXY>
-	disp_char(letter);	
  542:	8c 2f       	mov	r24, r28
  544:	0e 94 79 02 	call	0x4f2	; 0x4f2 <disp_char>
-}
  548:	cf 91       	pop	r28
  54a:	08 95       	ret
 
 0000054c <disp_strXY>:
-	else{}
-	
-}
-
-void disp_strXY(u8 row,u8 col,u8* str)
-{
  54c:	cf 93       	push	r28
  54e:	df 93       	push	r29
  550:	ea 01       	movw	r28, r20
-	LCD_GOTXY(row,col);
  552:	0e 94 8f 02 	call	0x51e	; 0x51e <LCD_GOTXY>
-	disp_str(str);
  556:	ce 01       	movw	r24, r28
  558:	0e 94 7c 02 	call	0x4f8	; 0x4f8 <disp_str>
-}
  55c:	df 91       	pop	r29
  55e:	cf 91       	pop	r28
  560:	08 95       	ret
 
 00000562 <disp_int>:
-
-
-void disp_int(u32 intvalue)
-{
  562:	0f 93       	push	r16
  564:	1f 93       	push	r17
  566:	cf 93       	push	r28
@@ -985,7 +863,6 @@ void disp_int(u32 intvalue)
  574:	de bf       	out	0x3e, r29	; 62
  576:	0f be       	out	0x3f, r0	; 63
  578:	cd bf       	out	0x3d, r28	; 61
-	u8 string[11]={0};
  57a:	8e 01       	movw	r16, r28
  57c:	0f 5f       	subi	r16, 0xFF	; 255
  57e:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -994,7 +871,6 @@ void disp_int(u32 intvalue)
  584:	11 92       	st	Z+, r1
  586:	2a 95       	dec	r18
  588:	e9 f7       	brne	.-6      	; 0x584 <disp_int+0x22>
-		sprintf(string,"%u",intvalue);
  58a:	9f 93       	push	r25
  58c:	8f 93       	push	r24
  58e:	7f 93       	push	r23
@@ -1006,10 +882,8 @@ void disp_int(u32 intvalue)
  59a:	1f 93       	push	r17
  59c:	0f 93       	push	r16
  59e:	0e 94 ba 04 	call	0x974	; 0x974 <sprintf>
-		disp_str(string);
  5a2:	c8 01       	movw	r24, r16
  5a4:	0e 94 7c 02 	call	0x4f8	; 0x4f8 <disp_str>
-}
  5a8:	0f b6       	in	r0, 0x3f	; 63
  5aa:	f8 94       	cli
  5ac:	de bf       	out	0x3e, r29	; 62
@@ -1028,21 +902,16 @@ void disp_int(u32 intvalue)
  5c6:	08 95       	ret
 
 000005c8 <disp_intXY>:
-void disp_intXY(u8 row,u8 col,u32 intvalue)
-{
  5c8:	cf 92       	push	r12
  5ca:	df 92       	push	r13
  5cc:	ef 92       	push	r14
  5ce:	ff 92       	push	r15
  5d0:	69 01       	movw	r12, r18
  5d2:	7a 01       	movw	r14, r20
-	LCD_GOTXY(row,col);
  5d4:	0e 94 8f 02 	call	0x51e	; 0x51e <LCD_GOTXY>
-	disp_int(intvalue);
  5d8:	c7 01       	movw	r24, r14
  5da:	b6 01       	movw	r22, r12
  5dc:	0e 94 b1 02 	call	0x562	; 0x562 <disp_int>
-}
  5e0:	ff 90       	pop	r15
  5e2:	ef 90       	pop	r14
  5e4:	df 90       	pop	r13
@@ -1050,12 +919,6 @@ void disp_intXY(u8 row,u8 col,u32 intvalue)
  5e8:	08 95       	ret
 
 000005ea <GLOBAL_INT_EN>:
-	}
-}
-
-void GLOBAL_INT_EN(void)
-{
-	writePins( &SREG,0x80,HIGH );
  5ea:	41 e0       	ldi	r20, 0x01	; 1
  5ec:	60 e8       	ldi	r22, 0x80	; 128
  5ee:	8f e5       	ldi	r24, 0x5F	; 95
@@ -1064,12 +927,6 @@ void GLOBAL_INT_EN(void)
  5f6:	08 95       	ret
 
 000005f8 <writePin>:
-		result=GETBit(PINC,(pinNo-PORTC_OFFSET));
-	else if((pinNo>=PD0)&&(pinNo<=PD7))
-		result=GETBit(PIND,(pinNo-PORTD_OFFSET));
-	else{}
-	return result;
-}
  5f8:	88 30       	cpi	r24, 0x08	; 8
  5fa:	f8 f4       	brcc	.+62     	; 0x63a <writePin+0x42>
  5fc:	61 30       	cpi	r22, 0x01	; 1
@@ -1222,22 +1079,15 @@ void GLOBAL_INT_EN(void)
  722:	08 95       	ret
 
 00000724 <writePins>:
-	
-/*for custom number of bits*/
-void writePins(volatile u8* port, u8 mask, u8 logic){
-	if(logic==HIGH)
  724:	41 30       	cpi	r20, 0x01	; 1
  726:	29 f4       	brne	.+10     	; 0x732 <writePins+0xe>
-		SETBits(*port,mask);
  728:	fc 01       	movw	r30, r24
  72a:	20 81       	ld	r18, Z
  72c:	62 2b       	or	r22, r18
  72e:	60 83       	st	Z, r22
  730:	08 95       	ret
-	else if(logic==LOW)
  732:	41 11       	cpse	r20, r1
  734:	05 c0       	rjmp	.+10     	; 0x740 <writePins+0x1c>
-		CLRBits(*port,mask);
  736:	fc 01       	movw	r30, r24
  738:	20 81       	ld	r18, Z
  73a:	60 95       	com	r22
@@ -1246,22 +1096,15 @@ void writePins(volatile u8* port, u8 mask, u8 logic){
  740:	08 95       	ret
 
 00000742 <pinsDirection>:
-	else{}
-}
-void pinsDirection(volatile u8* ddr, u8 mask, u8 direction){
-	if(direction == OUTPUT)
  742:	41 30       	cpi	r20, 0x01	; 1
  744:	29 f4       	brne	.+10     	; 0x750 <pinsDirection+0xe>
-		SETBits(*ddr,mask);
  746:	fc 01       	movw	r30, r24
  748:	20 81       	ld	r18, Z
  74a:	62 2b       	or	r22, r18
  74c:	60 83       	st	Z, r22
  74e:	08 95       	ret
-	else if(direction == INPUT)
  750:	41 11       	cpse	r20, r1
  752:	05 c0       	rjmp	.+10     	; 0x75e <pinsDirection+0x1c>
-		CLRBits(*ddr,mask);
  754:	fc 01       	movw	r30, r24
  756:	20 81       	ld	r18, Z
  758:	60 95       	com	r22
@@ -1270,12 +1113,6 @@ void pinsDirection(volatile u8* ddr, u8 mask, u8 direction){
  75e:	08 95       	ret
 
 00000760 <__vector_13>:
-void UART_TX(u8 data)
-{
-	UDR=data;
-	while(GETBit(UCSRA,UDRE)!=1);	
-		
-}
  760:	1f 92       	push	r1
  762:	0f 92       	push	r0
  764:	0f b6       	in	r0, 0x3f	; 63
@@ -1350,13 +1187,8 @@ void UART_TX(u8 data)
  7f4:	08 95       	ret
 
 000007f6 <UART_RX>:
-
-u8 UART_RX(void)
-{
-	while(!GETBit(UCSRA,RXC));
  7f6:	5f 9b       	sbis	0x0b, 7	; 11
  7f8:	fe cf       	rjmp	.-4      	; 0x7f6 <UART_RX>
-	return UDR;	
  7fa:	8c b1       	in	r24, 0x0c	; 12
  7fc:	08 95       	ret
 
