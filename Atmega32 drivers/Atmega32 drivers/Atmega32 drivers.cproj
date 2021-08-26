@@ -139,6 +139,9 @@
     <Compile Include="HAL\inc\DHT.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\inc\I2C EEPROM.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\inc\KEYPAD.h">
       <SubType>compile</SubType>
     </Compile>
@@ -155,6 +158,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\src\GPS.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\src\I2C EEPROM.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\src\KEYPAD.c">

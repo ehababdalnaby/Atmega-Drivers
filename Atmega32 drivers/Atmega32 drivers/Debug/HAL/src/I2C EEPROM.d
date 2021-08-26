@@ -1,6 +1,7 @@
-MCAL/src/spi.d MCAL/src/spi.o: ../MCAL/src/spi.c ../MCAL/inc/SPI.h \
- ../Utility/includes.h ../Utility/bitMath.h ../Utility/includes.h \
- ../Utility/dataTypes.h ../MCAL/inc/registers.h ../MCAL/inc/DIO.h \
+HAL/src/I2C EEPROM.d HAL/src/I2C EEPROM.o: ../HAL/src/I2C\ EEPROM.c \
+ ../HAL/inc/I2C\ EEPROM.h ../Utility/includes.h ../Utility/bitMath.h \
+ ../Utility/includes.h ../Utility/dataTypes.h ../MCAL/inc/registers.h \
+ ../MCAL/inc/DIO.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
@@ -9,13 +10,13 @@ MCAL/src/spi.d MCAL/src/spi.o: ../MCAL/src/spi.c ../MCAL/inc/SPI.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../HAL/inc/LCD.h ../HAL/inc/KEYPAD.h ../APPs/inc/APPS.h \
  ../MCAL/inc/ADC.h ../MCAL/inc/EXT_INT.h ../MCAL/inc/UART.h \
- ../MCAL/inc/Timers.h ../HAL/inc/ExtEEPROM.h ../HAL/inc/DHT.h \
- ../HAL/inc/GPS.h ../MCAL/inc/I2C.h \
+ ../MCAL/inc/SPI.h ../MCAL/inc/Timers.h ../HAL/inc/ExtEEPROM.h \
+ ../HAL/inc/DHT.h ../HAL/inc/GPS.h ../MCAL/inc/I2C.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h
 
-../MCAL/inc/SPI.h:
+../HAL/inc/I2C\ EEPROM.h:
 
 ../Utility/includes.h:
 
@@ -52,6 +53,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../MCAL/inc/EXT_INT.h:
 
 ../MCAL/inc/UART.h:
+
+../MCAL/inc/SPI.h:
 
 ../MCAL/inc/Timers.h:
 

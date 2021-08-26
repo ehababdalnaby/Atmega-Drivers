@@ -8,7 +8,7 @@
 
 #ifndef I2C_H_
 #define I2C_H_
-#define "includes.h"
+#include  "includes.h"
 
 #define I2C_SDAPin		PC0
 #define I2C_SClPin		PC1
@@ -22,9 +22,9 @@
 
 		/*  */
 
-#define TWCR		SELECTOR(0x56)
+#define TWCR		SELECTOR(0x56)  //control register
 #define TWBR		SELECTOR(0x20)	//bit 8 register (clock prescaler)
-#define TWSR		SELECTOR(0x21)
+#define TWSR		SELECTOR(0x21)   //status register
 #define TWAR		SELECTOR(0x22)
 #define TWDR		SELECTOR(0x23)
 
@@ -53,6 +53,16 @@
 typedef enum{PRE_S1,PRE_S4,PRE_S16,PRE_S64}TWI_CLK_PRESCALLER;
 
 
+
+
+
+void I2C_Init(void);
+BOOL I2C_start(void);
+BOOL I2C_Restart(void);
+void I2C_Stop(void);
+BOOL I2C_Check_status(u8 status_code);
+BOOL I2C_Write(u8 _8_Bit,u8 status_code);
+BOOL I2C_Read(u8* _8_Bit,u8 status_code);
 
 
 #endif /* I2C_H_ */

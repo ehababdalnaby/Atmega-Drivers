@@ -13,8 +13,10 @@
 /*A general function to provide the address*/
 #define SELECTOR(ADDRESS) (*((volatile u8*)ADDRESS))
 #define SELECTOR_16(ADDRESS) (*((volatile u16*)ADDRESS))
-/*Port A Register*/ 
 
+
+
+/*Port A Register*/                               
 /*if the DDRx is set to be output and we write High to the PORTx 
 * this will activate the internal Pull up resistor.
 */

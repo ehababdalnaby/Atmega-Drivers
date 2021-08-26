@@ -12,6 +12,8 @@ HAL\src\DHT.c
 
 HAL\src\GPS.c
 
+HAL\src\I2C EEPROM.c
+
 HAL\src\KEYPAD.c
 
 HAL\src\LCD.c
@@ -21,6 +23,8 @@ MCAL\EXT_INT.c
 MCAL\src\ADC.c
 
 MCAL\src\DIO.c
+
+MCAL\src\I2C.c
 
 MCAL\src\spi.c
 
