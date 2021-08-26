@@ -56,6 +56,7 @@ C_SRCS +=  \
 ../HAL/src/I2C\ EEPROM.c \
 ../HAL/src/KEYPAD.c \
 ../HAL/src/LCD.c \
+../HAL/src/RTC.c \
 ../MCAL/EXT_INT.c \
 ../MCAL/src/ADC.c \
 ../MCAL/src/DIO.c \
@@ -80,6 +81,7 @@ HAL/src/GPS.o \
 HAL/src/I2C\ EEPROM.o \
 HAL/src/KEYPAD.o \
 HAL/src/LCD.o \
+HAL/src/RTC.o \
 MCAL/EXT_INT.o \
 MCAL/src/ADC.o \
 MCAL/src/DIO.o \
@@ -97,6 +99,7 @@ HAL/src/GPS.o \
 "HAL/src/I2C EEPROM.o" \
 HAL/src/KEYPAD.o \
 HAL/src/LCD.o \
+HAL/src/RTC.o \
 MCAL/EXT_INT.o \
 MCAL/src/ADC.o \
 MCAL/src/DIO.o \
@@ -114,6 +117,7 @@ HAL/src/GPS.d \
 HAL/src/I2C\ EEPROM.d \
 HAL/src/KEYPAD.d \
 HAL/src/LCD.d \
+HAL/src/RTC.d \
 MCAL/EXT_INT.d \
 MCAL/src/ADC.d \
 MCAL/src/DIO.d \
@@ -131,6 +135,7 @@ HAL/src/GPS.d \
 "HAL/src/I2C EEPROM.d" \
 HAL/src/KEYPAD.d \
 HAL/src/LCD.d \
+HAL/src/RTC.d \
 MCAL/EXT_INT.d \
 MCAL/src/ADC.d \
 MCAL/src/DIO.d \
@@ -203,6 +208,13 @@ HAL/src/KEYPAD.o: ../HAL/src/KEYPAD.c
 	
 
 HAL/src/LCD.o: ../HAL/src/LCD.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../Utility" -I"../MCAL/inc" -I"../HAL/inc" -I"../app" -I"../APPs/inc"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+HAL/src/RTC.o: ../HAL/src/RTC.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../Utility" -I"../MCAL/inc" -I"../HAL/inc" -I"../app" -I"../APPs/inc"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

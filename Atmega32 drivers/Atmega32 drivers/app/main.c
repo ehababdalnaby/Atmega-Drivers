@@ -16,15 +16,18 @@ int main(void)
 {
 	I2C_Init();
 	LCD_init();
-	u8 data1[]="NTI Group hello world !";
-	u8 data2[15];
-	u8 data='x';
+	u8 Time = 0;
+	I2C_start();
+	I2C_Write(0xD3,SCMTSLA_Ack_Code);
+	while (1)
+	{
+		_delay_ms(1000);
+		I2C_Read(&Time,ReceiveData_Ack_code);
+		disp_charXY(1,3,'p');
+		disp_intXY(1,1,Time);
+	}
 	
-	 I2C_EEPROM_Write(0x00,'E');
-	 I2C_EEPROM_Write(0x01,'a');
-	 I2C_EEPROM_Write(0x02,'f');	
-	 I2C_EEPROM_Page_Write(0x00,data1);
-	 I2C_EEPROM_Seq_Read(0x05,16,data2);
-	 disp_strXY(1,1,data2);
+	
+	
 }
 

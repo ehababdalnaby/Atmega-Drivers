@@ -18,6 +18,8 @@ HAL\src\KEYPAD.c
 
 HAL\src\LCD.c
 
+HAL\src\RTC.c
+
 MCAL\EXT_INT.c
 
 MCAL\src\ADC.c
