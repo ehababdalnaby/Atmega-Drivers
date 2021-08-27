@@ -20,7 +20,7 @@ void EEPROM_25aa040(void);
 void tempsensorAPP(void);
 void GPS_APP(void);
 void I2C_EEPROM_APP(void);
-
+void Clock_APP(void);
 
 
 #endif /* APPS_H_ */

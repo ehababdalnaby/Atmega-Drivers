@@ -205,3 +205,20 @@ void I2C_EEPROM_APP(void)
 	I2C_EEPROM_Seq_Read(0x05,16,data2);
 	disp_strXY(1,1,data2);
 }
+
+
+void Clock_APP(void)
+{
+	u8 Time[20];
+	u8 Calen[20];
+	I2C_Init();
+	LCD_init();
+	Write_RTC(0x00,0x00,0x00,Thr,0x20,0x05,0x95);
+	while (1)
+	{
+		Read_RTC(Time,Calen);
+		disp_strXY(1,1,Time);
+		disp_strXY(2,1,Calen);
+		_delay_ms(500);
+	}
+}

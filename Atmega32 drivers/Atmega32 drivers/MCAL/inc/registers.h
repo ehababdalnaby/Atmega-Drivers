@@ -75,4 +75,11 @@
 #define SPSR   SELECTOR(0x2E)
 #define SPCR   SELECTOR(0x2D)
 
+/*Timer0 registers*/
+#define TCCR0   SELECTOR(0x53)
+#define TCNT0   SELECTOR(0x52)
+#define OCR0    SELECTOR(0x5C)
+#define TIMSK	SELECTOR(0x59)
+#define TIFR	SELECTOR(0x58)
+
 #endif /* REGISTERS_H_ */
