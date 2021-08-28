@@ -40,5 +40,6 @@ void GLCD_Send_data(u8 data);
 void GLCD_Latch(void);
 void GLCD_GOTOXY(u8 x,u8 y);
 void GLCD_Disp_Char_XY(u8 x,u8 y,u8 data);
-
+void GLCD_Disp_image(u8 *image);
+void GLCD_Disp_customsize(u8 hight,u8 width,u8 *image);
 #endif /* GLCD_H_ */

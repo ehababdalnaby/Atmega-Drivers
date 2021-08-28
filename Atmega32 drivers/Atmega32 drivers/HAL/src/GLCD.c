@@ -33,7 +33,6 @@ void GLCD_Send_data(u8 data)
 void GLCD_Latch(void)
 {
 	writePin(EN,HIGH);
-	_delay_ms(1);
 	writePin(EN,LOW);
 }
 void GLCD_GOTOXY(u8 x,u8 y)
@@ -57,4 +56,30 @@ void GLCD_Disp_Char_XY(u8 x,u8 y,u8 data)
 {
 	GLCD_GOTOXY(x,y);
 	GLCD_Send_data(data);
+}
+
+void GLCD_Disp_image(u8 *image)
+{
+	u8 i=0,j=0;
+	for (i=0;i<8;i++)
+	{
+		for (j=0;j<128;j++)
+		{
+			GLCD_Disp_Char_XY(i+1,j+1,image[(j+(i*128))]);
+		}
+	}
+}
+
+
+void GLCD_Disp_customsize(u8 hight,u8 width,u8 *image)
+{
+	GLCD_GOTOXY(1,1);
+	u8 i=0,j=0;
+	for (i=0;i<(hight/8);i++)
+	{
+		for (j=0;j<width;j++)
+		{
+			GLCD_Disp_Char_XY(i+1,j+1,image[(j+(i*width))]);
+		}
+	}
 }
