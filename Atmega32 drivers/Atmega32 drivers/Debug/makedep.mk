@@ -10,6 +10,8 @@ HAL\src\ExtEEPROM.c
 
 HAL\src\DHT.c
 
+HAL\src\GLCD.c
+
 HAL\src\GPS.c
 
 HAL\src\I2C EEPROM.c

@@ -26,13 +26,15 @@ void servo_rotate(u32 angel)
 }
 int main(void)
 {
-	LCD_init();
-	Timer0_Init(NORMAL);
-	pinDirection(PD7,OUTPUT);
+	u8 chara[]={0xff,0x10,0x10,0xff,0x00};
+		u8 i=0;
+	GLCD_init();
 	while(1)
 	{
-		servo_rotate(120);
-		
+		for (i=0;i<5;i++)
+		{
+			GLCD_Disp_Char_XY(4,i+64,'a');
+		}
 	}			
 }
 
