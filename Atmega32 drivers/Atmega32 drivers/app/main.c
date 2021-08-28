@@ -12,12 +12,27 @@
 #error define includes.h file
 #endif
 
+extern volatile u32 overflow;
+
+
+
+void servo_rotate(u32 angel)
+{
+	angel= 1000+(1000UL*angel/180UL);
+	writePin(PD7,HIGH);
+	timer_delay_us(angel);
+	writePin(PD7,LOW);
+	timer_delay_us(20000-angel);
+}
 int main(void)
 {
-	Timer0_Init(FPWM);
+	LCD_init();
+	Timer0_Init(NORMAL);
+	pinDirection(PD7,OUTPUT);
 	while(1)
 	{
-		//set_dutycycle(15);
+		servo_rotate(45);
+		
 	}			
 }
 

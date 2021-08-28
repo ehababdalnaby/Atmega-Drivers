@@ -23,12 +23,15 @@ typedef enum{STOP,NO_PRESC,_8_PRESC,_16_PRESC,_64_PRESC,_256_PRESC,_1024_PRESC}P
 #define WGM00 6
 #define WGM01 3
 	
+#define TOIE0 0
+
 
 void Timer0_Init(timer_modes Tmode);
 void Timer_start(void);
 void set_dutycycle(u8 duty);
-
-
+void ResetTimer(void);
+void timer_delay_us(u32 delay);
+//void servo_rotate(u32 angel);
 #endif
 
 
