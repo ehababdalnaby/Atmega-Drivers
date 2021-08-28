@@ -73,12 +73,13 @@ void GLCD_Disp_image(u8 *image)
 
 void GLCD_Disp_customsize(u8 hight,u8 width,u8 *image)
 {
-	GLCD_GOTOXY(1,1);
+	//GLCD_GOTOXY(1,1);
 	u8 i=0,j=0;
 	for (i=0;i<(hight/8);i++)
 	{
 		for (j=0;j<width;j++)
 		{
+			GLCD_GOTOXY(1,j+1);
 			GLCD_Disp_Char_XY(i+1,j+1,image[(j+(i*width))]);
 		}
 	}

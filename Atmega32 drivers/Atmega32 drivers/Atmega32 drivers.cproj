@@ -235,6 +235,15 @@
     <Compile Include="Utility\includes.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Utility\man.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Utility\manr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Utility\NTI.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="APPs\inc" />
