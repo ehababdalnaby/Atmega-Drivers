@@ -186,7 +186,7 @@ Discarded input sections
                 0x00000000       0x58 HAL/src/ExtEEPROM.o
  .debug_ranges  0x00000000       0x48 HAL/src/ExtEEPROM.o
  .debug_line    0x00000000      0x3ab HAL/src/ExtEEPROM.o
- .debug_str     0x00000000      0x417 HAL/src/ExtEEPROM.o
+ .debug_str     0x00000000      0x423 HAL/src/ExtEEPROM.o
  .comment       0x00000000       0x31 HAL/src/ExtEEPROM.o
  .debug_frame   0x00000000      0x114 HAL/src/ExtEEPROM.o
  .text          0x00000000        0x0 HAL/src/DHT.o
@@ -211,14 +211,14 @@ Discarded input sections
                 0x00000000       0x40 HAL/src/DHT.o
  .debug_ranges  0x00000000       0x30 HAL/src/DHT.o
  .debug_line    0x00000000      0x2e5 HAL/src/DHT.o
- .debug_str     0x00000000      0x43b HAL/src/DHT.o
+ .debug_str     0x00000000      0x447 HAL/src/DHT.o
  .comment       0x00000000       0x31 HAL/src/DHT.o
  .debug_frame   0x00000000       0xec HAL/src/DHT.o
  .text          0x00000000        0x0 HAL/src/GLCD.o
  .data          0x00000000        0x0 HAL/src/GLCD.o
  .bss           0x00000000        0x0 HAL/src/GLCD.o
- .text.GLCD_Disp_image
-                0x00000000       0x46 HAL/src/GLCD.o
+ .text.GLCD_Disp_customsize
+                0x00000000       0x68 HAL/src/GLCD.o
  .text          0x00000000        0x0 HAL/src/GPS.o
  .data          0x00000000        0x0 HAL/src/GPS.o
  .bss           0x00000000        0x0 HAL/src/GPS.o
@@ -239,7 +239,7 @@ Discarded input sections
                 0x00000000       0x38 HAL/src/GPS.o
  .debug_ranges  0x00000000       0x28 HAL/src/GPS.o
  .debug_line    0x00000000      0x32c HAL/src/GPS.o
- .debug_str     0x00000000      0x40f HAL/src/GPS.o
+ .debug_str     0x00000000      0x41b HAL/src/GPS.o
  .comment       0x00000000       0x31 HAL/src/GPS.o
  .debug_frame   0x00000000      0x160 HAL/src/GPS.o
  .text          0x00000000        0x0 HAL/src/I2C EEPROM.o
@@ -323,7 +323,7 @@ Discarded input sections
                 0x00000000       0x88 HAL/src/LCD.o
  .debug_ranges  0x00000000       0x78 HAL/src/LCD.o
  .debug_line    0x00000000      0x3a2 HAL/src/LCD.o
- .debug_str     0x00000000      0x458 HAL/src/LCD.o
+ .debug_str     0x00000000      0x464 HAL/src/LCD.o
  .comment       0x00000000       0x31 HAL/src/LCD.o
  .debug_frame   0x00000000      0x160 HAL/src/LCD.o
  .text          0x00000000        0x0 HAL/src/RTC.o
@@ -991,7 +991,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x3d2
+.text           0x00000000      0x37c
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -1071,46 +1071,46 @@ END GROUP
                 0x0000008e                __vector_20
                 0x00000092                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x00000092       0x42 app/main.o
+ .text.main     0x00000092        0xe app/main.o
                 0x00000092                main
  .text.GLCD_Latch
-                0x000000d4       0x12 HAL/src/GLCD.o
-                0x000000d4                GLCD_Latch
+                0x000000a0       0x12 HAL/src/GLCD.o
+                0x000000a0                GLCD_Latch
  .text.GLCD_Send_CMD
-                0x000000e6       0x18 HAL/src/GLCD.o
-                0x000000e6                GLCD_Send_CMD
+                0x000000b2       0x18 HAL/src/GLCD.o
+                0x000000b2                GLCD_Send_CMD
  .text.GLCD_init
-                0x000000fe       0x20 HAL/src/GLCD.o
-                0x000000fe                GLCD_init
+                0x000000ca       0x20 HAL/src/GLCD.o
+                0x000000ca                GLCD_init
  .text.GLCD_Send_data
-                0x0000011e       0x18 HAL/src/GLCD.o
-                0x0000011e                GLCD_Send_data
+                0x000000ea       0x18 HAL/src/GLCD.o
+                0x000000ea                GLCD_Send_data
  .text.GLCD_GOTOXY
-                0x00000136       0x46 HAL/src/GLCD.o
-                0x00000136                GLCD_GOTOXY
+                0x00000102       0x46 HAL/src/GLCD.o
+                0x00000102                GLCD_GOTOXY
  .text.GLCD_Disp_Char_XY
-                0x0000017c       0x12 HAL/src/GLCD.o
-                0x0000017c                GLCD_Disp_Char_XY
- .text.GLCD_Disp_customsize
-                0x0000018e       0x68 HAL/src/GLCD.o
-                0x0000018e                GLCD_Disp_customsize
+                0x00000148       0x12 HAL/src/GLCD.o
+                0x00000148                GLCD_Disp_Char_XY
+ .text.GLCD_Disp_image
+                0x0000015a       0x46 HAL/src/GLCD.o
+                0x0000015a                GLCD_Disp_image
  .text.writePin
-                0x000001f6      0x12c MCAL/src/DIO.o
-                0x000001f6                writePin
+                0x000001a0      0x12c MCAL/src/DIO.o
+                0x000001a0                writePin
  .text.pinsDirection
-                0x00000322       0x1e MCAL/src/DIO.o
-                0x00000322                pinsDirection
+                0x000002cc       0x1e MCAL/src/DIO.o
+                0x000002cc                pinsDirection
  .text.__vector_11
-                0x00000340       0x4a MCAL/src/Timers.o
-                0x00000340                __vector_11
+                0x000002ea       0x4a MCAL/src/Timers.o
+                0x000002ea                __vector_11
  .text.__vector_13
-                0x0000038a       0x44 MCAL/src/UART.o
-                0x0000038a                __vector_13
-                0x000003ce                . = ALIGN (0x2)
+                0x00000334       0x44 MCAL/src/UART.o
+                0x00000334                __vector_13
+                0x00000378                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000003ce        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x000003ce                _exit
-                0x000003ce                exit
+ .fini9         0x00000378        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000378                _exit
+                0x00000378                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1129,45 +1129,43 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000003ce        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000378        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000003d2                _etext = .
+                0x0000037c                _etext = .
 
-.data           0x00800060      0x100 load address 0x000003d2
+.data           0x00800060      0x400 load address 0x0000037c
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
- .rodata.manr   0x00800060       0x80 app/main.o
-                0x00800060                manr
- .rodata.man    0x008000e0       0x80 app/main.o
-                0x008000e0                man
+ .rodata.NTI    0x00800060      0x400 app/main.o
+                0x00800060                NTI
  *(.gnu.linkonce.r*)
-                0x00800160                . = ALIGN (0x2)
-                0x00800160                _edata = .
-                0x00800160                PROVIDE (__data_end, .)
+                0x00800460                . = ALIGN (0x2)
+                0x00800460                _edata = .
+                0x00800460                PROVIDE (__data_end, .)
 
-.bss            0x00800160       0x69
-                0x00800160                PROVIDE (__bss_start, .)
+.bss            0x00800460       0x69
+                0x00800460                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.overflow  0x00800160        0x4 MCAL/src/Timers.o
- .bss.i         0x00800164        0x1 MCAL/src/UART.o
-                0x00800164                i
+ .bss.overflow  0x00800460        0x4 MCAL/src/Timers.o
+ .bss.i         0x00800464        0x1 MCAL/src/UART.o
+                0x00800464                i
  *(COMMON)
- COMMON         0x00800165       0x64 MCAL/src/UART.o
-                0x00800165                gps
-                0x008001c9                PROVIDE (__bss_end, .)
-                0x000003d2                __data_load_start = LOADADDR (.data)
-                0x000004d2                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800465       0x64 MCAL/src/UART.o
+                0x00800465                gps
+                0x008004c9                PROVIDE (__bss_end, .)
+                0x0000037c                __data_load_start = LOADADDR (.data)
+                0x0000077c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008001c9        0x0
+.noinit         0x008004c9        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008001c9                _end = .
+                0x008004c9                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -1252,32 +1250,32 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1e82
+.debug_info     0x00000000     0x1d71
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_info    0x000004e6      0x56f app/main.o
- .debug_info    0x00000a55      0x741 HAL/src/GLCD.o
- .debug_info    0x00001196      0x597 MCAL/src/DIO.o
- .debug_info    0x0000172d      0x3b0 MCAL/src/Timers.o
- .debug_info    0x00001add      0x3a5 MCAL/src/UART.o
+ .debug_info    0x000004e6      0x45e app/main.o
+ .debug_info    0x00000944      0x741 HAL/src/GLCD.o
+ .debug_info    0x00001085      0x597 MCAL/src/DIO.o
+ .debug_info    0x0000161c      0x3b0 MCAL/src/Timers.o
+ .debug_info    0x000019cc      0x3a5 MCAL/src/UART.o
 
-.debug_abbrev   0x00000000      0xb3e
+.debug_abbrev   0x00000000      0xab7
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_abbrev  0x000004a3      0x1ca app/main.o
- .debug_abbrev  0x0000066d      0x18b HAL/src/GLCD.o
- .debug_abbrev  0x000007f8       0xfa MCAL/src/DIO.o
- .debug_abbrev  0x000008f2      0x11b MCAL/src/Timers.o
- .debug_abbrev  0x00000a0d      0x131 MCAL/src/UART.o
+ .debug_abbrev  0x000004a3      0x143 app/main.o
+ .debug_abbrev  0x000005e6      0x18b HAL/src/GLCD.o
+ .debug_abbrev  0x00000771       0xfa MCAL/src/DIO.o
+ .debug_abbrev  0x0000086b      0x11b MCAL/src/Timers.o
+ .debug_abbrev  0x00000986      0x131 MCAL/src/UART.o
 
-.debug_line     0x00000000      0xbda
+.debug_line     0x00000000      0xadf
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_line    0x00000115      0x1f3 app/main.o
- .debug_line    0x00000308      0x2e5 HAL/src/GLCD.o
- .debug_line    0x000005ed      0x27f MCAL/src/DIO.o
- .debug_line    0x0000086c      0x1dc MCAL/src/Timers.o
- .debug_line    0x00000a48      0x192 MCAL/src/UART.o
+ .debug_line    0x00000115       0xf8 app/main.o
+ .debug_line    0x0000020d      0x2e5 HAL/src/GLCD.o
+ .debug_line    0x000004f2      0x27f MCAL/src/DIO.o
+ .debug_line    0x00000771      0x1dc MCAL/src/Timers.o
+ .debug_line    0x0000094d      0x192 MCAL/src/UART.o
 
 .debug_frame    0x00000000      0x2c8
  *(.debug_frame)
@@ -1287,27 +1285,27 @@ END GROUP
  .debug_frame   0x000001ac       0xa8 MCAL/src/Timers.o
  .debug_frame   0x00000254       0x74 MCAL/src/UART.o
 
-.debug_str      0x00000000      0x70a
+.debug_str      0x00000000      0x752
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_str     0x00000196      0x365 app/main.o
-                                0x3aa (size before relaxing)
- .debug_str     0x000004fb       0x94 HAL/src/GLCD.o
+ .debug_str     0x00000196      0x31c app/main.o
+                                0x361 (size before relaxing)
+ .debug_str     0x000004b2      0x125 HAL/src/GLCD.o
                                 0x3fb (size before relaxing)
- .debug_str     0x0000058f       0x85 MCAL/src/DIO.o
+ .debug_str     0x000005d7       0x85 MCAL/src/DIO.o
                                 0x397 (size before relaxing)
- .debug_str     0x00000614       0x96 MCAL/src/Timers.o
+ .debug_str     0x0000065c       0x96 MCAL/src/Timers.o
                                 0x38e (size before relaxing)
- .debug_str     0x000006aa       0x60 MCAL/src/UART.o
-                                0x35f (size before relaxing)
+ .debug_str     0x000006f2       0x60 MCAL/src/UART.o
+                                0x36b (size before relaxing)
 
-.debug_loc      0x00000000      0xbf5
+.debug_loc      0x00000000      0xbad
  *(.debug_loc)
- .debug_loc     0x00000000      0x107 app/main.o
- .debug_loc     0x00000107      0x449 HAL/src/GLCD.o
- .debug_loc     0x00000550      0x4d0 MCAL/src/DIO.o
- .debug_loc     0x00000a20      0x128 MCAL/src/Timers.o
- .debug_loc     0x00000b48       0xad MCAL/src/UART.o
+ .debug_loc     0x00000000       0xbf app/main.o
+ .debug_loc     0x000000bf      0x449 HAL/src/GLCD.o
+ .debug_loc     0x00000508      0x4d0 MCAL/src/DIO.o
+ .debug_loc     0x000009d8      0x128 MCAL/src/Timers.o
+ .debug_loc     0x00000b00       0xad MCAL/src/UART.o
 
 .debug_macinfo
  *(.debug_macinfo)
