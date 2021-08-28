@@ -31,7 +31,7 @@ int main(void)
 	pinDirection(PD7,OUTPUT);
 	while(1)
 	{
-		servo_rotate(45);
+		servo_rotate(120);
 		
 	}			
 }
