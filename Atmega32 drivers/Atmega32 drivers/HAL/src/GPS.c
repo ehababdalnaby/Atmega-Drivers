@@ -54,7 +54,7 @@ void GPS_READing(u8* lati_value,u8* lati_dir,u8* longi_value,u8* longi_dir,u8* a
 		 disp_strXY(1,1,lati_value);
 		 disp_char(',');
 		 disp_char(lati_dir);
-// 		 convert_to_degrees(longi_value);
+ 		 //convert_to_degrees(longi_value);
 		 strfToint(longi_value);
 		 disp_strXY(2,1,longi_value);
 		 disp_char(',');
@@ -67,32 +67,8 @@ void GPS_READing(u8* lati_value,u8* lati_dir,u8* longi_value,u8* longi_dir,u8* a
 
 
 
-void strfToint(u8* strf) //{"12312.1234"} // {"1212.1234"}
-{
-	u8 i=0;
-	u8 dotIndex;
-	u32 Num=0;
-	u32 Num2=0;
-	while (strf[i]!='.')
-	i++;
-	dotIndex=i;
-	for (i;i<dotIndex+4;i++)
-	{
-		strf[i]=strf[i+1];
-	}
-	strf[i]='.';
-	Num2=atoi(&(strf[dotIndex])); //
-	disp_intXY(2,1,Num2);
-	for (i=dotIndex;i<dotIndex+4;i++)
-	strf[i]=' ';
-	Num=atoi(&(strf[dotIndex-2]));
-	Num=(Num*10000+Num2)*100/6UL;
-	//disp_intXY(1,1,Num);
-	strf[dotIndex-2]='.';
-	sprintf(&strf[dotIndex-1],"%lu",Num);
-	//disp_strXY(2,1,strf);
+void strfToint(u8* strf) //"12312.1234" or "1212.1234" --> "123.(121234/##)" or "12.(121234/##)"//converts from string of (degrees, minutes and fraction of minutes ) to string of(degrees and fraction of degrees)// so the important numbers are 12.1234 they have to be converted to int and making some operations(/ and *)// without using float or double then they need to be converted back to string but after this string"12."// so we will handle this number 121234{	u8 i=0;	u8 dotIndex;	u32 Num=0;	u32 Num2=0;	while (strf[i]!='.')	i++;	dotIndex=i;	Num2=atoi(&(strf[dotIndex+1]));	Num=atoi(&(strf[dotIndex-2]));	Num=(Num*10000+Num2)*100/6UL;	strf[dotIndex-2]='.';	i=dotIndex-1;	// the first 2 digits are important altough if they are zero cuz they will be printed	// as a fraction after .	if (Num/100000==0)	{		strf[dotIndex-1]='0';		strf[dotIndex]='0';		i=dotIndex+1;	}	else if (Num/1000000==0)	{		strf[dotIndex-1]='0';		i=dotIndex;	}	sprintf(&strf[i],"%lu",Num);	//disp_strXY(2,1,strf);}
 
-}
 
 
 

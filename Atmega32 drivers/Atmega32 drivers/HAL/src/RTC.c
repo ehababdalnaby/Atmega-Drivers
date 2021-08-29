@@ -50,5 +50,5 @@ void Read_RTC(u8* Time,u8* Calen)
 	I2C_Read(&Year,ReceiveData_NAck_code);			//read year   
 	I2C_Stop();
 	sprintf(Time,"%d%d:%d%d:%d%d",((Hours&0xf0)>>4),Hours&0x0f,((Minutes&0xf0)>>4),Minutes&0x0f,((Seconds&0xf0)>>4),Seconds&0x0f);
-	sprintf(Calen,"%d%d/%d%d/%d%d %s",((Date&0xf0)>>4),Date&0x0f,((Month&0xf0)>>4),Month&0x0f,((Year&0xf0)>>4),Year&0x0f,&days[Day]);
+	sprintf(Calen,"%d%d/%d%d/20%d%d %s",((Date&0xf0)>>4),Date&0x0f,((Month&0xf0)>>4),Month&0x0f,((Year&0xf0)>>4),Year&0x0f,&days[Day]);
 }

@@ -11,7 +11,7 @@ void DHT_start(void)
 	pinDirection(DHT_PIN,OUTPUT);		
 	writePin(DHT_PIN,LOW);				//apply 0 to start the sensor
 	_delay_ms(20);						
-	writePin(DHT_PIN,HIGH);				//apply 0 to start the sensor
+	writePin(DHT_PIN,HIGH);				//apply 1 to start the sensor
 }
 
 u8 DHT_read(void)
@@ -36,7 +36,6 @@ BOOL DHT_Represent(u8* hum,u8* temp)
 	u8 humidity_I = 0 , humidity_D = 0, temp_I = 0, temp_D = 0 , sumCheck = 0;
 	DHT_start();
 	DHT_Response();
-	
 	humidity_I=DHT_read();
 	humidity_D=DHT_read();
 	temp_I=DHT_read();

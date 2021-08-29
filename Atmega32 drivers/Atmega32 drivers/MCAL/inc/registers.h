@@ -81,5 +81,11 @@
 #define OCR0    SELECTOR(0x5C)
 #define TIMSK	SELECTOR(0x59)
 #define TIFR	SELECTOR(0x58)
+/*Timer1 registers*/
+#define TCNT1   SELECTOR_16(0x4C)  //timer1 counter register
+#define ICR1    SELECTOR_16(0x46)  //Timer1 – Input Capture Register
+#define TCCR1A	SELECTOR_16(0x4F)
+#define CCR1B	SELECTOR_16(0x4E)
+#define OCR1A	SELECTOR_16(0x4A)  //Timer1 – Output Compare Register
 
 #endif /* REGISTERS_H_ */

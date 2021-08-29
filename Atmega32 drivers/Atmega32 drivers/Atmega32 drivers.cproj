@@ -247,6 +247,12 @@
     <Compile Include="Utility\NTI.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Utility\smile.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Utility\wink.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="APPs\inc" />
