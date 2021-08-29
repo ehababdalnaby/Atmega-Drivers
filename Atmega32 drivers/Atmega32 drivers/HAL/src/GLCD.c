@@ -65,9 +65,11 @@ void GLCD_Disp_image(u8 *image)
 	{
 		for (j=0;j<128;j++)
 		{
+			_delay_ms(10);
 			GLCD_Disp_Char_XY(i+1,j+1,image[(j+(i*128))]);
 		}
 	}
+	
 }
 
 
