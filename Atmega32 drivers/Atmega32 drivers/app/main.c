@@ -18,26 +18,41 @@ extern volatile u32 overflow;
 
 
 #include "NTI.h"
+#include "I2C EEPROM.h"
 
-
-void servo_rotate(u32 angel)
-{
-	angel= 1000+(1000UL*angel/180UL);
-	writePin(PD7,HIGH);
-	timer_delay_us(angel);
-	writePin(PD7,LOW);
-	timer_delay_us(20000-angel);
-}
 int main(void)
 {
-	u8 chara[]={0xff,0x10,0x10,0xff,0x00};
-		u8 i=0,j=0;
-	GLCD_init();
-	while(1)
+	u16 counter=0;
+// 	for (counter=0;counter<1024;counter++)
+// 	{
+// 		I2C_EEPROM_Write(counter,NTI[counter]);
+// 	}
+	_delay_ms(10);
+	u8 imageRecieve;
+GLCD_init();
+
+	for (counter=0;counter<1024;counter++)
 	{
-		//GLCD_Disp_image(heart);
-		//GLCD_Disp_image(Untitled);
-		GLCD_Disp_image(NTI);
+		I2C_EEPROM_Read(counter,&imageRecieve);
+		_delay_ms(1);
+		GLCD_Disp_image(imageRecieve);
+ 	}
+	u8 i=0,j=0;
+	counter=0;
+	for (i=0;i<8;i++)
+	{
+		for (j=0;j<128;j++)
+		{
+			
+			I2C_EEPROM_Read(counter,&imageRecieve);
+			_delay_ms(10);
+			GLCD_Disp_Char_XY(i+1,j+1,imageRecieve);
+			counter++;
+		}
 	}
+while(1);
+
+		
+
 }
 
