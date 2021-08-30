@@ -22,6 +22,8 @@ HAL\src\LCD.c
 
 HAL\src\RTC.c
 
+HAL\src\SERVO.c
+
 MCAL\EXT_INT.c
 
 MCAL\src\ADC.c

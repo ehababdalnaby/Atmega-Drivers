@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 00000278  00000000  00000000  00000d8c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003c84  00000000  00000000  00001004  2**0
+  6 .debug_info   00003cc2  00000000  00000000  00001004  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000f4d  00000000  00000000  00004c88  2**0
+  7 .debug_abbrev 00000f5e  00000000  00000000  00004cc6  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000014c4  00000000  00000000  00005bd5  2**0
+  8 .debug_line   00001503  00000000  00000000  00005c24  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000598  00000000  00000000  0000709c  2**2
+  9 .debug_frame  00000598  00000000  00000000  00007128  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000a29  00000000  00000000  00007634  2**0
+ 10 .debug_str    00000a22  00000000  00000000  000076c0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00001694  00000000  00000000  0000805d  2**0
+ 11 .debug_loc    000016c4  00000000  00000000  000080e2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000001f8  00000000  00000000  000096f1  2**0
+ 12 .debug_ranges 000001f8  00000000  00000000  000097a6  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -160,17 +160,18 @@ void Clock_APP(void)
   ea:	e1 cf       	rjmp	.-62     	; 0xae <Clock_APP+0x1c>
 
 000000ec <main>:
-	writePin(PD7,LOW);
 	timer_delay_us(20000-angel);
 }
 int main(void)
 {	
+	
 	Clock_APP();
   ec:	0e 94 49 00 	call	0x92	; 0x92 <Clock_APP>
-	//GPS_APP();
-	//GLCD_init();
-
-
+// 		}
+// 	}
+// }
+	
+	
 }
   f0:	80 e0       	ldi	r24, 0x00	; 0
   f2:	90 e0       	ldi	r25, 0x00	; 0

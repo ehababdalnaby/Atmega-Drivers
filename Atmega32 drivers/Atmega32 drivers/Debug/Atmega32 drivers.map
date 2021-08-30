@@ -33,7 +33,7 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o) (__mulsf3x)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                              app/main.o (__udivmodsi4)
+                              APPs/src/APPS.o (__udivmodsi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
@@ -41,7 +41,7 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
                               APPs/src/APPS.o (__do_clear_bss)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                              HAL/src/DHT.o (__umulhisi3)
+                              APPs/src/APPS.o (__umulhisi3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_usmulhisi3.o)
                               HAL/src/GPS.o (__usmulhisi3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muluhisi3.o)
@@ -125,7 +125,7 @@ Discarded input sections
  .data          0x00000000        0x0 APPs/src/APPS.o
  .bss           0x00000000        0x0 APPs/src/APPS.o
  .rodata.str1.1
-                0x00000000       0xc1 APPs/src/APPS.o
+                0x00000000       0xbc APPs/src/APPS.o
  .text.counterAPP
                 0x00000000      0x154 APPs/src/APPS.o
  .text.KeyPadAPP
@@ -139,15 +139,16 @@ Discarded input sections
                 0x00000000       0x70 APPs/src/APPS.o
  .text.GPS_APP  0x00000000       0xb2 APPs/src/APPS.o
  .text.I2C_EEPROM_APP
-                0x00000000       0x92 APPs/src/APPS.o
+                0x00000000       0x6e APPs/src/APPS.o
+ .text.SERVO_APP
+                0x00000000       0x6e APPs/src/APPS.o
  COMMON         0x00000000        0xa APPs/src/APPS.o
  .text          0x00000000        0x0 app/main.o
  .data          0x00000000        0x0 app/main.o
  .bss           0x00000000        0x0 app/main.o
  .text.servo_rotate
                 0x00000000       0x6a app/main.o
- .rodata.wink   0x00000000      0x200 app/main.o
- .rodata.smile  0x00000000      0x200 app/main.o
+ .rodata.NTI    0x00000000      0x400 app/main.o
  .text          0x00000000        0x0 HAL/src/ExtEEPROM.o
  .data          0x00000000        0x0 HAL/src/ExtEEPROM.o
  .bss           0x00000000        0x0 HAL/src/ExtEEPROM.o
@@ -264,21 +265,21 @@ Discarded input sections
  .text.I2C_EEPROM_Current_Add
                 0x00000000       0x30 HAL/src/I2C EEPROM.o
  .text.I2C_EEPROM_Read
-                0x00000000       0x4a HAL/src/I2C EEPROM.o
+                0x00000000       0x5c HAL/src/I2C EEPROM.o
  .text.I2C_EEPROM_Seq_Read
-                0x00000000       0x76 HAL/src/I2C EEPROM.o
+                0x00000000       0x88 HAL/src/I2C EEPROM.o
  .text.I2C_EEPROM_Page_Write
                 0x00000000       0x60 HAL/src/I2C EEPROM.o
- .debug_info    0x00000000      0x7ae HAL/src/I2C EEPROM.o
+ .debug_info    0x00000000      0x780 HAL/src/I2C EEPROM.o
  .debug_abbrev  0x00000000      0x166 HAL/src/I2C EEPROM.o
- .debug_loc     0x00000000      0x4ca HAL/src/I2C EEPROM.o
+ .debug_loc     0x00000000      0x50f HAL/src/I2C EEPROM.o
  .debug_aranges
                 0x00000000       0x40 HAL/src/I2C EEPROM.o
  .debug_ranges  0x00000000       0x30 HAL/src/I2C EEPROM.o
  .debug_line    0x00000000      0x2e6 HAL/src/I2C EEPROM.o
  .debug_str     0x00000000      0x3ed HAL/src/I2C EEPROM.o
  .comment       0x00000000       0x31 HAL/src/I2C EEPROM.o
- .debug_frame   0x00000000       0xb8 HAL/src/I2C EEPROM.o
+ .debug_frame   0x00000000       0xc8 HAL/src/I2C EEPROM.o
  .text          0x00000000        0x0 HAL/src/KEYPAD.o
  .data          0x00000000        0x0 HAL/src/KEYPAD.o
  .bss           0x00000000        0x0 HAL/src/KEYPAD.o
@@ -313,6 +314,23 @@ Discarded input sections
  .bss           0x00000000        0x0 HAL/src/RTC.o
  .text.Write_RTC
                 0x00000000       0x82 HAL/src/RTC.o
+ .text          0x00000000        0x0 HAL/src/SERVO.o
+ .data          0x00000000        0x0 HAL/src/SERVO.o
+ .bss           0x00000000        0x0 HAL/src/SERVO.o
+ .text.Servo_Init
+                0x00000000       0x10 HAL/src/SERVO.o
+ .text.servo_Angel
+                0x00000000        0x8 HAL/src/SERVO.o
+ .debug_info    0x00000000      0x3a3 HAL/src/SERVO.o
+ .debug_abbrev  0x00000000       0xed HAL/src/SERVO.o
+ .debug_loc     0x00000000       0x21 HAL/src/SERVO.o
+ .debug_aranges
+                0x00000000       0x28 HAL/src/SERVO.o
+ .debug_ranges  0x00000000       0x18 HAL/src/SERVO.o
+ .debug_line    0x00000000       0xbd HAL/src/SERVO.o
+ .debug_str     0x00000000      0x369 HAL/src/SERVO.o
+ .comment       0x00000000       0x31 HAL/src/SERVO.o
+ .debug_frame   0x00000000       0x34 HAL/src/SERVO.o
  .text          0x00000000        0x0 MCAL/EXT_INT.o
  .data          0x00000000        0x0 MCAL/EXT_INT.o
  .bss           0x00000000        0x0 MCAL/EXT_INT.o
@@ -400,8 +418,6 @@ Discarded input sections
                 0x00000000       0x1c MCAL/src/Timers.o
  .text.set_dutycycleTimer1
                 0x00000000       0x2e MCAL/src/Timers.o
- .text.servo_Angel
-                0x00000000        0x8 MCAL/src/Timers.o
  .text          0x00000000        0x0 MCAL/src/UART.o
  .data          0x00000000        0x0 MCAL/src/UART.o
  .bss           0x00000000        0x0 MCAL/src/UART.o
@@ -807,6 +823,7 @@ LOAD HAL/src/I2C EEPROM.o
 LOAD HAL/src/KEYPAD.o
 LOAD HAL/src/LCD.o
 LOAD HAL/src/RTC.o
+LOAD HAL/src/SERVO.o
 LOAD MCAL/EXT_INT.o
 LOAD MCAL/src/ADC.o
 LOAD MCAL/src/DIO.o
@@ -1242,102 +1259,102 @@ END GROUP
 .debug_aranges  0x00000000      0x278
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x60 APPs/src/APPS.o
+                0x00000000       0x68 APPs/src/APPS.o
  .debug_aranges
-                0x00000060       0x28 app/main.o
+                0x00000068       0x28 app/main.o
  .debug_aranges
-                0x00000088       0x88 HAL/src/LCD.o
+                0x00000090       0x88 HAL/src/LCD.o
  .debug_aranges
-                0x00000110       0x28 HAL/src/RTC.o
+                0x00000118       0x28 HAL/src/RTC.o
  .debug_aranges
-                0x00000138       0x50 MCAL/src/DIO.o
+                0x00000140       0x50 MCAL/src/DIO.o
  .debug_aranges
-                0x00000188       0x50 MCAL/src/I2C.o
+                0x00000190       0x50 MCAL/src/I2C.o
  .debug_aranges
-                0x000001d8       0x68 MCAL/src/Timers.o
+                0x000001e0       0x60 MCAL/src/Timers.o
  .debug_aranges
                 0x00000240       0x38 MCAL/src/UART.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x3c84
+.debug_info     0x00000000     0x3cc2
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_info    0x000004e6     0x107c APPs/src/APPS.o
- .debug_info    0x00001562      0x416 app/main.o
- .debug_info    0x00001978      0xaba HAL/src/LCD.o
- .debug_info    0x00002432      0x697 HAL/src/RTC.o
- .debug_info    0x00002ac9      0x597 MCAL/src/DIO.o
- .debug_info    0x00003060      0x401 MCAL/src/I2C.o
- .debug_info    0x00003461      0x47e MCAL/src/Timers.o
- .debug_info    0x000038df      0x3a5 MCAL/src/UART.o
+ .debug_info    0x000004e6     0x10fa APPs/src/APPS.o
+ .debug_info    0x000015e0      0x409 app/main.o
+ .debug_info    0x000019e9      0xaba HAL/src/LCD.o
+ .debug_info    0x000024a3      0x697 HAL/src/RTC.o
+ .debug_info    0x00002b3a      0x597 MCAL/src/DIO.o
+ .debug_info    0x000030d1      0x401 MCAL/src/I2C.o
+ .debug_info    0x000034d2      0x44b MCAL/src/Timers.o
+ .debug_info    0x0000391d      0x3a5 MCAL/src/UART.o
 
-.debug_abbrev   0x00000000      0xf4d
+.debug_abbrev   0x00000000      0xf5e
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_abbrev  0x000004a3      0x258 APPs/src/APPS.o
- .debug_abbrev  0x000006fb      0x10a app/main.o
- .debug_abbrev  0x00000805      0x1dc HAL/src/LCD.o
- .debug_abbrev  0x000009e1      0x124 HAL/src/RTC.o
- .debug_abbrev  0x00000b05       0xfa MCAL/src/DIO.o
- .debug_abbrev  0x00000bff      0x102 MCAL/src/I2C.o
- .debug_abbrev  0x00000d01      0x11b MCAL/src/Timers.o
- .debug_abbrev  0x00000e1c      0x131 MCAL/src/UART.o
+ .debug_abbrev  0x000006fb      0x11b app/main.o
+ .debug_abbrev  0x00000816      0x1dc HAL/src/LCD.o
+ .debug_abbrev  0x000009f2      0x124 HAL/src/RTC.o
+ .debug_abbrev  0x00000b16       0xfa MCAL/src/DIO.o
+ .debug_abbrev  0x00000c10      0x102 MCAL/src/I2C.o
+ .debug_abbrev  0x00000d12      0x11b MCAL/src/Timers.o
+ .debug_abbrev  0x00000e2d      0x131 MCAL/src/UART.o
 
-.debug_line     0x00000000     0x14c4
+.debug_line     0x00000000     0x1503
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_line    0x00000115      0x519 APPs/src/APPS.o
- .debug_line    0x0000062e      0x101 app/main.o
- .debug_line    0x0000072f      0x3a2 HAL/src/LCD.o
- .debug_line    0x00000ad1      0x1b8 HAL/src/RTC.o
- .debug_line    0x00000c89      0x27f MCAL/src/DIO.o
- .debug_line    0x00000f08      0x197 MCAL/src/I2C.o
- .debug_line    0x0000109f      0x293 MCAL/src/Timers.o
- .debug_line    0x00001332      0x192 MCAL/src/UART.o
+ .debug_line    0x00000115      0x57b APPs/src/APPS.o
+ .debug_line    0x00000690       0xf5 app/main.o
+ .debug_line    0x00000785      0x3a2 HAL/src/LCD.o
+ .debug_line    0x00000b27      0x1b8 HAL/src/RTC.o
+ .debug_line    0x00000cdf      0x27f MCAL/src/DIO.o
+ .debug_line    0x00000f5e      0x197 MCAL/src/I2C.o
+ .debug_line    0x000010f5      0x27c MCAL/src/Timers.o
+ .debug_line    0x00001371      0x192 MCAL/src/UART.o
 
 .debug_frame    0x00000000      0x598
  *(.debug_frame)
- .debug_frame   0x00000000      0x104 APPs/src/APPS.o
- .debug_frame   0x00000104       0x48 app/main.o
- .debug_frame   0x0000014c      0x160 HAL/src/LCD.o
- .debug_frame   0x000002ac       0x7c HAL/src/RTC.o
- .debug_frame   0x00000328       0x84 MCAL/src/DIO.o
- .debug_frame   0x000003ac       0x90 MCAL/src/I2C.o
- .debug_frame   0x0000043c       0xe8 MCAL/src/Timers.o
+ .debug_frame   0x00000000      0x114 APPs/src/APPS.o
+ .debug_frame   0x00000114       0x48 app/main.o
+ .debug_frame   0x0000015c      0x160 HAL/src/LCD.o
+ .debug_frame   0x000002bc       0x7c HAL/src/RTC.o
+ .debug_frame   0x00000338       0x84 MCAL/src/DIO.o
+ .debug_frame   0x000003bc       0x90 MCAL/src/I2C.o
+ .debug_frame   0x0000044c       0xd8 MCAL/src/Timers.o
  .debug_frame   0x00000524       0x74 MCAL/src/UART.o
 
-.debug_str      0x00000000      0xa29
+.debug_str      0x00000000      0xa22
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_str     0x00000196      0x55b APPs/src/APPS.o
-                                0x5ab (size before relaxing)
- .debug_str     0x000006f1       0x4e app/main.o
-                                0x34a (size before relaxing)
- .debug_str     0x0000073f       0xbc HAL/src/LCD.o
+ .debug_str     0x00000196      0x57a APPs/src/APPS.o
+                                0x5ca (size before relaxing)
+ .debug_str     0x00000710       0x3d app/main.o
+                                0x33f (size before relaxing)
+ .debug_str     0x0000074d       0xb3 HAL/src/LCD.o
                                 0x458 (size before relaxing)
- .debug_str     0x000007fb       0x6c HAL/src/RTC.o
+ .debug_str     0x00000800       0x6c HAL/src/RTC.o
                                 0x37a (size before relaxing)
- .debug_str     0x00000867       0x66 MCAL/src/DIO.o
+ .debug_str     0x0000086c       0x66 MCAL/src/DIO.o
                                 0x397 (size before relaxing)
- .debug_str     0x000008cd       0x42 MCAL/src/I2C.o
+ .debug_str     0x000008d2       0x42 MCAL/src/I2C.o
                                 0x36a (size before relaxing)
- .debug_str     0x0000090f       0xd2 MCAL/src/Timers.o
-                                0x3d6 (size before relaxing)
- .debug_str     0x000009e1       0x48 MCAL/src/UART.o
+ .debug_str     0x00000914       0xc6 MCAL/src/Timers.o
+                                0x3c4 (size before relaxing)
+ .debug_str     0x000009da       0x48 MCAL/src/UART.o
                                 0x35f (size before relaxing)
 
-.debug_loc      0x00000000     0x1694
+.debug_loc      0x00000000     0x16c4
  *(.debug_loc)
- .debug_loc     0x00000000      0x542 APPs/src/APPS.o
- .debug_loc     0x00000542       0xbf app/main.o
- .debug_loc     0x00000601      0x647 HAL/src/LCD.o
- .debug_loc     0x00000c48      0x24a HAL/src/RTC.o
- .debug_loc     0x00000e92      0x4d0 MCAL/src/DIO.o
- .debug_loc     0x00001362       0xf5 MCAL/src/I2C.o
- .debug_loc     0x00001457      0x190 MCAL/src/Timers.o
- .debug_loc     0x000015e7       0xad MCAL/src/UART.o
+ .debug_loc     0x00000000      0x593 APPs/src/APPS.o
+ .debug_loc     0x00000593       0xbf app/main.o
+ .debug_loc     0x00000652      0x647 HAL/src/LCD.o
+ .debug_loc     0x00000c99      0x24a HAL/src/RTC.o
+ .debug_loc     0x00000ee3      0x4d0 MCAL/src/DIO.o
+ .debug_loc     0x000013b3       0xf5 MCAL/src/I2C.o
+ .debug_loc     0x000014a8      0x16f MCAL/src/Timers.o
+ .debug_loc     0x00001617       0xad MCAL/src/UART.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1359,13 +1376,13 @@ END GROUP
 
 .debug_ranges   0x00000000      0x1f8
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x50 APPs/src/APPS.o
- .debug_ranges  0x00000050       0x18 app/main.o
- .debug_ranges  0x00000068       0x78 HAL/src/LCD.o
- .debug_ranges  0x000000e0       0x18 HAL/src/RTC.o
- .debug_ranges  0x000000f8       0x40 MCAL/src/DIO.o
- .debug_ranges  0x00000138       0x40 MCAL/src/I2C.o
- .debug_ranges  0x00000178       0x58 MCAL/src/Timers.o
+ .debug_ranges  0x00000000       0x58 APPs/src/APPS.o
+ .debug_ranges  0x00000058       0x18 app/main.o
+ .debug_ranges  0x00000070       0x78 HAL/src/LCD.o
+ .debug_ranges  0x000000e8       0x18 HAL/src/RTC.o
+ .debug_ranges  0x00000100       0x40 MCAL/src/DIO.o
+ .debug_ranges  0x00000140       0x40 MCAL/src/I2C.o
+ .debug_ranges  0x00000180       0x50 MCAL/src/Timers.o
  .debug_ranges  0x000001d0       0x28 MCAL/src/UART.o
 
 .debug_macro

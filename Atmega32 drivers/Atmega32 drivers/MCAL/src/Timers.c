@@ -103,10 +103,6 @@ void set_dutycycle(u8 duty)
 }
 
 
-void servo_Angel(u8 Angel)
-{
-	set_dutycycleTimer1(Angel);
-}
 void set_dutycycleTimer1(u16 duty)       //1->2         overal time 20->4999
 {                                                          //        0->125
 	OCR1A=125+(125*duty)/180;                              //        180->250

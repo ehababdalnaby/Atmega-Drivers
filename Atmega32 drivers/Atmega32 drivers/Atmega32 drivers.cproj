@@ -157,6 +157,9 @@
     <Compile Include="HAL\inc\RTC.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\inc\SERVO.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\src\ExtEEPROM.c">
       <SubType>compile</SubType>
     </Compile>
@@ -179,6 +182,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\src\RTC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\src\SERVO.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\EXT_INT.c">

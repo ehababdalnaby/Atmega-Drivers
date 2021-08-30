@@ -66,8 +66,6 @@ void set_dutycycleTimer1(u16 duty);
 
 
 
-void servo_Angel(u8 Angel);
-
 //void servo_rotate(u32 angel);
 #endif
 

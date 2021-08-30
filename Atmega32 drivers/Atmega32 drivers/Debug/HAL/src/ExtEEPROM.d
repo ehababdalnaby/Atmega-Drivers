@@ -11,7 +11,7 @@ HAL/src/ExtEEPROM.d HAL/src/ExtEEPROM.o: ../HAL/src/ExtEEPROM.c \
  ../HAL/inc/LCD.h ../HAL/inc/KEYPAD.h ../APPs/inc/APPS.h \
  ../MCAL/inc/ADC.h ../MCAL/inc/EXT_INT.h ../MCAL/inc/UART.h \
  ../MCAL/inc/SPI.h ../MCAL/inc/Timers.h ../HAL/inc/DHT.h ../HAL/inc/GPS.h \
- ../MCAL/inc/I2C.h ../HAL/inc/RTC.h ../HAL/inc/GLCD.h \
+ ../MCAL/inc/I2C.h ../HAL/inc/RTC.h ../HAL/inc/GLCD.h ../HAL/inc/SERVO.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h
@@ -67,6 +67,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../HAL/inc/RTC.h:
 
 ../HAL/inc/GLCD.h:
+
+../HAL/inc/SERVO.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 

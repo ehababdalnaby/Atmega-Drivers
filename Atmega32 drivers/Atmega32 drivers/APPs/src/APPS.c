@@ -155,7 +155,6 @@ void tempsensorAPP(void){
 	u8 hum[60];
 	while(1)
 	{
-		
 		disp_strXY(1,1,"Humid=     %RH");
 		disp_strXY(2,1,"temp=      Deg.c");
 		DHT_Represent(hum,temp);
@@ -163,7 +162,6 @@ void tempsensorAPP(void){
 		disp_strXY(2,6,temp);
 		_delay_ms(500);
 	}
-	
 }
 
 
@@ -194,15 +192,11 @@ void I2C_EEPROM_APP(void)
 	
 	I2C_Init();
 	LCD_init();
-	u8 data1[]="NTI Group hello world !";
+	u8 data1[]="NTI Group";
 	u8 data2[15];
 	u8 data='x';
-	
-	I2C_EEPROM_Write(0x00,'E');
-	I2C_EEPROM_Write(0x01,'a');
-	I2C_EEPROM_Write(0x02,'f');
 	I2C_EEPROM_Page_Write(0x00,data1);
-	I2C_EEPROM_Seq_Read(0x05,16,data2);
+	I2C_EEPROM_Seq_Read(0x00,9,data2);
 	disp_strXY(1,1,data2);
 }
 
@@ -220,5 +214,25 @@ void Clock_APP(void)
 		disp_strXY(1,1,Time);
 		disp_strXY(2,1,Calen);
 		_delay_ms(500);
+	}
+}
+
+
+void SERVO_APP(void)
+{
+	Servo_Init();
+	u32 angel=0;
+	LCD_init();
+	ADC_init();
+	
+	while(1)
+	{
+		angel= read_analog(ADC0);
+		angel=(angel*180)/1023UL;
+		disp_strXY(1,1,"angel = ");
+		disp_str("    ");
+		disp_intXY(1,9,angel);
+		servo_Angel(angel);
+		disp_intXY(2,9,angel);
 	}
 }

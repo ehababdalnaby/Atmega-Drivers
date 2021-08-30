@@ -28,6 +28,7 @@
 #include "I2C.h"
 #include "RTC.h"
 #include "GLCD.h"
+#include "SERVO.h"
 #include <stdio.h>
 
 #endif /* INCLUDES_H_ */

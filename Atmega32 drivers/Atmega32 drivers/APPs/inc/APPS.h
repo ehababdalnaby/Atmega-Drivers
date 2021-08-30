@@ -21,6 +21,7 @@ void tempsensorAPP(void);
 void GPS_APP(void);
 void I2C_EEPROM_APP(void);
 void Clock_APP(void);
+void SERVO_APP(void);
 
 
 #endif /* APPS_H_ */

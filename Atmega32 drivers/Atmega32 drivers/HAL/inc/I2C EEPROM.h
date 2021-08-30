@@ -6,8 +6,8 @@
  */ 
 
 
-#ifndef I2C EEPROM_H_
-#define I2C EEPROM_H_
+#ifndef I2C_EEPROM_H_
+#define I2C_EEPROM_H_
 
 #include "includes.h"
 
@@ -20,7 +20,7 @@
 
 void I2C_EEPROM_Write(u16 add,u8 data);
 void I2C_EEPROM_Current_Add(u8 *data);
-void I2C_EEPROM_Read(u8 add,u8 *data);
-void I2C_EEPROM_Seq_Read(u8 add,u8 Numchar,u8 *data);
+void I2C_EEPROM_Read(u16 add,u8 *data);
+void I2C_EEPROM_Seq_Read(u16 add,u16 Numchar,u8 *data);
 void I2C_EEPROM_Page_Write(u16 add,u8* data);
 #endif /* I2C EEPROM_H_ */

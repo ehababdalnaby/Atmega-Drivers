@@ -29,7 +29,7 @@ void I2C_EEPROM_Current_Add(u8 *data)
 	_delay_ms(1);
 }
 
-void I2C_EEPROM_Read(u8 add,u8 *data)
+void I2C_EEPROM_Read(u16 add,u8 *data)
 {
 	I2C_start(); //send start
 	I2C_Write(((add>>7)&0x02)|(CMD_WRITE),SCMRSLA_Ack_Code); //send control Byte
@@ -42,7 +42,7 @@ void I2C_EEPROM_Read(u8 add,u8 *data)
 }
 
 
-void I2C_EEPROM_Seq_Read(u8 add,u8 Numchar,u8 *data)
+void I2C_EEPROM_Seq_Read(u16 add,u16 Numchar,u8 *data)
 {
 	u8 i=0;
 	I2C_start(); //send start
